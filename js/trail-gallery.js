@@ -92,6 +92,8 @@
       img.alt = cat.label;
       img.loading = 'lazy';
       img.className = 'blur-up';
+      img.width = 4;
+      img.height = 3;
 
       div.appendChild(img);
       div.addEventListener('click', () => openLB(parseInt(div.dataset.index)));

@@ -113,6 +113,7 @@
 .masonry-item img {
   width: 100%;
   height: auto;
+  aspect-ratio: auto 4/3;
   display: block;
   transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
               filter 0.4s ease;

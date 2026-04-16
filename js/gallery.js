@@ -81,6 +81,8 @@
       img.alt = photo.label;
       img.loading = 'lazy';
       img.className = 'blur-up';
+      img.width = 4;
+      img.height = 3;
 
       const overlay = document.createElement('div');
       overlay.className = 'item-overlay';
