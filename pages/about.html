@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | McLin "Duke" Sanders</title>
+  <link rel="canonical" href="https://mclinduke.com/pages/about.html">
+  <meta name="description" content="McLin Duke Sanders: 6,500+ mile thru-hiker, FAA Part 107 drone pilot, filmmaker, and founder of Expedition Excellence. Based in Park City, Utah.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="About | McLin 'Duke' Sanders">
+  <meta property="og:description" content="6,500+ mile thru-hiker, FAA Part 107 drone pilot, filmmaker, and founder of Expedition Excellence. Based in Park City, Utah.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mclinduke.com/pages/about.html">
+  <meta property="og:image" content="https://mclinduke.com/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About | McLin 'Duke' Sanders">
+  <meta name="twitter:description" content="6,500+ mile thru-hiker, FAA Part 107 drone pilot, filmmaker, and founder of Expedition Excellence. Based in Park City, Utah.">
+  <meta name="twitter:image" content="https://mclinduke.com/images/og-image.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.min.css?v=10">
+  <link rel="stylesheet" href="../css/trail-page.min.css?v=10">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <style>
+    /* About page overrides */
+    .about-page-hero {
+      position: relative;
+      min-height: 60vh;
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 80px;
+      overflow: hidden;
+    }
+    .about-page-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('../images/about/12CC93C9-43E6-4902-ADB0-2A70F3236516_1_102_o.jpeg');
+      background-size: cover;
+      background-position: center top;
+      filter: brightness(0.45) saturate(0.85);
+    }
+    .about-page-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(26,21,16,0.1) 0%, rgba(26,21,16,0.55) 60%, var(--color-bg) 100%);
+      z-index: 1;
+    }
+    .about-page-hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    .about-page-section {
+      padding: 80px 0 100px;
+    }
+    .about-page-body {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 80px;
+      align-items: start;
+    }
+    .about-page-text p {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: var(--color-text-muted);
+      margin-bottom: 28px;
+    }
+    .about-page-text p:last-child { margin-bottom: 0; }
+    .about-credentials {
+      margin-top: 48px;
+      padding-top: 40px;
+      border-top: 1px solid var(--color-border);
+    }
+    .about-credentials-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-text-dim);
+      margin-bottom: 20px;
+    }
+    .about-credentials ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .about-credentials li {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+    .about-credentials li::before {
+      content: '';
+      width: 20px;
+      height: 1px;
+      background: var(--color-accent);
+      flex-shrink: 0;
+    }
+    .about-sidebar-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .about-sidebar-stat {
+      padding: 32px;
+      border: 1px solid var(--color-border);
+      background: var(--color-bg-card);
+    }
+    .about-sidebar-stat-num {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--color-text);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .about-sidebar-stat-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-text-dim);
+    }
+    .about-sidebar-stat-sub {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-top: 6px;
+    }
+    @media (max-width: 900px) {
+      .about-page-body {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .about-sidebar-stats {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .about-sidebar-stat {
+        flex: 1 1 140px;
+      }
+    }
+    @media (max-width: 600px) {
+      .about-page-hero { min-height: 50vh; }
+    }
+  </style>
+  <script src="../js/analytics.min.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header scrolled">
+    <div class="header-inner">
+      <a href="../index.html" class="site-logo">McLin <span>Duke</span> Sanders</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../index.html#trails">Trails</a></li>
+          <li><a href="drone.html">Drone</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="../index.html#youtube">YouTube</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-overlay"></div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="about-page-hero">
+    <div class="about-page-hero-bg"></div>
+    <div class="about-page-hero-overlay"></div>
+    <div class="container about-page-hero-content">
+      <span class="trail-tag">Park City, Utah</span>
+      <h1>The path shaped<br><em>the person.</em></h1>
+    </div>
+  </section>
+
+  <!-- ===== BIO ===== -->
+  <section class="about-page-section">
+    <div class="container">
+      <div class="about-page-body">
+
+        <div>
+          <div class="about-page-text" data-animate>
+            <p>
+              In 2020, I graduated high school into a pandemic and thru-hiked the Appalachian
+              Trail instead of going to college. 2,193 miles, Georgia to Maine, alone. That
+              decision became a career.
+            </p>
+            <p>
+              What started as a single thru-hike turned into a calling. The PCT, the Colorado
+              Trail, Everest Base Camp, the Tour du Mont Blanc. Since then I've logged 6,500+
+              miles across three continents, five countries, and ten major expeditions.
+            </p>
+            <p>
+              Along the way I earned a BBA in Entrepreneurship from the University of Mississippi
+              while finishing multiple trails, became FAA Part 107 certified as a commercial drone
+              pilot, and started building a media and expedition business out of Park City, Utah.
+            </p>
+            <p>
+              The drone work grew out of the filmmaking I was already doing on trail. The
+              consulting grew out of being the person people kept asking for advice. Expedition
+              Excellence grew out of wanting to offer serious wilderness experiences to the people
+              who are ready for the real thing.
+            </p>
+            <p>
+              I'm Eagle Scout, I've spent serious time in the backcountry, and I've done most of
+              it alone. That background is what I bring to every project, every flight, and every
+              client conversation.
+            </p>
+          </div>
+
+          <div class="about-credentials" data-animate data-animate-delay="1">
+            <p class="about-credentials-label">Credentials</p>
+            <ul>
+              <li>BBA Entrepreneurship, University of Mississippi, 3.8 GPA</li>
+              <li>Eagle Scout, Boy Scouts of America</li>
+              <li>FAA Part 107 Certified Commercial Drone Pilot</li>
+              <li>6,500+ miles thru-hiked across 10 major trails</li>
+              <li>AT, PCT, Colorado Trail, Pinhoti, Everest Base Camp, Tour du Mont Blanc, and more</li>
+            </ul>
+          </div>
+
+          <div style="margin-top: 48px;" data-animate data-animate-delay="2">
+            <a href="contact.html" class="btn btn-primary btn-arrow">Get in Touch</a>
+            &nbsp;&nbsp;
+            <a href="../index.html#trails" class="btn btn-outline btn-arrow">View Trails</a>
+          </div>
+        </div>
+
+        <div class="about-sidebar-stats" data-animate>
+          <div class="about-sidebar-stat">
+            <div class="about-sidebar-stat-num">6,500+</div>
+            <div class="about-sidebar-stat-label">Miles Hiked</div>
+          </div>
+          <div class="about-sidebar-stat">
+            <div class="about-sidebar-stat-num">10</div>
+            <div class="about-sidebar-stat-label">Major Trails</div>
+          </div>
+          <div class="about-sidebar-stat">
+            <div class="about-sidebar-stat-num">1.28M+</div>
+            <div class="about-sidebar-stat-label">Ft Elevation Gained</div>
+            <div class="about-sidebar-stat-sub">44&times; Everest from sea level</div>
+          </div>
+          <div class="about-sidebar-stat">
+            <div class="about-sidebar-stat-num">5</div>
+            <div class="about-sidebar-stat-label">Countries Explored</div>
+          </div>
+          <div class="about-sidebar-stat">
+            <div class="about-sidebar-stat-num">365+</div>
+            <div class="about-sidebar-stat-label">Nights in the Backcountry</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span class="footer-copyright">&copy; <span class="current-year">2026</span> McLin Sanders. All rights reserved.</span>
+        <div class="footer-socials">
+          <a href="https://instagram.com/mclinduke" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.youtube.com/@mclinsanders67" target="_blank" rel="noopener">YouTube</a>
+          <a href="mailto:mclindukesanders@gmail.com">Email</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.min.js?v=5"></script>
+</body>
+</html>

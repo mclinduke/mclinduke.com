@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand Guide Options — McLin "Duke" Sanders</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600&family=IBM+Plex+Mono:wght@400&family=Libre+Caslon+Display&family=Lato:wght@300;400;700&family=Space+Mono:wght@400&family=Syne:wght@400;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #080808;
+      color: #e8e4de;
+      line-height: 1.6;
+      padding: 0 0 100px;
+    }
+
+    /* --- Header --- */
+    .page-header {
+      text-align: center;
+      padding: 60px 24px 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 60px;
+    }
+    .page-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 300;
+      margin-bottom: 12px;
+    }
+    .page-header p {
+      color: #8a8580;
+      font-size: 0.95rem;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* --- Sections --- */
+    .brand-section {
+      max-width: 1200px;
+      margin: 0 auto 80px;
+      padding: 0 24px;
+    }
+    .brand-section-header {
+      margin-bottom: 12px;
+    }
+    .brand-section-header .label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #c8a96e;
+      margin-bottom: 8px;
+    }
+    .brand-section-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 400;
+    }
+    .brand-section-header p {
+      color: #8a8580;
+      font-size: 0.9rem;
+      margin-top: 8px;
+      max-width: 600px;
+    }
+
+    /* --- Option Cards --- */
+    .options-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 32px;
+    }
+    .options-row.four-up {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .option-card {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+      cursor: default;
+    }
+    .option-card:hover {
+      border-color: rgba(255,255,255,0.2);
+      transform: translateY(-2px);
+    }
+
+    .option-label {
+      padding: 16px 20px 12px;
+      background: rgba(255,255,255,0.03);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .option-label .number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: #6b6560;
+      letter-spacing: 0.1em;
+    }
+    .option-label h3 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .option-label .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: rgba(200,169,110,0.15);
+      color: #c8a96e;
+      padding: 3px 8px;
+      border-radius: 3px;
+      margin-left: auto;
+    }
+
+    .option-body {
+      padding: 24px 20px;
+    }
+
+    .option-desc {
+      font-size: 0.82rem;
+      color: #8a8580;
+      line-height: 1.6;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* =============================
+       1. COLOR PALETTE PREVIEWS
+       ============================= */
+    .palette-preview {
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .palette-hero {
+      height: 140px;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+      position: relative;
+    }
+    .palette-hero h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 300;
+      position: relative;
+      z-index: 1;
+    }
+    .palette-hero .accent-line {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 40px;
+      height: 2px;
+    }
+    .palette-swatches {
+      display: flex;
+      height: 48px;
+    }
+    .palette-swatches .swatch {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.05em;
+    }
+    .palette-surface-row {
+      display: flex;
+      height: 36px;
+    }
+    .palette-surface-row .swatch {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.5rem;
+      letter-spacing: 0.05em;
+      color: rgba(255,255,255,0.5);
+    }
+    .palette-sample {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .palette-sample .sample-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .palette-sample .sample-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+    }
+    .palette-sample .sample-body {
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+    .palette-sample .sample-btn {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 8px 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      width: fit-content;
+    }
+
+    /* Palette A: Dark Forest & Gold */
+    .palette-a .palette-hero { background: #0a0a0a; }
+    .palette-a .palette-hero h4 { color: #f0ede8; }
+    .palette-a .palette-hero .accent-line { background: #c8a96e; }
+    .palette-a .s-bg { background: #0a0a0a; color: #f0ede8; }
+    .palette-a .s-surface { background: #1a1a1a; color: #f0ede8; }
+    .palette-a .s-accent { background: #c8a96e; color: #0a0a0a; }
+    .palette-a .s-green { background: #2a3a28; color: #f0ede8; }
+    .palette-a .s-text { background: #f0ede8; color: #0a0a0a; }
+    .palette-a .s-muted { background: #a09a90; color: #0a0a0a; }
+    .palette-a .s-sf1 { background: #141414; }
+    .palette-a .s-sf2 { background: #1a1a1a; }
+    .palette-a .s-sf3 { background: #222222; }
+    .palette-a .palette-sample { background: #0a0a0a; }
+    .palette-a .sample-label { color: #c8a96e; }
+    .palette-a .sample-heading { color: #f0ede8; }
+    .palette-a .sample-body { color: #a09a90; }
+    .palette-a .sample-btn { background: #c8a96e; color: #0a0a0a; }
+
+    /* Palette B: Slate & Copper */
+    .palette-b .palette-hero { background: #12141a; }
+    .palette-b .palette-hero h4 { color: #edeae5; }
+    .palette-b .palette-hero .accent-line { background: #b87333; }
+    .palette-b .s-bg { background: #12141a; color: #edeae5; }
+    .palette-b .s-surface { background: #1c1f26; color: #edeae5; }
+    .palette-b .s-accent { background: #b87333; color: #12141a; }
+    .palette-b .s-green { background: #3a5a4a; color: #edeae5; }
+    .palette-b .s-text { background: #edeae5; color: #12141a; }
+    .palette-b .s-muted { background: #8a8a95; color: #12141a; }
+    .palette-b .s-sf1 { background: #181b22; }
+    .palette-b .s-sf2 { background: #1c1f26; }
+    .palette-b .s-sf3 { background: #262a33; }
+    .palette-b .palette-sample { background: #12141a; }
+    .palette-b .sample-label { color: #b87333; }
+    .palette-b .sample-heading { color: #edeae5; }
+    .palette-b .sample-body { color: #8a8a95; }
+    .palette-b .sample-btn { background: #b87333; color: #12141a; }
+
+    /* Palette C: Earth & Sand */
+    .palette-c .palette-hero { background: #1a1510; }
+    .palette-c .palette-hero h4 { color: #f2ece0; }
+    .palette-c .palette-hero .accent-line { background: #c4a97d; }
+    .palette-c .s-bg { background: #1a1510; color: #f2ece0; }
+    .palette-c .s-surface { background: #241e16; color: #f2ece0; }
+    .palette-c .s-accent { background: #c4a97d; color: #1a1510; }
+    .palette-c .s-green { background: #b5654a; color: #f2ece0; }
+    .palette-c .s-text { background: #f2ece0; color: #1a1510; }
+    .palette-c .s-muted { background: #9a8e7e; color: #1a1510; }
+    .palette-c .s-sf1 { background: #1f1a14; }
+    .palette-c .s-sf2 { background: #241e16; }
+    .palette-c .s-sf3 { background: #2e2720; }
+    .palette-c .palette-sample { background: #1a1510; }
+    .palette-c .sample-label { color: #c4a97d; }
+    .palette-c .sample-heading { color: #f2ece0; }
+    .palette-c .sample-body { color: #9a8e7e; }
+    .palette-c .sample-btn { background: #c4a97d; color: #1a1510; }
+
+    /* Palette D: Midnight & Ivory */
+    .palette-d .palette-hero { background: #0c0c0c; }
+    .palette-d .palette-hero h4 { color: #f5f0e0; }
+    .palette-d .palette-hero .accent-line { background: #d4cbb8; }
+    .palette-d .s-bg { background: #0c0c0c; color: #f5f0e0; }
+    .palette-d .s-surface { background: #161616; color: #f5f0e0; }
+    .palette-d .s-accent { background: #d4cbb8; color: #0c0c0c; }
+    .palette-d .s-green { background: #8a8578; color: #f5f0e0; }
+    .palette-d .s-text { background: #f5f0e0; color: #0c0c0c; }
+    .palette-d .s-muted { background: #7a756c; color: #f5f0e0; }
+    .palette-d .s-sf1 { background: #111111; }
+    .palette-d .s-sf2 { background: #161616; }
+    .palette-d .s-sf3 { background: #1e1e1e; }
+    .palette-d .palette-sample { background: #0c0c0c; }
+    .palette-d .sample-label { color: #d4cbb8; }
+    .palette-d .sample-heading { color: #f5f0e0; }
+    .palette-d .sample-body { color: #7a756c; }
+    .palette-d .sample-btn { background: #d4cbb8; color: #0c0c0c; }
+
+    /* =============================
+       2. TYPOGRAPHY PREVIEWS
+       ============================= */
+    .type-preview {
+      padding: 28px 24px;
+      background: #111;
+      border-radius: 6px;
+    }
+    .type-preview .type-mono {
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #c8a96e;
+      margin-bottom: 12px;
+    }
+    .type-preview .type-heading {
+      font-size: 2rem;
+      line-height: 1.15;
+      margin-bottom: 6px;
+      color: #f0ede8;
+    }
+    .type-preview .type-heading-sm {
+      font-size: 1.2rem;
+      line-height: 1.3;
+      margin-bottom: 16px;
+      color: #f0ede8;
+    }
+    .type-preview .type-body {
+      font-size: 0.88rem;
+      color: #a09a90;
+      line-height: 1.7;
+      max-width: 480px;
+    }
+    .type-preview .type-stack {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      gap: 24px;
+    }
+    .type-preview .type-stack span {
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      color: #6b6560;
+    }
+
+    /* Font A */
+    .type-a .type-mono { font-family: 'JetBrains Mono', monospace; }
+    .type-a .type-heading { font-family: 'Cormorant Garamond', serif; font-weight: 300; }
+    .type-a .type-heading-sm { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
+    .type-a .type-body { font-family: 'Inter', sans-serif; }
+
+    /* Font B */
+    .type-b .type-mono { font-family: 'IBM Plex Mono', monospace; }
+    .type-b .type-heading { font-family: 'Playfair Display', serif; font-weight: 400; }
+    .type-b .type-heading-sm { font-family: 'Playfair Display', serif; font-weight: 400; }
+    .type-b .type-body { font-family: 'Source Sans 3', sans-serif; }
+
+    /* Font C */
+    .type-c .type-mono { font-family: 'Space Mono', monospace; }
+    .type-c .type-heading { font-family: 'Libre Caslon Display', serif; font-weight: 400; }
+    .type-c .type-heading-sm { font-family: 'Libre Caslon Display', serif; font-weight: 400; }
+    .type-c .type-body { font-family: 'Lato', sans-serif; font-weight: 300; }
+
+    /* Font D */
+    .type-d .type-mono { font-family: 'JetBrains Mono', monospace; }
+    .type-d .type-heading { font-family: 'Syne', sans-serif; font-weight: 600; }
+    .type-d .type-heading-sm { font-family: 'Syne', sans-serif; font-weight: 400; }
+    .type-d .type-body { font-family: 'Instrument Sans', sans-serif; }
+
+    /* =============================
+       3. ACCENT STYLE PREVIEWS
+       ============================= */
+    .accent-preview {
+      padding: 28px 24px;
+      background: #0e0e0e;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .accent-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .accent-circle {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .accent-circle-sm {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      opacity: 0.6;
+    }
+    .accent-sample-btn {
+      padding: 10px 28px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    .accent-sample-line {
+      height: 2px;
+      width: 60px;
+    }
+    .accent-sample-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .accent-stat {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 300;
+      line-height: 1;
+    }
+    .accent-stat-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #8a8580;
+    }
+    .accent-demo-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .accent-border-card {
+      padding: 16px 20px;
+      border: 1px solid;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      color: #a09a90;
+    }
+
+    /* =============================
+       4. BRAND TONE PREVIEWS
+       ============================= */
+    .tone-preview {
+      padding: 32px 24px;
+      background: #0e0e0e;
+      border-radius: 6px;
+    }
+    .tone-preview .tone-hero {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: #f0ede8;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .tone-preview .tone-tagline {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: #c8a96e;
+      margin-bottom: 20px;
+    }
+    .tone-preview .tone-body {
+      font-size: 0.88rem;
+      color: #a09a90;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      max-width: 400px;
+    }
+    .tone-preview .tone-cta {
+      display: inline-block;
+      padding: 10px 28px;
+      background: #c8a96e;
+      color: #0a0a0a;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border: none;
+      margin-bottom: 20px;
+    }
+    .tone-preview .tone-donts {
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      font-size: 0.75rem;
+      color: #6b6560;
+    }
+    .tone-preview .tone-donts strong {
+      color: #8a8580;
+      font-weight: 500;
+    }
+
+    /* --- Divider --- */
+    .section-divider {
+      max-width: 1200px;
+      margin: 0 auto 80px;
+      padding: 0 24px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 900px) {
+      .options-row { grid-template-columns: 1fr; }
+      .options-row.four-up { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .options-row.four-up { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <div class="page-header">
+    <h1>Brand Guide Options</h1>
+    <p>Visual preview of every option. Review each section, then tell me your picks — palette, type, accent, and tone.</p>
+  </div>
+
+  <!-- =============================
+       1. COLOR PALETTES
+       ============================= -->
+  <div class="brand-section">
+    <div class="brand-section-header">
+      <div class="label">Section 01</div>
+      <h2>Color Palette</h2>
+      <p>The foundation of your visual identity. Each palette includes backgrounds, surfaces, accent, text, and muted tones.</p>
+    </div>
+
+    <div class="options-row">
+      <!-- Palette A -->
+      <div class="option-card">
+        <div class="option-label">
+          <span class="number">A</span>
+          <h3>Dark Forest &amp; Gold</h3>
+          <span class="tag">Current</span>
+        </div>
+        <div class="option-body">
+          <div class="palette-preview palette-a">
+            <div class="palette-hero">
+              <div class="accent-line"></div>
+              <h4>Duke of the Trail.</h4>
+            </div>
+            <div class="palette-swatches">
+              <div class="swatch s-bg">#0a0a0a</div>
+              <div class="swatch s-surface">#1a1a1a</div>
+              <div class="swatch s-accent">#c8a96e</div>
+              <div class="swatch s-green">#2a3a28</div>
+              <div class="swatch s-text">#f0ede8</div>
+              <div class="swatch s-muted">#a09a90</div>
+            </div>
+            <div class="palette-surface-row">
+              <div class="swatch s-sf1">Surface 1</div>
+              <div class="swatch s-sf2">Surface 2</div>
+              <div class="swatch s-sf3">Surface 3</div>
+            </div>
+            <div class="palette-sample">
+              <span class="sample-label">Trail Resume</span>
+              <span class="sample-heading">The path shaped the person.</span>
+              <span class="sample-body">6,500+ miles across America's wildest landscapes.</span>
+              <button class="sample-btn">Explore Trails</button>
+            </div>
+          </div>
+          <p class="option-desc">Cinematic, earthy, luxury. Deep charcoal base with forest green touches and warm gold accents. Think premium outdoor magazine.</p>
+        </div>
+      </div>
+
+      <!-- Palette B -->
+      <div class="option-card">
+        <div class="option-label">
+          <span class="number">B</span>
+          <h3>Slate &amp; Copper</h3>
+        </div>
+        <div class="option-body">
+          <div class="palette-preview palette-b">
+            <div class="palette-hero">
+              <div class="accent-line"></div>
+              <h4>Duke of the Trail.</h4>
+            </div>
+            <div class="palette-swatches">
+              <div class="swatch s-bg">#12141a</div>
+              <div class="swatch s-surface">#1c1f26</div>
+              <div class="swatch s-accent">#b87333</div>
+              <div class="swatch s-green">#3a5a4a</div>
+              <div class="swatch s-text">#edeae5</div>
+              <div class="swatch s-muted">#8a8a95</div>
+            </div>
+            <div class="palette-surface-row">
+              <div class="swatch s-sf1">Surface 1</div>
+              <div class="swatch s-sf2">Surface 2</div>
+              <div class="swatch s-sf3">Surface 3</div>
+            </div>
+            <div class="palette-sample">
+              <span class="sample-label">Trail Resume</span>
+              <span class="sample-heading">The path shaped the person.</span>
+              <span class="sample-body">6,500+ miles across America's wildest landscapes.</span>
+              <button class="sample-btn">Explore Trails</button>
+            </div>
+          </div>
+          <p class="option-desc">Cool slate grays with rich copper accents. More modern, slightly industrial edge — like a high-end gear brand. The blue undertone in the blacks gives it a cooler, more contemporary feel.</p>
+        </div>
+      </div>
+
+      <!-- Palette C -->
+      <div class="option-card">
+        <div class="option-label">
+          <span class="number">C</span>
+          <h3>Earth &amp; Sand</h3>
+        </div>
+        <div class="option-body">
+          <div class="palette-preview palette-c">
+            <div class="palette-hero">
+              <div class="accent-line"></div>
+              <h4>Duke of the Trail.</h4>
+            </div>
+            <div class="palette-swatches">
+              <div class="swatch s-bg">#1a1510</div>
+              <div class="swatch s-surface">#241e16</div>
+              <div class="swatch s-accent">#c4a97d</div>
+              <div class="swatch s-green">#b5654a</div>
+              <div class="swatch s-text">#f2ece0</div>
+              <div class="swatch s-muted">#9a8e7e</div>
+            </div>
+            <div class="palette-surface-row">
+              <div class="swatch s-sf1">Surface 1</div>
+              <div class="swatch s-sf2">Surface 2</div>
+              <div class="swatch s-sf3">Surface 3</div>
+            </div>
+            <div class="palette-sample">
+              <span class="sample-label">Trail Resume</span>
+              <span class="sample-heading">The path shaped the person.</span>
+              <span class="sample-body">6,500+ miles across America's wildest landscapes.</span>
+              <button class="sample-btn">Explore Trails</button>
+            </div>
+          </div>
+          <p class="option-desc">Warmer overall feel — espresso/dark brown base with sand and terracotta. Desert expedition energy. The warmth wraps everything in an earthy richness.</p>
+        </div>
+      </div>
+
+      <!-- Palette D -->
+      <div class="option-card">
+        <div class="option-label">
+          <span class="number">D</span>
+          <h3>Midnight &amp; Ivory</h3>
+        </div>
+        <div class="option-body">
+          <div class="palette-preview palette-d">
+            <div class="palette-hero">
+              <div class="accent-line"></div>
+              <h4>Duke of the Trail.</h4>
+            </div>
+            <div class="palette-swatches">
+              <div class="swatch s-bg">#0c0c0c</div>
+              <div class="swatch s-surface">#161616</div>
+              <div class="swatch s-accent">#d4cbb8</div>
+              <div class="swatch s-green">#8a8578</div>
+              <div class="swatch s-text">#f5f0e0</div>
+              <div class="swatch s-muted">#7a756c</div>
+            </div>
+            <div class="palette-surface-row">
+              <div class="swatch s-sf1">Surface 1</div>
+              <div class="swatch s-sf2">Surface 2</div>
+              <div class="swatch s-sf3">Surface 3</div>
+            </div>
+            <div class="palette-sample">
+              <span class="sample-label">Trail Resume</span>
+              <span class="sample-heading">The path shaped the person.</span>
+              <span class="sample-body">6,500+ miles across America's wildest landscapes.</span>
+              <button class="sample-btn">Explore Trails</button>
+            </div>
+          </div>
+          <p class="option-desc">Maximum restraint. True dark with ivory/cream text and subtle pewter accents. No metallic flash — the photography and content are the luxury. Ultra-clean, high contrast.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- =============================
+       2. TYPOGRAPHY
+       ============================= -->
+  <div class="brand-section">
+    <div class="brand-section-header">
+      <div class="label">Section 02</div>
+      <h2>Typography</h2>
+      <p>Your heading + body font pairing. Each option shows how headlines, subheads, and body text will look together.</p>
+    </div>
+
+    <div class="options-row">
+      <!-- Type A -->
+      <div class="option-card">
+        <div class="option-label">
+          <span class="number">A</span>
+          <h3>Cormorant Garamond + Inter</h3>
+          <span class="tag">Current</span>
+        </div>
+        <div class="option-body">
+          <div class="type-preview type-a">
+            <div class="type-mono">Trail Resume</div>
+            <div class="type-heading">The path shaped the person.</div>
+            <div class="type-heading-sm">6,500 miles of earned experience.</div>
+            <div class="type-body">Every mile is a credential. From Georgia to Maine, from Mexico to Canada, from Kathmandu to 17,700 feet — these are the trails that made me.</div>
+            <div class="type-stack">
+              <span>Headings: Cormorant Garamond</span>
+              <span>Body: Inter</span>
+              <span>Mono: JetBrains Mono</span>
+            </div>
+          </div>
+          <p class="option-desc">Elegant editorial serif meets clean Swiss sans. Luxury magazine feel — refined, timeless, sophisticated. The thin weight on Cormorant gives it an effortless grace.</p>
+        </div>
+      </div>
+
+      <!-- Type B -->
+      <div class="option-card">
+        <div class="option-label">
+          <span class="number">B</span>
+          <h3>Playfair Display + Source Sans</h3>
+        </div>
+        <div class="option-body">
+          <div class="type-preview type-b">
+            <div class="type-mono">Trail Resume</div>
+            <div class="type-heading">The path shaped the person.</div>
+            <div class="type-heading-sm">6,500 miles of earned experience.</div>
+            <div class="type-body">Every mile is a credential. From Georgia to Maine, from Mexico to Canada, from Kathmandu to 17,700 feet — these are the trails that made me.</div>
+            <div class="type-stack">
+              <span>Headings: Playfair Display</span>
+              <span>Body: Source Sans 3</span>
+              <span>Mono: IBM Plex Mono</span>
+            </div>
+          </div>
+          <p class="option-desc">Bolder, more commanding presence. High-contrast strokes in the serif feel authoritative — like Robb Report or a luxury hotel brand. More weight on the page.</p>
+        </div>
+      </div>
+
+      <!-- Type C -->
+      <div class="option-card">
+        <div class="option-label">
+          <span class="number">C</span>
+          <h3>Libre Caslon + Lato</h3>
+        </div>
+        <div class="option-body">
+          <div class="type-preview type-c">
+            <div class="type-mono">Trail Resume</div>
+            <div class="type-heading">The path shaped the person.</div>
+            <div class="type-heading-sm">6,500 miles of earned experience.</div>
+            <div class="type-body">Every mile is a credential. From Georgia to Maine, from Mexico to Canada, from Kathmandu to 17,700 feet — these are the trails that made me.</div>
+            <div class="type-stack">
+              <span>Headings: Libre Caslon Display</span>
+              <span>Body: Lato</span>
+              <span>Mono: Space Mono</span>
+            </div>
+          </div>
+          <p class="option-desc">Classic, understated, old-money feel. Less decorative than Cormorant, more quiet confidence. Like a private club letterhead or heritage brand.</p>
+        </div>
+      </div>
+
+      <!-- Type D -->
+      <div class="option-card">
+        <div class="option-label">
+          <span class="number">D</span>
+          <h3>Syne + Instrument Sans</h3>
+        </div>
+        <div class="option-body">
+          <div class="type-preview type-d">
+            <div class="type-mono">Trail Resume</div>
+            <div class="type-heading">The path shaped the person.</div>
+            <div class="type-heading-sm">6,500 miles of earned experience.</div>
+            <div class="type-body">Every mile is a credential. From Georgia to Maine, from Mexico to Canada, from Kathmandu to 17,700 feet — these are the trails that made me.</div>
+            <div class="type-stack">
+              <span>Headings: Syne</span>
+              <span>Body: Instrument Sans</span>
+              <span>Mono: JetBrains Mono</span>
+            </div>
+          </div>
+          <p class="option-desc">Modern geometric sans-serif pairing. Clean, contemporary, forward-looking. Less traditional luxury, more tech-meets-adventure brand. Stands out from the pack.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- =============================
+       3. ACCENT STYLE
+       ============================= -->
+  <div class="brand-section">
+    <div class="brand-section-header">
+      <div class="label">Section 03</div>
+      <h2>Accent Color</h2>
+      <p>Used for buttons, stat numbers, labels, decorative lines, and hover states. This is the "pop" color across both sites.</p>
+    </div>
+
+    <div class="options-row four-up">
+      <!-- Accent A -->
+      <div class="option-card">
+        <div class="option-label">
+          <span class="number">A</span>
+          <h3>Warm Gold</h3>
+          <span class="tag">Current</span>
+        </div>
+        <div class="option-body">
+          <div class="accent-preview">
+            <div class="accent-row">
+              <div class="accent-circle" style="background:#c8a96e;"></div>
+              <div class="accent-circle-sm" style="background:#dbbf88;"></div>
+              <div>
+                <div class="accent-sample-text" style="color:#c8a96e;">Trail Resume</div>
+                <div style="font-size:0.6rem;color:#6b6560;margin-top:2px;">#c8a96e</div>
+              </div>
+            </div>
+            <div class="accent-demo-row">
+              <button class="accent-sample-btn" style="background:#c8a96e;color:#0a0a0a;">Explore</button>
+              <div class="accent-sample-line" style="background:#c8a96e;"></div>
+              <span class="accent-stat" style="color:#c8a96e;">6,500+</span>
+            </div>
+            <div class="accent-border-card" style="border-color:rgba(200,169,110,0.3);">Card with accent border</div>
+          </div>
+          <p class="option-desc">Classic luxury signifier. Rich and warm — like high-end watch branding or a premium whiskey label.</p>
+        </div>
+      </div>
+
+      <!-- Accent B -->
+      <div class="option-card">
+        <div class="option-label">
+          <span class="number">B</span>
+          <h3>Antique Copper</h3>
+        </div>
+        <div class="option-body">
+          <div class="accent-preview">
+            <div class="accent-row">
+              <div class="accent-circle" style="background:#b87333;"></div>
+              <div class="accent-circle-sm" style="background:#cc8844;"></div>
+              <div>
+                <div class="accent-sample-text" style="color:#b87333;">Trail Resume</div>
+                <div style="font-size:0.6rem;color:#6b6560;margin-top:2px;">#b87333</div>
+              </div>
+            </div>
+            <div class="accent-demo-row">
+              <button class="accent-sample-btn" style="background:#b87333;color:#12141a;">Explore</button>
+              <div class="accent-sample-line" style="background:#b87333;"></div>
+              <span class="accent-stat" style="color:#b87333;">6,500+</span>
+            </div>
+            <div class="accent-border-card" style="border-color:rgba(184,115,51,0.3);">Card with accent border</div>
+          </div>
+          <p class="option-desc">Deeper, earthier. Luxury through patina, not polish. More rugged and grounded than gold.</p>
+        </div>
+      </div>
+
+      <!-- Accent C -->
+      <div class="option-card">
+        <div class="option-label">
+          <span class="number">C</span>
+          <h3>Warm White</h3>
+        </div>
+        <div class="option-body">
+          <div class="accent-preview">
+            <div class="accent-row">
+              <div class="accent-circle" style="background:#e8e0d0;"></div>
+              <div class="accent-circle-sm" style="background:#f5f0e8;"></div>
+              <div>
+                <div class="accent-sample-text" style="color:#e8e0d0;">Trail Resume</div>
+                <div style="font-size:0.6rem;color:#6b6560;margin-top:2px;">#e8e0d0</div>
+              </div>
+            </div>
+            <div class="accent-demo-row">
+              <button class="accent-sample-btn" style="background:#e8e0d0;color:#0a0a0a;">Explore</button>
+              <div class="accent-sample-line" style="background:#e8e0d0;"></div>
+              <span class="accent-stat" style="color:#e8e0d0;">6,500+</span>
+            </div>
+            <div class="accent-border-card" style="border-color:rgba(232,224,208,0.2);">Card with accent border</div>
+          </div>
+          <p class="option-desc">No metallic accent — maximum restraint. Photography and content are the luxury, not the chrome. Ultra minimal.</p>
+        </div>
+      </div>
+
+      <!-- Accent D -->
+      <div class="option-card">
+        <div class="option-label">
+          <span class="number">D</span>
+          <h3>Sage Green</h3>
+        </div>
+        <div class="option-body">
+          <div class="accent-preview">
+            <div class="accent-row">
+              <div class="accent-circle" style="background:#6b8f71;"></div>
+              <div class="accent-circle-sm" style="background:#7da883;"></div>
+              <div>
+                <div class="accent-sample-text" style="color:#6b8f71;">Trail Resume</div>
+                <div style="font-size:0.6rem;color:#6b6560;margin-top:2px;">#6b8f71</div>
+              </div>
+            </div>
+            <div class="accent-demo-row">
+              <button class="accent-sample-btn" style="background:#6b8f71;color:#0a0a0a;">Explore</button>
+              <div class="accent-sample-line" style="background:#6b8f71;"></div>
+              <span class="accent-stat" style="color:#6b8f71;">6,500+</span>
+            </div>
+            <div class="accent-border-card" style="border-color:rgba(107,143,113,0.3);">Card with accent border</div>
+          </div>
+          <p class="option-desc">Directly tied to the outdoors. Subtle, natural, less corporate. Different from most luxury brands — refreshing.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- =============================
+       4. BRAND TONE
+       ============================= -->
+  <div class="brand-section">
+    <div class="brand-section-header">
+      <div class="label">Section 04</div>
+      <h2>Brand Tone &amp; Voice</h2>
+      <p>How your copy reads and feels. This governs headlines, descriptions, CTAs, and all written content across both sites.</p>
+    </div>
+
+    <div class="options-row">
+      <!-- Tone A -->
+      <div class="option-card">
+        <div class="option-label">
+          <span class="number">A</span>
+          <h3>Quiet Confidence</h3>
+        </div>
+        <div class="option-body">
+          <div class="tone-preview">
+            <div class="tone-tagline">6,500 miles. No shortcuts.</div>
+            <div class="tone-hero">The path shaped the person.</div>
+            <div class="tone-body">I've walked every mile. From Georgia to Maine, Mexico to Canada, Kathmandu to 17,700 feet. The experience speaks for itself.</div>
+            <button class="tone-cta">Begin the Conversation</button>
+            <div class="tone-donts"><strong>Never says:</strong> "EPIC!!", "Check out my awesome...", "Book NOW!", exclamation marks</div>
+          </div>
+          <p class="option-desc">Understated, let-the-work-speak. Short sentences, no hype. The confidence comes from restraint — you don't need to sell because the resume does it.</p>
+        </div>
+      </div>
+
+      <!-- Tone B -->
+      <div class="option-card">
+        <div class="option-label">
+          <span class="number">B</span>
+          <h3>Bold &amp; Direct</h3>
+        </div>
+        <div class="option-body">
+          <div class="tone-preview">
+            <div class="tone-tagline">Built by the trail.</div>
+            <div class="tone-hero">I've walked the miles.<br>Let me lead yours.</div>
+            <div class="tone-body">6,500+ miles across 10 major trails. Two complete thru-hikes. An evacuation at 17,700 feet. I know exactly what I'm doing out there.</div>
+            <button class="tone-cta">Let's Go</button>
+            <div class="tone-donts"><strong>Never says:</strong> "pretty good at...", "I think I can...", hedging language, passive voice</div>
+          </div>
+          <p class="option-desc">Confident, declarative, punchy. Not arrogant — just clear about what you bring to the table. First person, active voice, period at the end.</p>
+        </div>
+      </div>
+
+      <!-- Tone C -->
+      <div class="option-card">
+        <div class="option-label">
+          <span class="number">C</span>
+          <h3>Storyteller</h3>
+        </div>
+        <div class="option-body">
+          <div class="tone-preview">
+            <div class="tone-tagline">Every mile has a name.</div>
+            <div class="tone-hero">Where the trail ends,<br>the story begins.</div>
+            <div class="tone-body">The sun hit the ridge at 14,000 feet and everything else fell away. Six months on the PCT will do that — strip you down to what matters and build you back up mile by mile.</div>
+            <button class="tone-cta">Write Your Chapter</button>
+            <div class="tone-donts"><strong>Never says:</strong> generic adventure clich&eacute;s, anything impersonal, corporate language</div>
+          </div>
+          <p class="option-desc">More narrative, evocative, cinematic. Draws people into the experience with vivid language. Makes them feel the trail before they've taken a step.</p>
+        </div>
+      </div>
+
+      <!-- Tone D -->
+      <div class="option-card">
+        <div class="option-label">
+          <span class="number">D</span>
+          <h3>Premium Minimalist</h3>
+        </div>
+        <div class="option-body">
+          <div class="tone-preview">
+            <div class="tone-tagline">6,500+</div>
+            <div class="tone-hero">Duke.</div>
+            <div class="tone-body" style="min-height: 48px;"></div>
+            <button class="tone-cta">Inquire</button>
+            <div class="tone-donts"><strong>Almost no body copy.</strong> Stats, images, and typography carry 90% of the weight. Maximum white space.</div>
+          </div>
+          <p class="option-desc">Extremely spare. One-word labels, single-line descriptions. Let the design and photography do the talking. The less said, the more exclusive it feels.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

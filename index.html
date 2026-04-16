@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>McLin "Duke" Sanders | Outdoorsman, Filmmaker, Expedition Guide</title>
+  <link rel="canonical" href="https://mclinduke.com/">
+  <meta name="description" content="McLin 'Duke' Sanders: 6,500+ mile thru-hiker, FAA Part 107 drone pilot, filmmaker, and founder of Expedition Excellence. Based in Park City, Utah.">
+  <meta name="author" content="McLin Sanders">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="McLin 'Duke' Sanders | Outdoorsman, Filmmaker, Expedition Guide">
+  <meta property="og:description" content="6,500+ miles hiked. FAA certified drone pilot. Founder of Expedition Excellence.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mclinduke.com">
+  <meta property="og:image" content="https://mclinduke.com/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://mclinduke.com/images/og-image.jpg">
+  <meta name="twitter:title" content="McLin 'Duke' Sanders | Outdoorsman, Filmmaker, Expedition Guide">
+  <meta name="twitter:description" content="6,500+ miles hiked. FAA certified drone pilot. Founder of Expedition Excellence.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.min.css?v=10">
+  <link rel="stylesheet" href="css/trail-map.min.css?v=10">
+  <link rel="stylesheet" href="css/drone-section.min.css?v=2">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "McLin Duke Sanders",
+    "alternateName": "Duke of the Trail",
+    "description": "Thru-hiker with 6,500+ miles across 10 major trails, FAA Part 107 certified drone pilot, filmmaker, and founder of Expedition Excellence.",
+    "url": "https://mclinduke.com",
+    "sameAs": [
+      "https://instagram.com/mclinduke",
+      "https://instagram.com/dukeofthetrail",
+      "https://www.youtube.com/@mclinsanders67"
+    ],
+    "jobTitle": "Aerial Photographer, Filmmaker & Expedition Guide",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Park City",
+      "addressRegion": "UT",
+      "addressCountry": "US"
+    },
+    "knowsAbout": [
+      "Thru-hiking",
+      "Aerial photography",
+      "Drone cinematography",
+      "Wilderness expeditions",
+      "Backcountry navigation"
+    ]
+  }
+  </script>
+
+  <!-- Favicon (swap with real one later) -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <script src="js/analytics.min.js" defer></script>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="site-logo">McLin <span>Duke</span> Sanders</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#trails">Trails</a></li>
+          <li><a href="pages/drone.html">Drone</a></li>
+          <li><a href="pages/gallery.html">Gallery</a></li>
+          <li><a href="#youtube">YouTube</a></li>
+          <li><a href="pages/about.html">About</a></li>
+          <li><a href="pages/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-overlay"></div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-image" style="background-image: url('images/hero/main-hero.jpg'); background-position: 35% center;"></div>
+    <div class="hero-bg"></div>
+    <div class="container hero-content">
+      <div class="hero-text-block">
+<h1>
+          <span class="hero-line"><span class="hero-line-inner">Outdoorsman.</span></span>
+          <span class="hero-line"><span class="hero-line-inner">Filmmaker.</span></span>
+          <span class="hero-line"><span class="hero-line-inner"><em>Duke of the Trail.</em></span></span>
+        </h1>
+        <p class="hero-description hero-desc-reveal">
+          6,500+ miles across America's wildest landscapes. FAA certified drone pilot, filmmaker,
+          and founder of Expedition Excellence. Curating luxury backcountry expeditions for those
+          who want the real thing.
+        </p>
+        <div class="hero-cta hero-desc-reveal" style="transition-delay: 0.1s;">
+          <a href="#trails" class="btn btn-primary btn-arrow">Explore Trails</a>
+          <a href="pages/contact.html" class="btn btn-outline">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATS BAR ===== -->
+  <section class="stats-bar">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item" data-animate>
+          <div class="stat-number" data-count="6,500+">0</div>
+          <div class="stat-label">Miles Hiked</div>
+        </div>
+        <div class="stat-item" data-animate data-animate-delay="1">
+          <div class="stat-number" data-count="10">0</div>
+          <div class="stat-label">Major Trails</div>
+        </div>
+        <div class="stat-item" data-animate data-animate-delay="2">
+          <div class="stat-number">365+</div>
+          <div class="stat-label">Nights in the Backcountry</div>
+        </div>
+        <div class="stat-item" data-animate data-animate-delay="3">
+          <div class="stat-number">5</div>
+          <div class="stat-label">Countries Explored</div>
+        </div>
+        <div class="stat-item" data-animate data-animate-delay="4">
+          <div class="stat-number">1.28M+</div>
+          <div class="stat-label">Ft Elevation Gained</div>
+          <div class="stat-sublabel">44&times; Everest from sea level</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT PREVIEW ===== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="about-preview">
+        <div class="about-image" data-animate>
+          <img src="images/about/12CC93C9-43E6-4902-ADB0-2A70F3236516_1_102_o.jpeg" alt="McLin Duke Sanders" loading="lazy">
+        </div>
+        <div class="about-text" data-animate data-animate-delay="2">
+          <span class="section-label">About</span>
+          <h2 class="section-title">The path shaped<br>the person.</h2>
+          <p>
+            In 2020, I graduated high school into a pandemic and thru-hiked the Appalachian
+            Trail instead of going to college. 2,193 miles, Georgia to Maine, alone. That
+            decision became a career.
+          </p>
+          <p>
+            Since then: the Pacific Crest Trail, the Colorado Trail, Everest Base Camp,
+            the Tour du Mont Blanc. 6,500+ miles across three continents and five countries.
+            I'm based in Park City, Utah, building Expedition Excellence to bring serious
+            wilderness experiences to the people who are ready for the real thing.
+          </p>
+          <ul class="credentials">
+            <li>BBA Entrepreneurship, University of Mississippi, 3.8 GPA</li>
+            <li>Eagle Scout, Boy Scouts of America</li>
+            <li>FAA Part 107 Certified Drone Pilot</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRAIL MAP ===== -->
+  <section class="section trail-world-map-section" id="trail-map">
+    <div class="container trail-map-header" data-animate>
+      <div class="trail-map-header-left">
+        <span class="section-label">Where I've Been</span>
+        <h2 class="section-title">10 trails. <em>3 continents.</em></h2>
+      </div>
+      <p class="section-subtitle">Click any marker to explore the trail.</p>
+    </div>
+    <div class="trail-map-wrap" data-animate data-animate-delay="1">
+      <div class="trail-map-container" id="trail-map-container">
+        <div class="trail-map-regions">
+          <button data-region="usa" class="active">United States</button>
+          <button data-region="alps">Alps</button>
+          <button data-region="nepal">Nepal</button>
+        </div>
+        <div class="trail-map-panels">
+          <div class="trail-map-panel active" data-panel="usa">
+            <div class="trail-map-panel-label">North America · 12 Trails · 6,197 mi</div>
+            <div id="map-usa" class="trail-leaflet-map"></div>
+          </div>
+          <div class="trail-map-panel" data-panel="alps">
+            <div class="trail-map-panel-label">European Alps · Tour du Mont Blanc</div>
+            <div id="map-alps" class="trail-leaflet-map"></div>
+          </div>
+          <div class="trail-map-panel" data-panel="nepal">
+            <div class="trail-map-panel-label">Himalayas · Everest Base Camp</div>
+            <div id="map-nepal" class="trail-leaflet-map"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== FEATURED TRAILS ===== -->
+  <section class="section trails-section" id="trails">
+    <div class="trails-journey-line" id="trails-journey-line" aria-hidden="true"></div>
+    <div class="container">
+      <span class="section-label" data-animate>Trail Resume</span>
+      <h2 class="section-title" data-animate>6,500 miles of<br>earned experience.</h2>
+      <p class="section-subtitle" data-animate>
+        Most of what I know, I learned out there. Ten trails, 6,500+ miles across America, Europe, and the Himalayas. Each one harder and better than the last.
+      </p>
+
+      <!-- Signature Trails -->
+      <div class="trails-tier-label" data-animate>Signature</div>
+      <div class="trails-grid trails-grid-signature">
+        <!-- AT -->
+        <div class="trail-card trail-card-feature" data-animate>
+          <div class="trail-card-bg" style="background-image: url('images/trails/at/at-hero.jpg');"></div>
+          <div class="trail-card-overlay"></div>
+          <div class="trail-card-content">
+            <span class="trail-card-year">2020 &middot; Thru-Hike</span>
+            <h3>Appalachian Trail</h3>
+            <div class="trail-card-stats">
+              <span>2,193 mi</span>
+              <span>Georgia &rarr; Maine</span>
+            </div>
+          </div>
+          <a href="pages/appalachian-trail.html" class="trail-card-link" aria-label="Appalachian Trail"></a>
+        </div>
+
+        <!-- PCT -->
+        <div class="trail-card trail-card-feature" data-animate data-animate-delay="1">
+          <div class="trail-card-bg" style="background-image: url('images/trails/pct/pct-hero.jpg');"></div>
+          <div class="trail-card-overlay"></div>
+          <div class="trail-card-content">
+            <span class="trail-card-year">2025 &middot; Thru-Hike</span>
+            <h3>Pacific Crest Trail</h3>
+            <div class="trail-card-stats">
+              <span>2,650 mi</span>
+              <span>Mexico &rarr; Canada</span>
+            </div>
+          </div>
+          <a href="pages/pacific-crest-trail.html" class="trail-card-link" aria-label="Pacific Crest Trail"></a>
+        </div>
+
+        <!-- EBC -->
+        <div class="trail-card trail-card-banner" data-animate data-animate-delay="2">
+          <div class="trail-card-bg" style="background-image: url('images/trails/ebc/ebc-hero.jpg');"></div>
+          <div class="trail-card-overlay"></div>
+          <div class="trail-card-content">
+            <span class="trail-card-year">2024 &middot; Expedition</span>
+            <h3>Everest Base Camp</h3>
+            <div class="trail-card-stats">
+              <span>17,700 ft</span>
+              <span>Nepal</span>
+            </div>
+          </div>
+          <a href="pages/everest-base-camp.html" class="trail-card-link" aria-label="Everest Base Camp"></a>
+        </div>
+      </div>
+
+      <!-- Field Expeditions -->
+      <div class="trails-tier-label" data-animate>Field Expeditions</div>
+      <div class="trails-grid trails-grid-regional">
+        <!-- Colorado Trail -->
+        <div class="trail-card" data-animate>
+          <div class="trail-card-bg" style="background-image: url('images/trails/colorado/ct-hero.jpg');"></div>
+          <div class="trail-card-overlay"></div>
+          <div class="trail-card-content">
+            <span class="trail-card-year">2022 &middot; Thru-Hike</span>
+            <h3>Colorado Trail</h3>
+            <div class="trail-card-stats">
+              <span>485 mi</span>
+              <span>Colorado</span>
+            </div>
+          </div>
+          <a href="pages/colorado-trail.html" class="trail-card-link" aria-label="Colorado Trail"></a>
+        </div>
+
+        <!-- Pinhoti -->
+        <div class="trail-card" data-animate data-animate-delay="1">
+          <div class="trail-card-bg" style="background-image: url('images/trails/pinhoti/pinhoti-hero.jpg');"></div>
+          <div class="trail-card-overlay"></div>
+          <div class="trail-card-content">
+            <span class="trail-card-year">2023 &middot; Thru-Hike</span>
+            <h3>Pinhoti Trail</h3>
+            <div class="trail-card-stats">
+              <span>335 mi</span>
+              <span>Alabama &rarr; Georgia</span>
+            </div>
+          </div>
+          <a href="pages/pinhoti-trail.html" class="trail-card-link" aria-label="Pinhoti Trail"></a>
+        </div>
+
+        <!-- Tour du Mont Blanc -->
+        <div class="trail-card" data-animate data-animate-delay="2">
+          <div class="trail-card-bg" style="background-image: url('images/trails/tmb/tmb-hero.jpg');"></div>
+          <div class="trail-card-overlay"></div>
+          <div class="trail-card-content">
+            <span class="trail-card-year">2024 &middot; International</span>
+            <h3>Tour du Mont Blanc</h3>
+            <div class="trail-card-stats">
+              <span>100 mi</span>
+              <span>France &middot; Italy &middot; Switzerland</span>
+            </div>
+          </div>
+          <a href="pages/tour-du-mont-blanc.html" class="trail-card-link" aria-label="Tour du Mont Blanc"></a>
+        </div>
+
+        <!-- BMT -->
+        <div class="trail-card" data-animate>
+          <div class="trail-card-bg" style="background-image: url('images/trails/bmt/bmt-hero.jpg');"></div>
+          <div class="trail-card-overlay"></div>
+          <div class="trail-card-content">
+            <span class="trail-card-year">2025 &middot; Winter Expedition</span>
+            <h3>Benton MacKaye Trail</h3>
+            <div class="trail-card-stats">
+              <span>150 mi</span>
+              <span>Georgia &rarr; Tennessee</span>
+            </div>
+          </div>
+          <a href="pages/benton-mackaye-trail.html" class="trail-card-link" aria-label="Benton MacKaye Trail"></a>
+        </div>
+
+        <!-- Tahoe Rim -->
+        <div class="trail-card" data-animate data-animate-delay="1">
+          <div class="trail-card-bg" style="background-image: url('images/trails/trt/trt-hero.jpg');"></div>
+          <div class="trail-card-overlay"></div>
+          <div class="trail-card-content">
+            <span class="trail-card-year">2023</span>
+            <h3>Tahoe Rim Trail</h3>
+            <div class="trail-card-stats">
+              <span>170 mi</span>
+              <span>California &middot; Nevada</span>
+            </div>
+          </div>
+          <a href="pages/tahoe-rim-trail.html" class="trail-card-link" aria-label="Tahoe Rim Trail"></a>
+        </div>
+
+        <!-- Uinta Highline -->
+        <div class="trail-card" data-animate data-animate-delay="2">
+          <div class="trail-card-bg" style="background-image: url('images/trails/uinta/uinta-hero.jpg');"></div>
+          <div class="trail-card-overlay"></div>
+          <div class="trail-card-content">
+            <span class="trail-card-year">2023 &middot; Solo</span>
+            <h3>Uinta Highline Trail</h3>
+            <div class="trail-card-stats">
+              <span>86 mi</span>
+              <span>Utah</span>
+            </div>
+          </div>
+          <a href="pages/uinta-highline-trail.html" class="trail-card-link" aria-label="Uinta Highline Trail"></a>
+        </div>
+
+        <!-- Lost Coast -->
+        <div class="trail-card" data-animate>
+          <div class="trail-card-bg" style="background-image: url('images/trails/lost-coast/lct-hero.jpg');"></div>
+          <div class="trail-card-overlay"></div>
+          <div class="trail-card-content">
+            <span class="trail-card-year">2023</span>
+            <h3>Lost Coast Trail</h3>
+            <div class="trail-card-stats">
+              <span>25 mi</span>
+              <span>California</span>
+            </div>
+          </div>
+          <a href="pages/lost-coast-trail.html" class="trail-card-link" aria-label="Lost Coast Trail"></a>
+        </div>
+
+        <!-- Eagle Rock Loop -->
+        <div class="trail-card" data-animate data-animate-delay="1">
+          <div class="trail-card-bg" style="background-image: url('images/trails/eagle-rock/IMG_3235.jpeg');"></div>
+          <div class="trail-card-overlay"></div>
+          <div class="trail-card-content">
+            <span class="trail-card-year">2025 &middot; Backpack</span>
+            <h3>Eagle Rock Loop</h3>
+            <div class="trail-card-stats">
+              <span>26.8 mi</span>
+              <span>Arkansas</span>
+            </div>
+          </div>
+          <a href="pages/eagle-rock-loop.html" class="trail-card-link" aria-label="Eagle Rock Loop"></a>
+        </div>
+
+        <!-- Escalante Canyon Loop -->
+        <div class="trail-card" data-animate data-animate-delay="2">
+          <div class="trail-card-bg" style="background-image: url('images/trails/escalante/IMG_5417.jpeg');"></div>
+          <div class="trail-card-overlay"></div>
+          <div class="trail-card-content">
+            <span class="trail-card-year">2026 &middot; Canyon Route</span>
+            <h3>Escalante Canyon Loop</h3>
+            <div class="trail-card-stats">
+              <span>25.1 mi</span>
+              <span>Utah</span>
+            </div>
+          </div>
+          <a href="pages/escalante-canyon-loop.html" class="trail-card-link" aria-label="Escalante Canyon Loop"></a>
+        </div>
+
+        <!-- Mount Whitney -->
+        <div class="trail-card" data-animate>
+          <div class="trail-card-bg" style="background-image: url('images/trails/whitney/IMG_9332.JPG');"></div>
+          <div class="trail-card-overlay"></div>
+          <div class="trail-card-content">
+            <span class="trail-card-year">2025 &middot; Summit</span>
+            <h3>Mount Whitney</h3>
+            <div class="trail-card-stats">
+              <span>14,505 ft</span>
+              <span>California</span>
+            </div>
+          </div>
+          <a href="pages/mount-whitney.html" class="trail-card-link" aria-label="Mount Whitney"></a>
+        </div>
+
+        <!-- Mount Shasta -->
+        <div class="trail-card" data-animate data-animate-delay="1">
+          <div class="trail-card-bg" style="background-image: url('images/trails/shasta/IMG_8746.jpeg');"></div>
+          <div class="trail-card-overlay"></div>
+          <div class="trail-card-content">
+            <span class="trail-card-year">2025 &middot; Mountaineering</span>
+            <h3>Mount Shasta</h3>
+            <div class="trail-card-stats">
+              <span>14,179 ft</span>
+              <span>California</span>
+            </div>
+          </div>
+          <a href="pages/mount-shasta.html" class="trail-card-link" aria-label="Mount Shasta"></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- ===== GALLERY PREVIEW ===== -->
+  <section class="section gallery-preview-section" id="gallery">
+    <div class="container gallery-section-header" data-animate>
+      <span class="section-label">Photography</span>
+      <h2 class="section-title">The world through <em>my lens.</em></h2>
+      <p class="gallery-section-subtitle">612 trail photos from 6,500+ miles across 5 countries.</p>
+      <a href="pages/gallery.html" class="btn btn-primary btn-arrow">View Full Gallery</a>
+    </div>
+    <div class="container">
+      <div class="gallery-preview-grid" id="home-gallery-grid" data-animate data-animate-delay="1"></div>
+    </div>
+  </section>
+
+  <!-- ===== YOUTUBE ===== -->
+  <section class="section" id="youtube">
+    <div class="container">
+      <span class="section-label" data-animate>YouTube</span>
+      <h2 class="section-title" data-animate>From the field.</h2>
+      <p class="section-subtitle" data-animate>
+        Trail footage, gear reviews, and backcountry stories.
+      </p>
+
+      <div class="youtube-section" data-animate>
+        <div class="youtube-featured">
+          <a href="https://www.youtube.com/@mclinsanders67" target="_blank" rel="noopener" class="youtube-thumb-link">
+            <img src="https://img.youtube.com/vi/NggFyDf_T14/maxresdefault.jpg" alt="Solo Backpacking 3 Days Through Remote Southern Utah Canyons" loading="lazy">
+            <div class="youtube-play-overlay">
+              <div class="youtube-play-btn">&#9654;</div>
+            </div>
+          </a>
+          <div class="youtube-info">
+            <h3>Solo Backpacking 3 Days Through Remote Southern Utah Canyons</h3>
+            <p class="youtube-channel-link">
+              <a href="https://www.youtube.com/@mclinsanders67" target="_blank" rel="noopener" class="btn btn-outline btn-arrow">Visit YouTube Channel</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DRONE ===== -->
+  <section class="drone-section" id="drone">
+
+    <div class="container">
+      <div class="drone-section-intro" data-animate>
+        <div class="drone-section-intro-left">
+          <span class="section-label">Drone</span>
+          <h2 class="section-title">Above the terrain.<br><em>Beyond the frame.</em></h2>
+        </div>
+        <div class="drone-section-intro-right">
+          <span class="drone-credential-badge">FAA Part 107 Certified &middot; Park City, UT</span>
+          <a href="pages/drone.html" class="btn btn-outline btn-arrow">Full Portfolio &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="drone-section-grid" data-animate data-animate-delay="1">
+      <div class="dsg-item"><img src="images/portfolio/drone/drone-02.jpg" alt="Aerial landscape" loading="lazy"></div>
+      <div class="dsg-item"><img src="images/portfolio/drone/DJI_0476.jpeg" alt="Aerial drone shot" loading="lazy"></div>
+      <div class="dsg-item"><img src="images/portfolio/drone/3E4D824E-D986-4611-B968-186647AD9B3A_1_105_c.jpeg" alt="Aerial drone shot" loading="lazy"></div>
+      <div class="dsg-item"><img src="images/portfolio/drone/87F85BB1-B6C1-42C0-88DD-B3B5464A6559_1_105_c.jpeg" alt="Aerial drone shot" loading="lazy"></div>
+      <div class="dsg-item"><img src="images/portfolio/drone/C7B4340B-22C1-4D60-8CC9-42F388E26D96_1_105_c.jpeg" alt="Aerial drone shot" loading="lazy"></div>
+      <div class="dsg-item"><img src="images/portfolio/drone/452154F1-1D28-468B-BF6C-4BC450031D70_1_201_a.jpeg" alt="Aerial drone shot" loading="lazy"></div>
+      <div class="dsg-item"><img src="images/portfolio/drone/DFA93191-C6FB-41F9-9AF1-F297FB07C6F3_1_105_c.jpeg" alt="Aerial drone shot" loading="lazy"></div>
+      <div class="dsg-item"><img src="images/portfolio/drone/drone-06.jpg" alt="Aerial drone shot" loading="lazy"></div>
+    </div>
+
+    <div class="container" style="padding-top: 48px;" data-animate>
+      <a href="pages/drone.html" class="btn btn-primary btn-arrow">View Pricing &amp; Portfolio &rarr;</a>
+    </div>
+
+  </section>
+
+  <!-- ===== PRESS ===== -->
+  <section class="section" id="press" style="background: var(--color-bg-elevated);">
+    <div class="container">
+      <span class="section-label" data-animate>Press</span>
+      <h2 class="section-title" data-animate>As seen in.</h2>
+
+      <div class="press-grid">
+        <a class="press-card" data-animate href="https://voyageutah.com/interview/daily-inspiration-meet-mclin-sanders/" target="_blank" rel="noopener">
+          <div>
+            <span class="press-publication">Voyage Utah Magazine</span>
+            <h3>Daily Inspiration: Meet McLin Sanders</h3>
+          </div>
+          <span class="press-date">June 2024 &rarr;</span>
+        </a>
+
+        <a class="press-card" data-animate data-animate-delay="1" href="https://madisoncountyjournal.com/stories/madison-man-hikes-appalachian-trail,34606" target="_blank" rel="noopener">
+          <div>
+            <span class="press-publication">Madison County Journal</span>
+            <h3>Madison Man Hikes the Appalachian Trail</h3>
+          </div>
+          <span class="press-date">August 2022 &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPEDITION EXCELLENCE CTA ===== -->
+  <section class="expedition-cta">
+    <div class="expedition-cta-bg" style="background-image: url('images/trails/ebc/ebc-hero.jpg');"></div>
+    <div class="expedition-cta-overlay"></div>
+    <div class="container expedition-cta-content" data-animate>
+      <span class="section-label">Coming Soon</span>
+      <h2>Expedition Excellence</h2>
+      <p>
+        Curated wilderness expeditions for those who want the real thing, designed around
+        where you want to go and what you actually need to get there. Built on 6,500 miles
+        of lived experience, not a sales sheet. Details arriving soon.
+      </p>
+      <a href="mailto:mclindukesanders@gmail.com?subject=Expedition%20Excellence%20Inquiry" class="btn btn-primary btn-arrow">Express Interest</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="site-logo">McLin <span>Duke</span> Sanders</a>
+          <p>Outdoorsman, filmmaker, and expedition guide based in Park City, Utah.</p>
+        </div>
+
+        <div class="footer-column">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="#trails">Trails</a></li>
+            <li><a href="pages/drone.html">Drone</a></li>
+            <li><a href="pages/gallery.html">Gallery</a></li>
+            <li><a href="pages/about.html">About</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="pages/contact.html">Get in Touch</a></li>
+            <li><a href="mailto:mclindukesanders@gmail.com">mclindukesanders@gmail.com</a></li>
+            <li><a href="tel:+16019662282">601-966-2282</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="https://instagram.com/mclinduke" target="_blank" rel="noopener">@mclinduke</a></li>
+            <li><a href="https://instagram.com/dukeofthetrail" target="_blank" rel="noopener">@dukeofthetrail</a></li>
+            <li><a href="https://www.youtube.com/@mclinsanders67" target="_blank" rel="noopener">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span class="footer-copyright">&copy; <span class="current-year">2026</span> McLin Sanders. All rights reserved.</span>
+        <div class="footer-socials">
+          <a href="https://instagram.com/mclinduke" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.youtube.com/@mclinsanders67" target="_blank" rel="noopener">YouTube</a>
+          <a href="mailto:mclindukesanders@gmail.com">Email</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/gallery-data.min.js?v=6"></script>
+  <script src="js/home-gallery.min.js?v=8"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="js/trail-map.min.js?v=6"></script>
+  <script src="js/main.min.js?v=5"></script>
+</body>
+</html>

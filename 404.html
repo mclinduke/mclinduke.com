@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Trail Not Found | McLin "Duke" Sanders</title>
+  <meta name="description" content="The page you're looking for doesn't exist. Let's get you back on route.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="404 — Page Not Found | McLin 'Duke' Sanders">
+  <meta property="og:description" content="The page you're looking for doesn't exist. Let's get you back on route.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mclinduke.com/404.html">
+  <meta property="og:image" content="https://mclinduke.com/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="404 — Page Not Found | McLin 'Duke' Sanders">
+  <meta name="twitter:description" content="The page you're looking for doesn't exist. Let's get you back on route.">
+  <meta name="twitter:image" content="https://mclinduke.com/images/og-image.jpg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.min.css?v=10">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+  <style>
+    .error-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .error-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .error-content::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(107,143,113,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .error-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
+    }
+
+    .error-code {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(8rem, 20vw, 14rem);
+      font-weight: 300;
+      line-height: 1;
+      color: var(--color-text, #f2ece0);
+      letter-spacing: -0.04em;
+      margin-bottom: 0;
+      opacity: 0.15;
+    }
+
+    .error-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 400;
+      color: var(--color-text, #f2ece0);
+      margin: -1.5rem 0 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .error-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--color-text-muted, #b8ad9e);
+      margin-bottom: 2.5rem;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .error-cta {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-bg, #1a1510);
+      background: var(--color-accent, #6b8f71);
+      padding: 14px 36px;
+      border: none;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .error-cta:hover {
+      background: #7da383;
+      transform: translateY(-1px);
+    }
+
+    .error-divider {
+      width: 40px;
+      height: 1px;
+      background: var(--color-accent, #6b8f71);
+      margin: 0 auto 2rem;
+      opacity: 0.5;
+    }
+
+    .error-coordinates {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--color-text-dim, #6b6156);
+      letter-spacing: 0.08em;
+      margin-top: 3rem;
+    }
+  </style>
+  <script src="js/analytics.min.js" defer></script>
+</head>
+<body>
+
+  <div class="error-page">
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="/" class="site-logo">McLin <span>Duke</span> Sanders</a>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pages/drone.html">Drone</a></li>
+            <li><a href="pages/gallery.html">Gallery</a></li>
+            <li><a href="pages/about.html">About</a></li>
+            <li><a href="pages/contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <div class="nav-overlay"></div>
+    </header>
+
+    <!-- ===== 404 CONTENT ===== -->
+    <main class="error-content">
+      <div class="error-inner">
+        <div class="error-code">404</div>
+        <h1 class="error-title">Trail not found.</h1>
+        <div class="error-divider"></div>
+        <p class="error-subtitle">Looks like this path doesn't lead anywhere. Let's get you back on route.</p>
+        <a href="index.html" class="error-cta">Back to Base Camp</a>
+        <div class="error-coordinates">ERR_NOT_FOUND &mdash; 40.6609&deg; N, 111.4980&deg; W</div>
+      </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="/" class="site-logo">McLin <span>Duke</span> Sanders</a>
+            <p>Outdoorsman, filmmaker, and expedition guide based in Park City, Utah.</p>
+          </div>
+
+          <div class="footer-column">
+            <h4>Navigate</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="pages/drone.html">Drone</a></li>
+              <li><a href="pages/gallery.html">Gallery</a></li>
+              <li><a href="pages/about.html">About</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Contact</h4>
+            <ul>
+              <li><a href="pages/contact.html">Get in Touch</a></li>
+              <li><a href="mailto:mclindukesanders@gmail.com">mclindukesanders@gmail.com</a></li>
+              <li><a href="tel:+16019662282">601-966-2282</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Connect</h4>
+            <ul>
+              <li><a href="https://instagram.com/mclinduke" target="_blank" rel="noopener">@mclinduke</a></li>
+              <li><a href="https://instagram.com/dukeofthetrail" target="_blank" rel="noopener">@dukeofthetrail</a></li>
+              <li><a href="https://www.youtube.com/@mclinsanders67" target="_blank" rel="noopener">YouTube</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span class="footer-copyright">&copy; <span class="current-year">2026</span> McLin Sanders. All rights reserved.</span>
+          <div class="footer-socials">
+            <a href="https://instagram.com/mclinduke" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.youtube.com/@mclinsanders67" target="_blank" rel="noopener">YouTube</a>
+            <a href="mailto:mclindukesanders@gmail.com">Email</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="js/main.min.js?v=5"></script>
+</body>
+</html>

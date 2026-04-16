@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery | McLin "Duke" Sanders</title>
+  <link rel="canonical" href="https://mclinduke.com/pages/gallery.html">
+  <meta name="description" content="Photos from 6,500+ miles across the world: PCT, Appalachian Trail, Everest Base Camp, Tour du Mont Blanc, and more.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Gallery | McLin 'Duke' Sanders">
+  <meta property="og:description" content="Photos from 6,500+ miles across the world: PCT, Appalachian Trail, Everest Base Camp, Tour du Mont Blanc, and more.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mclinduke.com/pages/gallery.html">
+  <meta property="og:image" content="https://mclinduke.com/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gallery | McLin 'Duke' Sanders">
+  <meta name="twitter:description" content="Photos from 6,500+ miles across the world: PCT, Appalachian Trail, Everest Base Camp, Tour du Mont Blanc, and more.">
+  <meta name="twitter:image" content="https://mclinduke.com/images/og-image.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.min.css?v=10">
+  <link rel="stylesheet" href="../css/gallery.min.css?v=5">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <script src="../js/analytics.min.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header scrolled">
+    <div class="header-inner">
+      <a href="../index.html" class="site-logo">McLin <span>Duke</span> Sanders</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../index.html#trails">Trails</a></li>
+          <li><a href="drone.html">Drone</a></li>
+          <li><a href="gallery.html" class="active">Gallery</a></li>
+          <li><a href="../index.html#youtube">YouTube</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-overlay"></div>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <section class="gallery-header">
+    <div class="container">
+      <span class="section-label" data-animate>Photography</span>
+      <h1 class="gallery-title" data-animate data-animate-delay="1">Ten Trails.<br><em>One Camera.</em></h1>
+      <p class="gallery-subtitle" data-animate data-animate-delay="2">No studio, no stylist, no second take. Just what I saw out there.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       TRAILS GALLERY
+  ══════════════════════════════════════════ -->
+
+  <!-- TRAIL FILTER TABS -->
+  <div class="gallery-filters-wrap" id="trail-filters-wrap">
+    <div class="gallery-filters container">
+      <button class="filter-btn active" data-filter="all" data-gallery="trails">All Trails <span class="filter-count" id="count-all"></span></button>
+      <button class="filter-btn" data-filter="pct" data-gallery="trails">PCT <span class="filter-count" id="count-pct"></span></button>
+      <button class="filter-btn" data-filter="at" data-gallery="trails">AT <span class="filter-count" id="count-at"></span></button>
+      <button class="filter-btn" data-filter="ebc" data-gallery="trails">Everest <span class="filter-count" id="count-ebc"></span></button>
+      <button class="filter-btn" data-filter="tmb" data-gallery="trails">Mont Blanc <span class="filter-count" id="count-tmb"></span></button>
+      <button class="filter-btn" data-filter="colorado" data-gallery="trails">Colorado <span class="filter-count" id="count-colorado"></span></button>
+      <button class="filter-btn" data-filter="pinhoti" data-gallery="trails">Pinhoti <span class="filter-count" id="count-pinhoti"></span></button>
+      <button class="filter-btn" data-filter="trt" data-gallery="trails">Tahoe <span class="filter-count" id="count-trt"></span></button>
+      <button class="filter-btn" data-filter="uinta" data-gallery="trails">Uinta <span class="filter-count" id="count-uinta"></span></button>
+      <button class="filter-btn" data-filter="lost-coast" data-gallery="trails">Lost Coast <span class="filter-count" id="count-lost-coast"></span></button>
+      <button class="filter-btn" data-filter="bmt" data-gallery="trails">BMT <span class="filter-count" id="count-bmt"></span></button>
+      <button class="filter-btn" data-filter="eagle-rock" data-gallery="trails">Eagle Rock <span class="filter-count" id="count-eagle-rock"></span></button>
+      <button class="filter-btn" data-filter="escalante" data-gallery="trails">Escalante <span class="filter-count" id="count-escalante"></span></button>
+      <button class="filter-btn" data-filter="whitney" data-gallery="trails">Whitney <span class="filter-count" id="count-whitney"></span></button>
+      <button class="filter-btn" data-filter="shasta" data-gallery="trails">Shasta <span class="filter-count" id="count-shasta"></span></button>
+    </div>
+  </div>
+
+  <!-- TRAILS GALLERY GRID -->
+  <main class="gallery-main">
+    <div class="container">
+      <div class="masonry-grid" id="gallery-grid"></div>
+      <div class="gallery-load-more">
+        <button class="btn btn-outline btn-arrow" id="load-more-btn">Load More</button>
+        <p class="gallery-showing" id="gallery-showing"></p>
+      </div>
+    </div>
+  </main>
+
+  <!-- LIGHTBOX (shared) -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Photo viewer">
+    <button class="lightbox-close" id="lb-close" aria-label="Close">&times;</button>
+    <button class="lightbox-prev" id="lb-prev" aria-label="Previous photo">&#8592;</button>
+    <button class="lightbox-next" id="lb-next" aria-label="Next photo">&#8594;</button>
+    <div class="lightbox-content">
+      <div class="lightbox-spinner" id="lb-spinner"></div>
+      <img class="lightbox-img" id="lb-img" src="" alt="" loading="eager">
+      <div class="lightbox-caption" id="lb-caption"></div>
+    </div>
+    <div class="lightbox-counter" id="lb-counter"></div>
+  </div>
+
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="footer-bottom">
+        <span class="footer-copyright">&copy; <span class="current-year">2026</span> McLin Sanders. All rights reserved.</span>
+        <div class="footer-socials">
+          <a href="https://instagram.com/mclinduke" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.youtube.com/@mclinsanders67" target="_blank" rel="noopener">YouTube</a>
+          <a href="mailto:mclindukesanders@gmail.com">Email</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/gallery-data.min.js?v=6"></script>
+  <script src="../js/gallery.min.js?v=3"></script>
+  <script src="../js/main.min.js?v=5"></script>
+</body>
+</html>
