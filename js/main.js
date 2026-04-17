@@ -15,11 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
   function handleHeaderScroll() {
     const scrollY = window.scrollY;
     if (isSubPage) {
-      // Sub-pages: always keep scrolled (solid dark bg)
+      // Sub-pages: always solid
       header.classList.add('scrolled');
     } else {
-      // Index page: toggle on scroll
-      if (scrollY > 60) {
+      // Index: fade background in linearly over first 120px of scroll
+      const ratio = Math.min(scrollY / 120, 1);
+      header.style.setProperty('--scroll-ratio', ratio);
+      if (ratio >= 1) {
         header.classList.add('scrolled');
       } else {
         header.classList.remove('scrolled');
@@ -74,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }, {
       threshold: 0.1,
-      rootMargin: '0px 0px -40px 0px'
+      rootMargin: '0px 0px -80px 0px' /* tighter — sections feel earned, not anticipatory */
     });
 
     animatedElements.forEach(el => observer.observe(el));
@@ -97,18 +99,9 @@ document.addEventListener('DOMContentLoaded', () => {
     updateJourneyLine();
   }
 
-  // --- Smooth scroll for anchor links ---
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-      const target = document.querySelector(anchor.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        const offset = header.offsetHeight + 20;
-        const top = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
-    });
-  });
+  // Smooth scroll for anchor links is handled natively via CSS:
+  // html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-height) + 20px); }
+  // No JS needed — browser offsets the fixed header automatically.
 
   // --- Counter animation for stats ---
   const statNumbers = document.querySelectorAll('.stat-number');
