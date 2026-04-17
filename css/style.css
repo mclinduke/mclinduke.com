@@ -266,11 +266,76 @@ h4 { font-size: 1.25rem; }
   position: relative;
   min-height: 100vh; /* fallback */
   min-height: 100dvh;
-  display: flex;
-  align-items: flex-end;
-  padding-top: calc(var(--header-height) + 24px);
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  align-items: end;
   padding-bottom: var(--section-padding);
   overflow: hidden;
+}
+
+/* Left metadata rail */
+.hero-rail {
+  position: relative;
+  z-index: 2;
+  padding: calc(var(--header-height) + 80px) 32px 0 40px;
+  border-right: 1px solid var(--color-border);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0;
+}
+
+.hero-rail-top {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.hero-rail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hero-rail-est {
+  padding-bottom: 8px;
+}
+
+.rail-label {
+  font-family: var(--font-mono);
+  font-size: 0.67rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.rail-value {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  font-weight: 400;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+}
+
+.rail-coords {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  color: var(--color-text-dim);
+}
+
+/* Right main content */
+.hero-main {
+  position: relative;
+  z-index: 2;
+  padding: calc(var(--header-height) + 60px) 80px 0 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
 }
 
 .hero-bg {
@@ -308,17 +373,7 @@ h4 { font-size: 1.25rem; }
   filter: none;
 }
 
-.hero-content {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  justify-content: flex-start;
-}
-
-.hero-text-block {
-  max-width: 820px;
-  width: 100%;
-}
+/* .hero-content / .hero-text-block removed — replaced by .hero-rail + .hero-main grid layout */
 
 .hero-tag {
   font-family: var(--font-mono);
@@ -1317,12 +1372,22 @@ h4 { font-size: 1.25rem; }
     display: block;
   }
 
-  /* Hero */
+  /* Hero — collapse to single column, hide rail */
   .hero {
+    grid-template-columns: 1fr;
     min-height: 90vh;    /* fallback */
     min-height: 90dvh;
-    padding-top: calc(var(--header-height) + 24px);
-    padding-bottom: 64px;
+    padding-bottom: 56px;
+  }
+
+  .hero-rail {
+    display: none; /* hidden on mobile — credentials surface in About section */
+  }
+
+  .hero-main {
+    padding: calc(var(--header-height) + 24px) 20px 0;
+    height: auto;
+    justify-content: flex-end;
   }
 
   .hero-cta {
