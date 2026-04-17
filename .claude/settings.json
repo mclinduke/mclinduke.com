@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /Users/mclinsanders/Projects/mclinduke.com/.claude/bump-cache.py"
+          }
+        ]
+      }
+    ]
+  }
+}
