@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Revamp Concepts — Hero Directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   REVAMP CONCEPTS — Hero Directions for mclinduke.com
+   Three distinct structural directions. Vary the layout, not
+   just the color. Pick one; I will wire it into index.html.
+
+   MICRO-IMPROVEMENTS (apply to whichever concept wins — all
+   subtle, Quiet Confidence, no motion for the sake of it):
+
+   1. Scroll: swap smooth-scroll JS for CSS `scroll-behavior:
+      smooth` with `scroll-padding-top: var(--header-height)`.
+      One line of CSS replaces 10 lines of JS.
+
+   2. Type rhythm: introduce a modular type scale at 1.25 ratio.
+      Labels 12px → body 16px → H3 25px → H2 39px → H1 76px.
+      Current scale jumps between clamp() values inconsistently.
+
+   3. Spacing rhythm: set a vertical rhythm unit (--unit: 8px)
+      and use multiples (16/24/40/64/96/128) everywhere instead
+      of ad-hoc 20/28/36/48 values.
+
+   4. Hover states on cards: instead of translateY(-2px),
+      animate a 1px inset border from border-color transparent
+      to accent over 600ms. Restraint, not bounce.
+
+   5. Section transitions: on scroll into view, fade/rise ONCE
+      at 40ms stagger across siblings — never re-animate. The
+      current IntersectionObserver does this; lower the
+      rootMargin from -40px to -80px so sections feel "earned."
+
+   6. Image treatment: a 1-2% grain overlay (SVG noise) on hero
+      and full-bleed photos. Reads as film, not web.
+
+   7. Cursor: on desktop, a custom 4px circle cursor on
+      interactive elements (not everywhere — only hover targets).
+      Optional, very subtle.
+
+   8. Link underlines: animate from 0 → 100% width on hover
+      (200ms ease-out) instead of color shift. Feels editorial.
+
+   9. Header: fade the header background in based on scrollY
+      instead of a hard 60px toggle. Linear opacity from 0→1
+      over first 120px of scroll.
+
+   10. Focus rings: custom 2px sage outline with 4px offset on
+       :focus-visible. Accessibility + brand in one pass.
+   ============================================================ */
+
+:root {
+  --bg: #1a1510;
+  --bg-2: #1f1a14;
+  --card: #241e16;
+  --surface: #2e2720;
+  --text: #f2ece0;
+  --muted: #9a8e7e;
+  --dim: #6b6560;
+  --accent: #6b8f71;
+  --accent-hi: #7da883;
+  --gold: #a68c5f;
+  --border: rgba(107,143,113,0.15);
+  --display: 'Cormorant Garamond', Georgia, serif;
+  --body: 'Inter', 'Helvetica Neue', sans-serif;
+  --mono: 'JetBrains Mono', 'SF Mono', monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{font-family:var(--body);background:var(--bg);color:var(--text);line-height:1.7}
+a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
+
+.page-header{
+  padding:64px 40px 32px;
+  border-bottom:1px solid var(--border);
+  max-width:1400px;margin:0 auto;
+}
+.page-header h1{font-family:var(--display);font-size:2.5rem;font-weight:300}
+.page-header .kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.page-header p{color:var(--muted);max-width:680px;margin-top:8px}
+
+.concept{
+  position:relative;
+  border-top:1px solid var(--border);
+  padding:80px 0 120px;
+}
+.concept-tag{
+  position:absolute;top:24px;left:40px;
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.25em;
+  text-transform:uppercase;color:var(--muted);
+}
+.concept-tag strong{color:var(--accent);font-weight:400}
+.concept-note{
+  max-width:1400px;margin:0 auto 40px;padding:0 40px;
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;
+  color:var(--dim);text-transform:uppercase;
+}
+
+/* ---- SHARED HERO BASE ---- */
+.hero{position:relative;overflow:hidden;color:var(--text)}
+.hero .bg{position:absolute;inset:0;background:url('../images/hero/main-hero.jpg') center/cover;filter:brightness(.55) saturate(.85)}
+.hero .bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,21,16,.3) 0%,rgba(26,21,16,.75) 85%,var(--bg) 100%)}
+.hero .wrap{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:0 40px}
+
+.stats{
+  background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:40px 0;
+}
+.stats .row{max-width:1400px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:repeat(5,1fr);gap:24px}
+.stats .n{font-family:var(--display);font-size:2.25rem;font-weight:300;color:var(--accent);line-height:1}
+.stats .l{font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+
+/* ================================================
+   CONCEPT 1 — EDITORIAL LEFT-RAIL
+   Magazine-style. Vertical rail of metadata runs
+   down the left. Headline sits right of rail. Single
+   understated CTA. Stats flow as a thin ticker band.
+   ================================================ */
+.c1 .hero{min-height:92dvh;display:grid;grid-template-columns:280px 1fr;align-items:end;padding:0 0 120px}
+.c1 .rail{position:relative;z-index:2;padding:160px 0 0 40px;border-right:1px solid var(--border);height:100%;display:flex;flex-direction:column;justify-content:space-between}
+.c1 .rail .top{display:flex;flex-direction:column;gap:18px}
+.c1 .rail .item{font-family:var(--mono);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);display:flex;flex-direction:column;gap:4px}
+.c1 .rail .item strong{color:var(--text);font-weight:400;font-size:.8rem;letter-spacing:.15em}
+.c1 .rail .coords{color:var(--dim);font-size:.65rem;letter-spacing:.15em}
+.c1 .main{padding:0 80px 0 60px;position:relative;z-index:2}
+.c1 h1{font-family:var(--display);font-weight:300;font-size:clamp(3.5rem,6.5vw,6.5rem);line-height:1;letter-spacing:-.01em}
+.c1 h1 em{font-style:italic;color:var(--accent);font-weight:300}
+.c1 .lede{margin-top:40px;max-width:560px;font-size:1.05rem;color:#e4dccb;line-height:1.6}
+.c1 .cta-row{margin-top:48px;display:flex;align-items:center;gap:32px}
+.c1 .cta{font-family:var(--body);font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text);padding:18px 32px;border:1px solid var(--accent);background:transparent;transition:all .3s}
+.c1 .cta:hover{background:var(--accent);color:var(--bg)}
+.c1 .cta-note{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;color:var(--muted);text-transform:uppercase}
+.c1 .ticker{background:var(--bg-2);padding:22px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden}
+.c1 .ticker .row{display:flex;justify-content:space-between;max-width:1400px;margin:0 auto;padding:0 40px;gap:40px;font-family:var(--mono);font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.c1 .ticker .row span strong{color:var(--accent);font-weight:400;font-family:var(--display);font-size:1.1rem;letter-spacing:0;margin-right:8px}
+
+/* ================================================
+   CONCEPT 2 — FULL-BLEED CINEMA
+   Photography-first. Near-silent hero: tiny kicker,
+   a two-word H1, one-line tagline, one CTA. Name
+   credit-style bottom-left. Stats float as a
+   translucent band overlaid on the image bottom.
+   Feels like the opening frame of a documentary.
+   ================================================ */
+.c2 .hero{min-height:100dvh;display:flex;align-items:flex-end;padding:0}
+.c2 .bg{filter:brightness(.7) saturate(.9)}
+.c2 .bg::after{background:linear-gradient(180deg,rgba(26,21,16,.15) 0%,rgba(26,21,16,.4) 55%,rgba(26,21,16,.85) 100%)}
+.c2 .wrap{width:100%;padding:0 64px 64px}
+.c2 .kicker{font-family:var(--mono);font-size:.7rem;letter-spacing:.35em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+.c2 .kicker::before{content:'';display:inline-block;width:48px;height:1px;background:var(--accent);margin-right:16px;vertical-align:middle}
+.c2 h1{font-family:var(--display);font-weight:300;font-size:clamp(5rem,10vw,10rem);line-height:.95;letter-spacing:-.02em;max-width:1100px}
+.c2 h1 em{font-style:italic;color:var(--accent);font-weight:300}
+.c2 .tagline{margin-top:28px;font-family:var(--display);font-weight:300;font-style:italic;font-size:clamp(1.25rem,2vw,1.75rem);color:#e4dccb;max-width:720px}
+.c2 .bottom{margin-top:72px;display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap}
+.c2 .credit{font-family:var(--mono);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);line-height:2}
+.c2 .credit span{color:var(--text)}
+.c2 .cta{font-family:var(--body);font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;color:var(--text);padding-bottom:8px;border-bottom:1px solid var(--accent);background:none;border-radius:0;transition:all .3s}
+.c2 .cta::after{content:' →';transition:transform .3s;display:inline-block;margin-left:8px}
+.c2 .cta:hover{color:var(--accent-hi)}
+.c2 .cta:hover::after{transform:translateX(6px)}
+.c2 .stats-overlay{
+  position:relative;z-index:3;background:rgba(26,21,16,.82);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  border-top:1px solid var(--border);
+  padding:32px 0;margin-top:-1px;
+}
+.c2 .stats-overlay .row{max-width:1400px;margin:0 auto;padding:0 64px;display:grid;grid-template-columns:repeat(5,1fr);gap:40px}
+.c2 .stats-overlay .n{font-family:var(--display);font-size:2rem;color:var(--text);font-weight:300;line-height:1}
+.c2 .stats-overlay .l{font-family:var(--mono);font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+
+/* ================================================
+   CONCEPT 3 — FIELD NOTEBOOK / TYPOGRAPHIC
+   No photo in the hero. Pure typography on the dark
+   background. Large display numeral "6,500" anchors
+   the layout. Headline + credit sit beneath. Feels
+   like a manuscript frontispiece. Photograph appears
+   later as the first section below. Most restrained.
+   ================================================ */
+.c3 .hero{min-height:92dvh;display:flex;align-items:center;padding:120px 0;background:var(--bg);overflow:visible}
+.c3 .hero::before{content:'';position:absolute;top:0;bottom:0;left:50%;width:1px;background:var(--border);display:block}
+.c3 .wrap{display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:center;position:relative;z-index:2}
+.c3 .figure{font-family:var(--display);font-weight:300;font-size:clamp(9rem,16vw,18rem);line-height:.85;letter-spacing:-.04em;color:var(--text);position:relative}
+.c3 .figure sup{font-size:.3em;vertical-align:top;color:var(--accent);font-weight:300;letter-spacing:0}
+.c3 .figure-caption{font-family:var(--mono);font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);margin-top:16px}
+.c3 .figure-caption strong{color:var(--accent);font-weight:400;letter-spacing:.22em}
+.c3 .text{border-left:1px solid var(--border);padding-left:48px}
+.c3 .meta{font-family:var(--mono);font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);margin-bottom:32px}
+.c3 h1{font-family:var(--display);font-weight:300;font-size:clamp(2.5rem,4vw,3.75rem);line-height:1.05;letter-spacing:-.01em}
+.c3 h1 em{font-style:italic;color:var(--accent);font-weight:300}
+.c3 .lede{margin-top:32px;color:#c8bfae;max-width:480px;font-size:1rem;line-height:1.7}
+.c3 .sig{margin-top:40px;display:flex;align-items:center;gap:24px}
+.c3 .sig::before{content:'';width:40px;height:1px;background:var(--accent)}
+.c3 .sig .name{font-family:var(--display);font-style:italic;font-size:1.1rem;color:var(--text)}
+.c3 .sig .role{font-family:var(--mono);font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-left:auto}
+.c3 .cta{margin-top:48px;font-family:var(--body);font-size:.75rem;letter-spacing:.28em;text-transform:uppercase;color:var(--text);padding:16px 28px;border:1px solid var(--border);background:transparent;transition:all .3s;display:inline-block}
+.c3 .cta:hover{border-color:var(--accent);color:var(--accent)}
+.c3-stats{background:var(--bg);border-top:1px solid var(--border);padding:56px 0}
+.c3-stats .row{max-width:1400px;margin:0 auto;padding:0 40px;display:flex;justify-content:space-between;gap:48px;flex-wrap:wrap;font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;color:var(--muted);text-transform:uppercase}
+.c3-stats .row span{display:flex;align-items:baseline;gap:14px}
+.c3-stats .row span strong{color:var(--accent);font-family:var(--display);font-weight:400;font-size:1.5rem;letter-spacing:0;line-height:1}
+
+/* ---- Responsive: preview still breathes on narrow screens ---- */
+@media (max-width:900px){
+  .c1 .hero{grid-template-columns:1fr;padding:140px 20px 60px}
+  .c1 .rail{border-right:0;padding:0 0 40px;border-bottom:1px solid var(--border);margin-bottom:40px}
+  .c1 .main{padding:0}
+  .c1 .ticker .row{flex-direction:column;gap:16px}
+  .c2 .wrap{padding:0 24px 40px}
+  .c2 h1{font-size:clamp(3rem,12vw,6rem)}
+  .c2 .stats-overlay .row{grid-template-columns:repeat(2,1fr);padding:0 24px;gap:24px}
+  .c3 .hero::before{display:none}
+  .c3 .wrap{grid-template-columns:1fr;gap:48px;padding:0 20px}
+  .c3 .text{border-left:0;padding-left:0;border-top:1px solid var(--border);padding-top:40px}
+  .stats .row{grid-template-columns:repeat(2,1fr);gap:24px}
+}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="kicker">Revamp · Three Directions</div>
+  <h1>Homepage hero — concept pass</h1>
+  <p>Three structurally distinct takes. Pick one and I will refactor <code>index.html</code> + <code>style.css</code> to match. Each concept uses the same brand tokens (colors, fonts, tone) — the difference is layout intent.</p>
+</header>
+
+<!-- ============ CONCEPT 1 ============ -->
+<section class="concept c1">
+  <div class="concept-tag"><strong>01</strong> &nbsp;·&nbsp; Editorial left-rail</div>
+  <div class="concept-note">// Magazine masthead. Metadata rail anchors the identity; headline breathes right of it. One CTA.</div>
+
+  <div class="hero">
+    <div class="bg"></div>
+    <div class="rail">
+      <div class="top">
+        <div class="item"><span>Based</span><strong>Park City, Utah</strong><span class="coords">40.6461° N · 111.4980° W</span></div>
+        <div class="item"><span>Credentials</span><strong>FAA Part 107</strong><span class="coords">Eagle Scout · BBA Entrepreneurship</span></div>
+        <div class="item"><span>Now</span><strong>Expedition Excellence</strong><span class="coords">Founder · Guide · Cinematographer</span></div>
+      </div>
+      <div class="item"><span>Est.</span><strong>2020</strong></div>
+    </div>
+    <div class="main">
+      <h1>Outdoorsman.<br>Filmmaker.<br><em>Duke of the trail.</em></h1>
+      <p class="lede">FAA Part 107 drone pilot and aerial cinematographer. Six thousand five hundred miles across America's wildest landscapes. Building Expedition Excellence — curated backcountry experiences for people ready for the real thing.</p>
+      <div class="cta-row">
+        <a class="cta" href="#">See the work</a>
+        <span class="cta-note">Or write — duke@mclinduke.com</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="c1 ticker">
+    <div class="row">
+      <span><strong>6,500+</strong>Miles hiked</span>
+      <span><strong>10</strong>Major trails</span>
+      <span><strong>365+</strong>Nights in the backcountry</span>
+      <span><strong>5</strong>Countries</span>
+      <span><strong>1.28M+</strong>Ft elevation</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONCEPT 2 ============ -->
+<section class="concept c2">
+  <div class="concept-tag"><strong>02</strong> &nbsp;·&nbsp; Full-bleed cinema</div>
+  <div class="concept-note">// Documentary opening frame. Minimum words, maximum photograph. Stats hover as a credit band.</div>
+
+  <div class="hero">
+    <div class="bg"></div>
+    <div class="wrap">
+      <div class="kicker">McLin Duke Sanders · Park City, Utah</div>
+      <h1>The path shaped<br><em>the person.</em></h1>
+      <p class="tagline">Six thousand five hundred miles. No shortcuts. Every one on foot.</p>
+      <div class="bottom">
+        <div class="credit">
+          Outdoorsman &nbsp;/&nbsp; <span>Filmmaker</span> &nbsp;/&nbsp; <span>FAA Part 107</span><br>
+          Founder &nbsp;/&nbsp; <span>Expedition Excellence</span>
+        </div>
+        <a class="cta" href="#">Begin the conversation</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-overlay">
+    <div class="row">
+      <div><div class="n">6,500+</div><div class="l">Miles hiked</div></div>
+      <div><div class="n">10</div><div class="l">Major trails</div></div>
+      <div><div class="n">365+</div><div class="l">Nights out</div></div>
+      <div><div class="n">5</div><div class="l">Countries</div></div>
+      <div><div class="n">1.28M+</div><div class="l">Ft elevation</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONCEPT 3 ============ -->
+<section class="concept c3">
+  <div class="concept-tag"><strong>03</strong> &nbsp;·&nbsp; Field notebook</div>
+  <div class="concept-note">// No photo in hero. Typography carries it. The number IS the credential. Photo lives below.</div>
+
+  <div class="hero">
+    <div class="wrap">
+      <div class="figure-col">
+        <div class="figure">6,500<sup>+</sup></div>
+        <div class="figure-caption"><strong>Miles walked</strong> &nbsp;·&nbsp; Three continents &nbsp;·&nbsp; Five countries</div>
+      </div>
+      <div class="text">
+        <div class="meta">Vol. I &nbsp;·&nbsp; Est. 2020 &nbsp;·&nbsp; Park City, Utah</div>
+        <h1>The path shaped<br>the person.<br><em>The work followed.</em></h1>
+        <p class="lede">Outdoorsman, aerial cinematographer, and FAA Part 107 drone pilot. Founder of Expedition Excellence — curated backcountry experiences for those who want the real thing.</p>
+        <div class="sig"><span class="name">McLin "Duke" Sanders</span><span class="role">Guide · Filmmaker</span></div>
+        <a class="cta" href="#">Explore the work</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="c3-stats">
+    <div class="row">
+      <span><strong>10</strong> Major trails</span>
+      <span><strong>365+</strong> Nights out</span>
+      <span><strong>5</strong> Countries</span>
+      <span><strong>1.28M+</strong> Ft elevation (44× Everest)</span>
+      <span><strong>2020</strong> First thru-hike</span>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

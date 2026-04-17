@@ -1,6 +1,7 @@
 /* ============================================
    McLin "Duke" Sanders — Personal Site
    Dark, cinematic, premium outdoor portfolio
+   Updated: mobile header-overlap fix + iOS robustness
    ============================================ */
 
 /* --- Reset & Base --- */
@@ -58,10 +59,15 @@ a {
   color: var(--color-accent);
   text-decoration: none;
   transition: color var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
 }
 
 a:hover {
   color: var(--color-accent-hover);
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
 }
 
 img {
@@ -258,9 +264,11 @@ h4 { font-size: 1.25rem; }
 /* --- Hero Section --- */
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 100vh; /* fallback */
+  min-height: 100dvh;
   display: flex;
   align-items: flex-end;
+  padding-top: calc(var(--header-height) + 24px);
   padding-bottom: var(--section-padding);
   overflow: hidden;
 }
@@ -354,99 +362,50 @@ h4 { font-size: 1.25rem; }
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
 }
 
+/* --- Hero CTA --- */
 .hero-cta {
   display: flex;
+  align-items: center;
   gap: 20px;
   flex-wrap: wrap;
-}
-
-/* --- Hero path selectors --- */
-.hero-paths {
-  display: flex;
-  align-items: stretch;
-  gap: 0;
   margin-top: 8px;
 }
 
-.hero-path {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 20px 28px;
-  text-decoration: none;
-  transition: all var(--transition-base);
-  border: 1px solid transparent;
-}
-
-.hero-path--drone {
-  background: rgba(166, 140, 95, 0.12);
-  border-color: var(--color-accent);
-  border-right: none;
-}
-
-.hero-path--drone:hover {
-  background: rgba(166, 140, 95, 0.22);
-  transform: translateY(-2px);
-}
-
-.hero-path--trails {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(255, 255, 255, 0.15);
-}
-
-.hero-path--trails:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.3);
-  transform: translateY(-2px);
-}
-
-.hero-path-divider {
-  display: flex;
+.btn {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  padding: 0 16px;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
-  color: var(--color-text-muted);
-  background: rgba(255,255,255,0.03);
-  border-top: 1px solid rgba(255,255,255,0.1);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  flex-shrink: 0;
+  text-decoration: none;
+  padding: 18px 36px;
+  transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
 }
 
-.path-eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
+.btn-primary {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  border: 1px solid var(--color-accent);
 }
 
-.hero-path--drone .path-eyebrow {
-  color: var(--color-accent);
+.btn-primary:hover {
+  background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+  color: var(--color-bg);
 }
 
-.path-main {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 400;
+.btn-secondary {
+  background: transparent;
   color: var(--color-text);
-  letter-spacing: 0.02em;
-  line-height: 1.2;
+  border: 1px solid var(--color-border);
 }
 
-.hero-path--drone .path-main {
-  color: #fff;
-  font-size: 1.35rem;
-}
-
-.path-detail {
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  color: var(--color-text-muted);
-  opacity: 0.7;
+.btn-secondary:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
 }
 
 /* --- Buttons --- */
@@ -1312,6 +1271,8 @@ h4 { font-size: 1.25rem; }
   /* Mobile Nav */
   .nav-toggle {
     display: flex;
+    position: relative;
+    z-index: 1002;
   }
 
   .nav-links {
@@ -1320,15 +1281,18 @@ h4 { font-size: 1.25rem; }
     right: -100%;
     width: 80%;
     max-width: 360px;
-    height: 100vh;
+    height: 100vh; /* fallback */
+    height: 100dvh;
     background: var(--color-bg-elevated);
     flex-direction: column;
     justify-content: center;
     gap: 28px;
     padding: 40px;
+    padding-top: max(40px, env(safe-area-inset-top));
+    padding-bottom: max(40px, env(safe-area-inset-bottom));
     transition: right var(--transition-base);
     box-shadow: -20px 0 60px rgba(0, 0, 0, 0.5);
-    z-index: 999;
+    z-index: 1001; /* above .site-header (1000) so links aren't blocked */
   }
 
   .nav-links.open {
@@ -1337,6 +1301,8 @@ h4 { font-size: 1.25rem; }
 
   .nav-links a {
     font-size: 1rem;
+    display: block;
+    padding: 8px 0; /* larger tap target */
   }
 
   .nav-overlay {
@@ -1344,7 +1310,7 @@ h4 { font-size: 1.25rem; }
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 998;
+    z-index: 1000; /* sits at header level, below nav panel */
   }
 
   .nav-overlay.active {
@@ -1353,7 +1319,9 @@ h4 { font-size: 1.25rem; }
 
   /* Hero */
   .hero {
-    min-height: 90vh;
+    min-height: 90vh;    /* fallback */
+    min-height: 90dvh;
+    padding-top: calc(var(--header-height) + 24px);
     padding-bottom: 64px;
   }
 
@@ -1364,24 +1332,6 @@ h4 { font-size: 1.25rem; }
   .btn {
     width: 100%;
     justify-content: center;
-  }
-
-  /* Hero paths — stack on mobile */
-  .hero-paths {
-    flex-direction: column;
-  }
-
-  .hero-path--drone {
-    border-right: 1px solid var(--color-accent);
-    border-bottom: none;
-  }
-
-  .hero-path-divider {
-    padding: 12px 0;
-    border-left: 1px solid rgba(255,255,255,0.1);
-    border-right: 1px solid rgba(255,255,255,0.1);
-    border-top: none;
-    border-bottom: none;
   }
 
   /* Stats */
