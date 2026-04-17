@@ -290,12 +290,19 @@ h4 { font-size: 1.25rem; }
   position: relative;
   z-index: 2;
   padding: calc(var(--header-height) + 80px) 32px 0 40px;
-  border-right: 1px solid var(--color-border);
+  border-right: 1px solid rgba(107, 143, 113, 0.25);
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 0;
+  /* Dark scrim so rail text is legible against any photo */
+  background: linear-gradient(
+    to right,
+    rgba(10, 8, 5, 0.78) 0%,
+    rgba(10, 8, 5, 0.55) 85%,
+    rgba(10, 8, 5, 0) 100%
+  );
 }
 
 .hero-rail-top {
@@ -320,6 +327,7 @@ h4 { font-size: 1.25rem; }
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--color-text-muted);
+  text-shadow: 0 1px 8px rgba(0,0,0,0.9);
 }
 
 .rail-value {
@@ -329,14 +337,15 @@ h4 { font-size: 1.25rem; }
   text-transform: uppercase;
   color: var(--color-text);
   font-weight: 400;
-  text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+  text-shadow: 0 1px 10px rgba(0,0,0,0.95), 0 2px 20px rgba(0,0,0,0.6);
 }
 
 .rail-coords {
   font-family: var(--font-mono);
   font-size: 0.65rem;
   letter-spacing: 0.14em;
-  color: var(--color-text-dim);
+  color: var(--color-text-muted); /* lifted from text-dim — legible against bright photos */
+  text-shadow: 0 1px 8px rgba(0,0,0,0.9);
 }
 
 /* Right main content */
