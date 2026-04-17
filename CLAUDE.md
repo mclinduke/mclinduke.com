@@ -19,6 +19,6 @@ Always provide code changes as a unified diff and omit conversational prose unle
 
 ## Environment
 
-- Python 3 is available. Node.js is NOT installed — never propose Node/npm solutions.
+- Python 3 and Node.js (v25) are both available.
 - When a task requires sudo or a macOS privacy setting that can't be scripted, surface the manual step upfront.
 - Pre-flight check: confirm required CLIs exist before committing to an approach.
