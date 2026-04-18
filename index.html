@@ -3,38 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>McLin "Duke" Sanders | FAA Part 107 Drone Pilot & Aerial Cinematographer</title>
+  <title>McLin "Duke" Sanders · Field Record · Park City, UT</title>
   <link rel="canonical" href="https://mclinduke.com/">
-  <meta name="description" content="FAA Part 107 aerial cinematographer available for commercial, event, and real estate work. Based in Park City, Utah. 6,500+ miles of backcountry behind the lens.">
+  <meta name="description" content="FAA Part 107 aerial cinematographer. 6,500 miles of backcountry across three continents. Based in Park City, Utah.">
   <meta name="author" content="McLin Sanders">
   <meta name="google-site-verification" content="puQ9VuF_34K3Ac9qaL5yeiUeyy6LY2HyMB2T624-4vM" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="McLin 'Duke' Sanders | FAA Drone Pilot & Aerial Cinematographer">
-  <meta property="og:description" content="FAA Part 107 aerial cinematographer. Commercial, event, and real estate work. Park City, Utah. 6,500+ miles of backcountry behind the lens.">
+  <meta property="og:title" content="McLin 'Duke' Sanders · 6,500 miles. No shortcuts.">
+  <meta property="og:description" content="FAA Part 107 aerial cinematographer. 6,500 miles of backcountry. Park City, Utah.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mclinduke.com">
   <meta property="og:image" content="https://mclinduke.com/images/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://mclinduke.com/images/og-image.jpg">
-  <meta name="twitter:title" content="McLin 'Duke' Sanders | FAA Drone Pilot & Aerial Cinematographer">
-  <meta name="twitter:description" content="FAA Part 107 aerial cinematographer. Commercial, event, and real estate work. Park City, Utah.">
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="css/style.min.css?v=19">
-  <link rel="stylesheet" href="css/trail-map.min.css?v=10">
-  <link rel="stylesheet" href="css/drone-section.min.css?v=2">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <link rel="stylesheet" href="css/redesign.css?v=1">
 
-  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -49,598 +39,412 @@
       "https://www.youtube.com/@mclinsanders67"
     ],
     "jobTitle": "FAA Part 107 Drone Pilot & Aerial Cinematographer",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Park City",
-      "addressRegion": "UT",
-      "addressCountry": "US"
-    },
-    "knowsAbout": [
-      "Thru-hiking",
-      "Aerial photography",
-      "Drone cinematography",
-      "Wilderness expeditions",
-      "Backcountry navigation"
-    ]
+    "address": { "@type": "PostalAddress", "addressLocality": "Park City", "addressRegion": "UT", "addressCountry": "US" }
   }
   </script>
 
-  <!-- Favicon (swap with real one later) -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <script src="js/analytics.min.js" defer></script>
 </head>
-<body>
+<body class="rd">
 
-  <!-- ===== HEADER ===== -->
-  <header class="site-header">
-    <div class="header-inner">
-      <a href="/" class="site-logo">McLin <span>Duke</span> Sanders</a>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="#trails">Trails</a></li>
-          <li><a href="pages/drone.html">Drone</a></li>
-          <li><a href="pages/gallery.html">Gallery</a></li>
-          <li><a href="#youtube">YouTube</a></li>
-          <li><a href="pages/about.html">About</a></li>
-          <li><a href="pages/contact.html">Contact</a></li>
-        </ul>
-      </nav>
-      <button class="nav-toggle" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
+  <!-- ═══════════════ Custom cursor (desktop) ═══════════════ -->
+  <div id="rd-cursor" aria-hidden="true"></div>
+  <div id="rd-cursor-coord" class="rd-cursor-coord" aria-hidden="true"></div>
+
+  <!-- ═══════════════ Preload calibration ═══════════════ -->
+  <div id="rd-preload">
+    <div class="rd-preload-line"></div>
+    <div class="rd-preload-coords" id="rd-preload-coords">&nbsp;</div>
+  </div>
+
+  <!-- ═══════════════ Persistent HUD ═══════════════ -->
+  <div class="rd-hud" aria-hidden="true">
+    <div class="rd-hud-corner rd-hud-tl">
+      <b>MS</b> <span class="sage">·</span> Duke of the Trail
     </div>
-    <div class="nav-overlay"></div>
+    <div class="rd-hud-corner rd-hud-tr" id="rd-hud-coords">
+      40.6461° N · 111.4980° W
+    </div>
+    <div class="rd-hud-corner rd-hud-bl" id="rd-hud-section">
+      § 00 · Trailhead
+    </div>
+    <div class="rd-hud-corner rd-hud-br">
+      <span id="rd-hud-distance">0000</span> / 6500 mi
+    </div>
+    <div class="rd-hud-rail">
+      <div class="rd-hud-rail-fill" id="rd-hud-rail-fill"></div>
+      <div class="rd-hud-rail-dot" id="rd-hud-rail-dot"></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ Floating nav ═══════════════ -->
+  <header class="rd-nav" role="banner">
+    <div class="rd-nav-inner">
+      <a href="#rd-hero" class="rd-nav-logo rd-nav-dot" aria-label="Home"></a>
+      <a href="#rd-dossier">Dossier</a>
+      <a href="#rd-traverse">Traverse</a>
+      <a href="#rd-fieldwork">Fieldwork</a>
+      <a href="#rd-press">Press</a>
+      <a href="#rd-ee">Expedition</a>
+      <a href="#rd-footer">Inquire</a>
+    </div>
   </header>
 
-  <!-- ===== HERO ===== -->
-  <section class="hero">
-    <div class="hero-image" style="background-image: url('images/hero/main-hero.jpg'); background-position: 35% center;"></div>
-    <div class="hero-bg"></div>
-
-    <!-- Left metadata rail -->
-    <div class="hero-rail">
-      <div class="hero-rail-top">
-        <div class="hero-rail-item">
-          <span class="rail-label">Based</span>
-          <strong class="rail-value">Park City, Utah</strong>
-          <span class="rail-coords">40.6461° N · 111.4980° W</span>
-        </div>
-        <div class="hero-rail-item">
-          <span class="rail-label">Credentials</span>
-          <strong class="rail-value">FAA Part 107</strong>
-          <span class="rail-coords">BBA Entrepreneurship</span>
-        </div>
-        <div class="hero-rail-item">
-          <span class="rail-label">Available for hire</span>
-          <strong class="rail-value">Aerial Cinematography</strong>
-          <span class="rail-coords">Commercial · Events · Real Estate</span>
-        </div>
-        <div class="hero-rail-item">
-          <span class="rail-label">Founding</span>
-          <strong class="rail-value">Expedition Excellence</strong>
-          <span class="rail-coords">Guide · Curator</span>
-        </div>
-      </div>
-      <div class="hero-rail-item hero-rail-est">
-        <span class="rail-label">Est.</span>
-        <strong class="rail-value">2020</strong>
-      </div>
-    </div>
-
-    <!-- Right main content -->
-    <div class="hero-main">
-      <h1>
-        <span class="hero-line"><span class="hero-line-inner">Drone Pilot.</span></span>
-        <span class="hero-line"><span class="hero-line-inner">Outdoorsman.</span></span>
-        <span class="hero-line"><span class="hero-line-inner"><em>Duke of the Trail.</em></span></span>
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <section class="rd-hero" id="rd-hero">
+    <div class="rd-hero-bg" style="background-image:url('images/hero/main-hero.jpg'); background-position:35% center;"></div>
+    <div class="rd-hero-grain"></div>
+    <div class="rd-hero-content">
+      <div class="rd-kicker">Field Record · 2020 → Present</div>
+      <h1 class="rd-hero-title">
+        <span class="rd-hero-line"><span>The path</span></span>
+        <span class="rd-hero-line"><em>shaped</em></span>
+        <span class="rd-hero-line"><span>the person.</span></span>
       </h1>
-      <p class="hero-description hero-desc-reveal">
-        FAA Part 107 aerial cinematographer available for commercial, event,
-        and real estate work. Based in Park City, Utah.
-      </p>
-      <div class="hero-cta hero-desc-reveal" style="transition-delay: 0.1s;">
-        <a href="pages/drone.html" class="btn btn-primary">Everything drone: click here</a>
+      <div class="rd-hero-sub">
+        <div class="rd-hero-byline">McLin &ldquo;Duke&rdquo; Sanders &mdash; six thousand five hundred miles of American and international backcountry, on foot.</div>
+        <div class="rd-hero-meta">Est. 2020 &nbsp;·&nbsp; Madison, MS → Park City, UT</div>
+      </div>
+    </div>
+    <div class="rd-scroll-cue">Traverse</div>
+  </section>
+
+  <!-- ═══════════════ DOSSIER · CH. I ═══════════════ -->
+  <section class="rd-dossier" id="rd-dossier">
+    <aside class="rd-dossier-chapter">
+      <span class="chap">Ch. I</span>
+      <div class="div"></div>
+      <span>The Subject</span>
+    </aside>
+    <div class="rd-dossier-body">
+      <p class="rd-lede rd-reveal">In 2020 I graduated high school into a pandemic and thru-hiked the Appalachian Trail instead of going to college. 2,193 miles, Georgia to Maine, alone. That decision became a career.</p>
+      <p class="rd-reveal" data-delay="1">Since then: the Pacific Crest Trail, the Colorado Trail, Everest Base Camp, the Tour du Mont Blanc. 6,500+ miles across three continents and nine countries. I'm based in Park City, Utah, building <b>Expedition Excellence</b> to bring serious wilderness experiences to people who are ready for the real thing.</p>
+      <p class="rd-reveal" data-delay="2">Available for aerial cinematography &mdash; commercial, event, real estate. FAA Part 107. References on request.</p>
+    </div>
+    <aside class="rd-dossier-meta rd-reveal" data-delay="2">
+      <div class="rd-meta-row"><span>Subject</span><b>MS / Duke</b></div>
+      <div class="rd-meta-row"><span>Origin</span><b>Madison, MS</b></div>
+      <div class="rd-meta-row"><span>Base</span><b>Park City, UT</b></div>
+      <div class="rd-meta-row"><span>Degree</span><b>BBA · Ole Miss '25</b></div>
+      <div class="rd-meta-row"><span>Cert.</span><b>FAA Part 107</b></div>
+      <div class="rd-meta-row"><span>Rank</span><b>Eagle Scout</b></div>
+      <div class="rd-meta-row">
+        <span class="pullquote">&ldquo;Let the work speak. The restraint is the signal.&rdquo;</span>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ═══════════════ STATS ═══════════════ -->
+  <section class="rd-stats" id="rd-stats">
+    <div class="rd-stats-inner">
+      <div class="rd-stat rd-reveal">
+        <div class="rd-stat-n"><span data-count="6500" data-suffix="+">0</span></div>
+        <div class="rd-stat-l">Trail Miles</div>
+      </div>
+      <div class="rd-stat rd-reveal" data-delay="1">
+        <div class="rd-stat-n"><span data-count="10">0</span></div>
+        <div class="rd-stat-l">Major Trails</div>
+      </div>
+      <div class="rd-stat rd-reveal" data-delay="2">
+        <div class="rd-stat-n"><span data-count="365" data-suffix="+">0</span></div>
+        <div class="rd-stat-l">Nights Outside</div>
+      </div>
+      <div class="rd-stat rd-reveal" data-delay="3">
+        <div class="rd-stat-n"><span data-count="9">0</span></div>
+        <div class="rd-stat-l">Countries</div>
+      </div>
+      <div class="rd-stat rd-reveal" data-delay="3">
+        <div class="rd-stat-n"><span data-count="1280000" data-suffix="+">0</span></div>
+        <div class="rd-stat-l">Ft Elevation</div>
+        <div class="rd-stat-sub">44&times; Everest from sea level</div>
       </div>
     </div>
   </section>
 
-  <!-- ===== STATS BAR ===== -->
-  <section class="stats-bar">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-item" data-animate>
-          <div class="stat-number" data-count="6,500+">0</div>
-          <div class="stat-label">Miles Hiked</div>
-        </div>
-        <div class="stat-item" data-animate data-animate-delay="1">
-          <div class="stat-number" data-count="10">0</div>
-          <div class="stat-label">Major Trails</div>
-        </div>
-        <div class="stat-item" data-animate data-animate-delay="2">
-          <div class="stat-number">365+</div>
-          <div class="stat-label">Nights in the Backcountry</div>
-        </div>
-        <div class="stat-item" data-animate data-animate-delay="3">
-          <div class="stat-number">5</div>
-          <div class="stat-label">Countries Explored</div>
-        </div>
-        <div class="stat-item" data-animate data-animate-delay="4">
-          <div class="stat-number">1.28M+</div>
-          <div class="stat-label">Ft Elevation Gained</div>
-          <div class="stat-sublabel">44&times; Everest from sea level</div>
-        </div>
-      </div>
+  <!-- ═══════════════ THE LONG TRAVERSE · CH. II ═══════════════ -->
+  <section class="rd-traverse" id="rd-traverse">
+    <div class="rd-traverse-intro">
+      <div class="rd-kicker rd-reveal">Ch. II · The Long Traverse</div>
+      <h2 class="rd-reveal" data-delay="1">Ten trails.<br><em>Three continents.</em></h2>
+      <p class="rd-reveal" data-delay="2">Scroll to move through the record. Each chapter opens to its full account.</p>
     </div>
-  </section>
 
-  <!-- ===== ABOUT PREVIEW ===== -->
-  <section class="section" id="about">
-    <div class="container">
-      <div class="about-preview">
-        <div class="about-image" data-animate>
-          <img src="images/about/12CC93C9-43E6-4902-ADB0-2A70F3236516_1_102_o.jpeg" alt="McLin Duke Sanders" loading="lazy">
+    <div class="rd-traverse-pin" id="rd-traverse-pin">
+      <div class="rd-traverse-sticky">
+        <div class="rd-traverse-header">
+          <div><span class="sage">LAT</span> VARIABLE &nbsp;·&nbsp; <span class="sage">BEARING</span> EAST → WEST</div>
+          <div>01 / 10 → ← scroll ← 10 / 10</div>
         </div>
-        <div class="about-text" data-animate data-animate-delay="2">
-          <span class="section-label">About</span>
-          <h2 class="section-title">The path shaped<br>the person.</h2>
-          <p>
-            In 2020, I graduated high school into a pandemic and thru-hiked the Appalachian
-            Trail instead of going to college. 2,193 miles, Georgia to Maine, alone. That
-            decision became a career.
-          </p>
-          <p>
-            Since then: the Pacific Crest Trail, the Colorado Trail, Everest Base Camp,
-            the Tour du Mont Blanc. 6,500+ miles across three continents and five countries.
-            I'm based in Park City, Utah, building Expedition Excellence to bring serious
-            wilderness experiences to the people who are ready for the real thing.
-          </p>
-          <ul class="credentials">
-            <li>BBA Entrepreneurship, University of Mississippi, 3.8 GPA</li>
-            <li>Eagle Scout, Boy Scouts of America</li>
-            <li>FAA Part 107 Certified Drone Pilot</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ===== TRAIL MAP ===== -->
-  <section class="section trail-world-map-section" id="trail-map">
-    <div class="container trail-map-header" data-animate>
-      <div class="trail-map-header-left">
-        <span class="section-label">Where I've Been</span>
-        <h2 class="section-title">10 trails. <em>3 continents.</em></h2>
-      </div>
-      <p class="section-subtitle">Click any marker to explore the trail.</p>
-    </div>
-    <div class="trail-map-wrap" data-animate data-animate-delay="1">
-      <div class="trail-map-container" id="trail-map-container">
-        <div class="trail-map-regions">
-          <button data-region="usa" class="active">United States</button>
-          <button data-region="alps">Alps</button>
-          <button data-region="nepal">Nepal</button>
-        </div>
-        <div class="trail-map-panels">
-          <div class="trail-map-panel active" data-panel="usa">
-            <div class="trail-map-panel-label">North America · 12 Trails · 6,197 mi</div>
-            <div id="map-usa" class="trail-leaflet-map"></div>
-          </div>
-          <div class="trail-map-panel" data-panel="alps">
-            <div class="trail-map-panel-label">European Alps · Tour du Mont Blanc</div>
-            <div id="map-alps" class="trail-leaflet-map"></div>
-          </div>
-          <div class="trail-map-panel" data-panel="nepal">
-            <div class="trail-map-panel-label">Himalayas · Everest Base Camp</div>
-            <div id="map-nepal" class="trail-leaflet-map"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ===== FEATURED TRAILS ===== -->
-  <section class="section trails-section" id="trails">
-    <div class="trails-journey-line" id="trails-journey-line" aria-hidden="true"></div>
-    <div class="container">
-      <span class="section-label" data-animate>Trail Resume</span>
-      <h2 class="section-title" data-animate>6,500 miles of<br>earned experience.</h2>
-      <p class="section-subtitle" data-animate>
-        Most of what I know, I learned out there. Ten trails, 6,500+ miles across America, Europe, and the Himalayas. Each one harder and better than the last.
-      </p>
-
-      <!-- Signature Trails -->
-      <div class="trails-tier-label" data-animate>Signature</div>
-      <div class="trails-grid trails-grid-signature">
-        <!-- AT -->
-        <div class="trail-card trail-card-feature" data-animate>
-          <div class="trail-card-bg" style="background-image: url('images/trails/at/at-hero.jpg');"></div>
-          <div class="trail-card-overlay"></div>
-          <div class="trail-card-content">
-            <span class="trail-card-year">2020 &middot; Thru-Hike</span>
-            <h3>Appalachian Trail</h3>
-            <div class="trail-card-stats">
-              <span>2,193 mi</span>
-              <span>Georgia &rarr; Maine</span>
+        <div class="rd-traverse-track" id="rd-traverse-track">
+          <!-- 01 AT -->
+          <article class="rd-trail">
+            <div class="rd-trail-bg" style="background-image:url('images/trails/at/at-hero.jpg');"></div>
+            <div class="rd-trail-content">
+              <div class="rd-trail-idx">01 / 10 · 2020</div>
+              <div class="rd-trail-body">
+                <div class="rd-trail-meta">NOBO Thru-Hike · 5 months</div>
+                <h3>Appalachian Trail</h3>
+                <div class="rd-trail-stats"><b>2,193 mi</b><span>Georgia → Maine</span><span>14 states</span></div>
+                <p class="rd-trail-note">Graduated into a pandemic. Chose the trail over a freshman year. Only ~22,000 completions since 1936.</p>
+                <a href="pages/appalachian-trail.html" class="rd-trail-link">Read the account</a>
+              </div>
             </div>
-          </div>
-          <a href="pages/appalachian-trail.html" class="trail-card-link" aria-label="Appalachian Trail"></a>
+          </article>
+
+          <!-- 02 PCT -->
+          <article class="rd-trail">
+            <div class="rd-trail-bg" style="background-image:url('images/trails/pct/pct-hero.jpg');"></div>
+            <div class="rd-trail-content">
+              <div class="rd-trail-idx">02 / 10 · 2025</div>
+              <div class="rd-trail-body">
+                <div class="rd-trail-meta">Thru-Hike · Mexico → Canada</div>
+                <h3>Pacific Crest Trail</h3>
+                <div class="rd-trail-stats"><b>2,650 mi</b><span>CA · OR · WA</span></div>
+                <p class="rd-trail-note">Desert, High Sierra, North Cascades. The longest continuous mile count of the record.</p>
+                <a href="pages/pacific-crest-trail.html" class="rd-trail-link">Read the account</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 03 EBC -->
+          <article class="rd-trail">
+            <div class="rd-trail-bg" style="background-image:url('images/trails/ebc/ebc-hero.jpg');"></div>
+            <div class="rd-trail-content">
+              <div class="rd-trail-idx">03 / 10 · 2024</div>
+              <div class="rd-trail-body">
+                <div class="rd-trail-meta">Solo Expedition · Nepal</div>
+                <h3>Everest Base Camp</h3>
+                <div class="rd-trail-stats"><b>17,700 ft</b><span>Helicopter evac · HACE</span></div>
+                <p class="rd-trail-note">Fifty miles. The hardest thing I've done. Altitude won.</p>
+                <a href="pages/everest-base-camp.html" class="rd-trail-link">Read the account</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 04 TMB -->
+          <article class="rd-trail">
+            <div class="rd-trail-bg" style="background-image:url('images/trails/tmb/tmb-hero.jpg');"></div>
+            <div class="rd-trail-content">
+              <div class="rd-trail-idx">04 / 10 · 2024</div>
+              <div class="rd-trail-body">
+                <div class="rd-trail-meta">Seven Days · Three Countries</div>
+                <h3>Tour du Mont Blanc</h3>
+                <div class="rd-trail-stats"><b>100 mi</b><span>France · Italy · Switzerland</span></div>
+                <p class="rd-trail-note">Alpine villages as checkpoints. Now my favorite.</p>
+                <a href="pages/tour-du-mont-blanc.html" class="rd-trail-link">Read the account</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 05 Colorado -->
+          <article class="rd-trail">
+            <div class="rd-trail-bg" style="background-image:url('images/trails/colorado/ct-hero.jpg');"></div>
+            <div class="rd-trail-content">
+              <div class="rd-trail-idx">05 / 10 · 2022</div>
+              <div class="rd-trail-body">
+                <div class="rd-trail-meta">30 Days · Eight Ranges</div>
+                <h3>Colorado Trail</h3>
+                <div class="rd-trail-stats"><b>485 mi</b><span>Durango → Denver</span><span>Sustained 10K ft</span></div>
+                <p class="rd-trail-note">Higher, thinner, more remote than the AT. The natural next step.</p>
+                <a href="pages/colorado-trail.html" class="rd-trail-link">Read the account</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 06 BMT -->
+          <article class="rd-trail">
+            <div class="rd-trail-bg" style="background-image:url('images/trails/bmt/bmt-hero.jpg');"></div>
+            <div class="rd-trail-content">
+              <div class="rd-trail-idx">06 / 10 · 2025</div>
+              <div class="rd-trail-body">
+                <div class="rd-trail-meta">Winter Expedition · Nine Days</div>
+                <h3>Benton MacKaye Trail</h3>
+                <div class="rd-trail-stats"><b>150 mi</b><span>−12°F · 10″ snow</span></div>
+                <p class="rd-trail-note">Water bottles froze solid. Newfound Gap closed mid-route. Returning to finish.</p>
+                <a href="pages/benton-mackaye-trail.html" class="rd-trail-link">Read the account</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 07 Uinta -->
+          <article class="rd-trail">
+            <div class="rd-trail-bg" style="background-image:url('images/trails/uinta/uinta-hero.jpg');"></div>
+            <div class="rd-trail-content">
+              <div class="rd-trail-idx">07 / 10 · 2023</div>
+              <div class="rd-trail-body">
+                <div class="rd-trail-meta">Solo · No Signal</div>
+                <h3>Uinta Highline</h3>
+                <div class="rd-trail-stats"><b>86 mi</b><span>Utah</span></div>
+                <p class="rd-trail-note">Topo maps only. Three 20-mile days back-to-back. First fully off-grid week.</p>
+                <a href="pages/uinta-highline-trail.html" class="rd-trail-link">Read the account</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 08 Pinhoti -->
+          <article class="rd-trail">
+            <div class="rd-trail-bg" style="background-image:url('images/trails/pinhoti/pinhoti-hero.jpg');"></div>
+            <div class="rd-trail-content">
+              <div class="rd-trail-idx">08 / 10 · 2023</div>
+              <div class="rd-trail-body">
+                <div class="rd-trail-meta">19 Days · Southern Appalachians</div>
+                <h3>Pinhoti Trail</h3>
+                <div class="rd-trail-stats"><b>335 mi</b><span>Alabama → Georgia</span></div>
+                <p class="rd-trail-note">Resupplied mid-trail at every Chick-fil-A within range.</p>
+                <a href="pages/pinhoti-trail.html" class="rd-trail-link">Read the account</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 09 TRT -->
+          <article class="rd-trail">
+            <div class="rd-trail-bg" style="background-image:url('images/trails/trt/trt-hero.jpg');"></div>
+            <div class="rd-trail-content">
+              <div class="rd-trail-idx">09 / 10 · 2023</div>
+              <div class="rd-trail-body">
+                <div class="rd-trail-meta">Loop · 11 Days</div>
+                <h3>Tahoe Rim Trail</h3>
+                <div class="rd-trail-stats"><b>170 mi</b><span>CA · NV</span></div>
+                <p class="rd-trail-note">Desolation Wilderness in full summer. Hitchhiked out of South Lake.</p>
+                <a href="pages/tahoe-rim-trail.html" class="rd-trail-link">Read the account</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 10 Lost Coast -->
+          <article class="rd-trail">
+            <div class="rd-trail-bg" style="background-image:url('images/trails/lost-coast/lct-hero.jpg');"></div>
+            <div class="rd-trail-content">
+              <div class="rd-trail-idx">10 / 10 · 2023</div>
+              <div class="rd-trail-body">
+                <div class="rd-trail-meta">Coastal · Two Days</div>
+                <h3>Lost Coast Trail</h3>
+                <div class="rd-trail-stats"><b>25 mi</b><span>N. California</span></div>
+                <p class="rd-trail-note">Five-hour drive on backroads. Sea lions, tide-timed crossings.</p>
+                <a href="pages/lost-coast-trail.html" class="rd-trail-link">Read the account</a>
+              </div>
+            </div>
+          </article>
         </div>
 
-        <!-- PCT -->
-        <div class="trail-card trail-card-feature" data-animate data-animate-delay="1">
-          <div class="trail-card-bg" style="background-image: url('images/trails/pct/pct-hero.jpg');"></div>
-          <div class="trail-card-overlay"></div>
-          <div class="trail-card-content">
-            <span class="trail-card-year">2025 &middot; Thru-Hike</span>
-            <h3>Pacific Crest Trail</h3>
-            <div class="trail-card-stats">
-              <span>2,650 mi</span>
-              <span>Mexico &rarr; Canada</span>
-            </div>
-          </div>
-          <a href="pages/pacific-crest-trail.html" class="trail-card-link" aria-label="Pacific Crest Trail"></a>
-        </div>
-
-        <!-- EBC -->
-        <div class="trail-card trail-card-banner" data-animate data-animate-delay="2">
-          <div class="trail-card-bg" style="background-image: url('images/trails/ebc/ebc-hero.jpg');"></div>
-          <div class="trail-card-overlay"></div>
-          <div class="trail-card-content">
-            <span class="trail-card-year">2024 &middot; Expedition</span>
-            <h3>Everest Base Camp</h3>
-            <div class="trail-card-stats">
-              <span>17,700 ft</span>
-              <span>Nepal</span>
-            </div>
-          </div>
-          <a href="pages/everest-base-camp.html" class="trail-card-link" aria-label="Everest Base Camp"></a>
-        </div>
-      </div>
-
-      <!-- Field Expeditions -->
-      <div class="trails-tier-label" data-animate>Field Expeditions</div>
-      <div class="trails-grid trails-grid-regional">
-        <!-- Colorado Trail -->
-        <div class="trail-card" data-animate>
-          <div class="trail-card-bg" style="background-image: url('images/trails/colorado/ct-hero.jpg');"></div>
-          <div class="trail-card-overlay"></div>
-          <div class="trail-card-content">
-            <span class="trail-card-year">2022 &middot; Thru-Hike</span>
-            <h3>Colorado Trail</h3>
-            <div class="trail-card-stats">
-              <span>485 mi</span>
-              <span>Colorado</span>
-            </div>
-          </div>
-          <a href="pages/colorado-trail.html" class="trail-card-link" aria-label="Colorado Trail"></a>
-        </div>
-
-        <!-- Pinhoti -->
-        <div class="trail-card" data-animate data-animate-delay="1">
-          <div class="trail-card-bg" style="background-image: url('images/trails/pinhoti/pinhoti-hero.jpg');"></div>
-          <div class="trail-card-overlay"></div>
-          <div class="trail-card-content">
-            <span class="trail-card-year">2023 &middot; Thru-Hike</span>
-            <h3>Pinhoti Trail</h3>
-            <div class="trail-card-stats">
-              <span>335 mi</span>
-              <span>Alabama &rarr; Georgia</span>
-            </div>
-          </div>
-          <a href="pages/pinhoti-trail.html" class="trail-card-link" aria-label="Pinhoti Trail"></a>
-        </div>
-
-        <!-- Tour du Mont Blanc -->
-        <div class="trail-card" data-animate data-animate-delay="2">
-          <div class="trail-card-bg" style="background-image: url('images/trails/tmb/tmb-hero.jpg');"></div>
-          <div class="trail-card-overlay"></div>
-          <div class="trail-card-content">
-            <span class="trail-card-year">2024 &middot; International</span>
-            <h3>Tour du Mont Blanc</h3>
-            <div class="trail-card-stats">
-              <span>100 mi</span>
-              <span>France &middot; Italy &middot; Switzerland</span>
-            </div>
-          </div>
-          <a href="pages/tour-du-mont-blanc.html" class="trail-card-link" aria-label="Tour du Mont Blanc"></a>
-        </div>
-
-        <!-- BMT -->
-        <div class="trail-card" data-animate>
-          <div class="trail-card-bg" style="background-image: url('images/trails/bmt/bmt-hero.jpg');"></div>
-          <div class="trail-card-overlay"></div>
-          <div class="trail-card-content">
-            <span class="trail-card-year">2025 &middot; Winter Expedition</span>
-            <h3>Benton MacKaye Trail</h3>
-            <div class="trail-card-stats">
-              <span>150 mi</span>
-              <span>Georgia &rarr; Tennessee</span>
-            </div>
-          </div>
-          <a href="pages/benton-mackaye-trail.html" class="trail-card-link" aria-label="Benton MacKaye Trail"></a>
-        </div>
-
-        <!-- Tahoe Rim -->
-        <div class="trail-card" data-animate data-animate-delay="1">
-          <div class="trail-card-bg" style="background-image: url('images/trails/trt/trt-hero.jpg');"></div>
-          <div class="trail-card-overlay"></div>
-          <div class="trail-card-content">
-            <span class="trail-card-year">2023</span>
-            <h3>Tahoe Rim Trail</h3>
-            <div class="trail-card-stats">
-              <span>170 mi</span>
-              <span>California &middot; Nevada</span>
-            </div>
-          </div>
-          <a href="pages/tahoe-rim-trail.html" class="trail-card-link" aria-label="Tahoe Rim Trail"></a>
-        </div>
-
-        <!-- Uinta Highline -->
-        <div class="trail-card" data-animate data-animate-delay="2">
-          <div class="trail-card-bg" style="background-image: url('images/trails/uinta/uinta-hero.jpg');"></div>
-          <div class="trail-card-overlay"></div>
-          <div class="trail-card-content">
-            <span class="trail-card-year">2023 &middot; Solo</span>
-            <h3>Uinta Highline Trail</h3>
-            <div class="trail-card-stats">
-              <span>86 mi</span>
-              <span>Utah</span>
-            </div>
-          </div>
-          <a href="pages/uinta-highline-trail.html" class="trail-card-link" aria-label="Uinta Highline Trail"></a>
-        </div>
-
-        <!-- Lost Coast -->
-        <div class="trail-card" data-animate>
-          <div class="trail-card-bg" style="background-image: url('images/trails/lost-coast/lct-hero.jpg');"></div>
-          <div class="trail-card-overlay"></div>
-          <div class="trail-card-content">
-            <span class="trail-card-year">2023</span>
-            <h3>Lost Coast Trail</h3>
-            <div class="trail-card-stats">
-              <span>25 mi</span>
-              <span>California</span>
-            </div>
-          </div>
-          <a href="pages/lost-coast-trail.html" class="trail-card-link" aria-label="Lost Coast Trail"></a>
-        </div>
-
-        <!-- Eagle Rock Loop -->
-        <div class="trail-card" data-animate data-animate-delay="1">
-          <div class="trail-card-bg" style="background-image: url('images/trails/eagle-rock/IMG_3235.jpeg');"></div>
-          <div class="trail-card-overlay"></div>
-          <div class="trail-card-content">
-            <span class="trail-card-year">2025 &middot; Backpack</span>
-            <h3>Eagle Rock Loop</h3>
-            <div class="trail-card-stats">
-              <span>26.8 mi</span>
-              <span>Arkansas</span>
-            </div>
-          </div>
-          <a href="pages/eagle-rock-loop.html" class="trail-card-link" aria-label="Eagle Rock Loop"></a>
-        </div>
-
-        <!-- Escalante Canyon Loop -->
-        <div class="trail-card" data-animate data-animate-delay="2">
-          <div class="trail-card-bg" style="background-image: url('images/trails/escalante/IMG_5417.jpeg');"></div>
-          <div class="trail-card-overlay"></div>
-          <div class="trail-card-content">
-            <span class="trail-card-year">2026 &middot; Canyon Route</span>
-            <h3>Escalante Canyon Loop</h3>
-            <div class="trail-card-stats">
-              <span>25.1 mi</span>
-              <span>Utah</span>
-            </div>
-          </div>
-          <a href="pages/escalante-canyon-loop.html" class="trail-card-link" aria-label="Escalante Canyon Loop"></a>
-        </div>
-
-        <!-- Mount Whitney -->
-        <div class="trail-card" data-animate>
-          <div class="trail-card-bg" style="background-image: url('images/trails/whitney/IMG_9332.JPG');"></div>
-          <div class="trail-card-overlay"></div>
-          <div class="trail-card-content">
-            <span class="trail-card-year">2025 &middot; Summit</span>
-            <h3>Mount Whitney</h3>
-            <div class="trail-card-stats">
-              <span>14,505 ft</span>
-              <span>California</span>
-            </div>
-          </div>
-          <a href="pages/mount-whitney.html" class="trail-card-link" aria-label="Mount Whitney"></a>
-        </div>
-
-        <!-- Mount Shasta -->
-        <div class="trail-card" data-animate data-animate-delay="1">
-          <div class="trail-card-bg" style="background-image: url('images/trails/shasta/IMG_8746.jpeg');"></div>
-          <div class="trail-card-overlay"></div>
-          <div class="trail-card-content">
-            <span class="trail-card-year">2025 &middot; Mountaineering</span>
-            <h3>Mount Shasta</h3>
-            <div class="trail-card-stats">
-              <span>14,179 ft</span>
-              <span>California</span>
-            </div>
-          </div>
-          <a href="pages/mount-shasta.html" class="trail-card-link" aria-label="Mount Shasta"></a>
+        <!-- Elevation profile -->
+        <div class="rd-traverse-elev">
+          <svg viewBox="0 0 1000 60" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="rd-elev-grad" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" stop-color="#6b8f71" stop-opacity=".6"/>
+                <stop offset="100%" stop-color="#6b8f71" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <path class="elev-line" d="M 0,50 L 80,30 L 160,10 L 240,25 L 320,8 L 400,35 L 480,18 L 560,40 L 640,22 L 720,45 L 800,28 L 880,38 L 960,50 L 1000,48"/>
+            <path class="elev-fill" d="M 0,50 L 80,30 L 160,10 L 240,25 L 320,8 L 400,35 L 480,18 L 560,40 L 640,22 L 720,45 L 800,28 L 880,38 L 960,50 L 1000,48 L 1000,60 L 0,60 Z"/>
+            <path id="rd-elev-progress" class="elev-progress" d="M 0,50 L 80,30 L 160,10 L 240,25 L 320,8 L 400,35 L 480,18 L 560,40 L 640,22 L 720,45 L 800,28 L 880,38 L 960,50 L 1000,48"/>
+          </svg>
         </div>
       </div>
     </div>
   </section>
 
-    <!-- ===== GALLERY PREVIEW ===== -->
-  <section class="section gallery-preview-section" id="gallery">
-    <div class="container gallery-section-header" data-animate>
-      <span class="section-label">Photography</span>
-      <h2 class="section-title">The world through <em>my lens.</em></h2>
-      <p class="gallery-section-subtitle">612 trail photos from 6,500+ miles across 5 countries.</p>
-      <a href="pages/gallery.html" class="btn btn-primary btn-arrow">View Full Gallery</a>
+  <!-- ═══════════════ FIELDWORK · CH. III ═══════════════ -->
+  <section class="rd-fieldwork" id="rd-fieldwork">
+    <div class="rd-section-heading">
+      <span class="rd-kicker rd-reveal">Ch. III · Fieldwork</span>
+      <h2 class="rd-reveal" data-delay="1">Above the terrain.<br><em>Beyond the frame.</em></h2>
     </div>
-    <div class="container">
-      <div class="gallery-preview-grid" id="home-gallery-grid" data-animate data-animate-delay="1"></div>
+    <div class="rd-field-grid">
+      <a class="rd-field-tile rd-reveal" href="pages/drone.html">
+        <img src="images/portfolio/drone/drone-02.jpg" alt="Aerial drone work" loading="lazy">
+        <div class="rd-field-tile-body">
+          <span class="rd-field-tile-num">001 · Aerial</span>
+          <h3>Drone <em>cinematography</em></h3>
+          <div class="rd-field-tile-arrow">FAA Part 107 · Book →</div>
+        </div>
+      </a>
+      <a class="rd-field-tile rd-reveal" data-delay="1" href="pages/gallery.html">
+        <img src="images/trails/tmb/tmb-hero.jpg" alt="Photography portfolio" loading="lazy">
+        <div class="rd-field-tile-body">
+          <span class="rd-field-tile-num">002 · Stills</span>
+          <h3>Photography <em>archive</em></h3>
+          <div class="rd-field-tile-arrow">612 frames · 5 countries →</div>
+        </div>
+      </a>
+      <a class="rd-field-tile rd-reveal" data-delay="2" href="https://www.youtube.com/@mclinsanders67" target="_blank" rel="noopener">
+        <img src="images/trails/uinta/uinta-hero.jpg" alt="Video field record" loading="lazy">
+        <div class="rd-field-tile-body">
+          <span class="rd-field-tile-num">003 · Motion</span>
+          <h3>Video <em>journal</em></h3>
+          <div class="rd-field-tile-arrow">YouTube @mclinsanders67 →</div>
+        </div>
+      </a>
     </div>
   </section>
 
-  <!-- ===== YOUTUBE ===== -->
-  <section class="section" id="youtube">
-    <div class="container">
-      <span class="section-label" data-animate>YouTube</span>
-      <h2 class="section-title" data-animate>From the field.</h2>
-      <p class="section-subtitle" data-animate>
-        Trail footage, gear reviews, and backcountry stories.
-      </p>
+  <!-- ═══════════════ CREDENTIALS TICKER ═══════════════ -->
+  <section class="rd-ticker" aria-hidden="true">
+    <div class="rd-ticker-track">
+      <span>FAA Part 107 Certified</span><span>Eagle Scout</span><span>BBA Ole Miss '25 · GPA 3.8</span><span>40 U.S. States</span><span>9 Countries</span><span>4 Continents</span><span>Voyage Utah Feature '24</span><span>Madison County Journal '22</span><span>Appalachian Trail · 2020</span><span>Pacific Crest Trail · 2025</span><span>Everest Base Camp · 2024</span><span>Tour du Mont Blanc · 2024</span>
+      <span>FAA Part 107 Certified</span><span>Eagle Scout</span><span>BBA Ole Miss '25 · GPA 3.8</span><span>40 U.S. States</span><span>9 Countries</span><span>4 Continents</span><span>Voyage Utah Feature '24</span><span>Madison County Journal '22</span><span>Appalachian Trail · 2020</span><span>Pacific Crest Trail · 2025</span><span>Everest Base Camp · 2024</span><span>Tour du Mont Blanc · 2024</span>
+    </div>
+  </section>
 
-      <div class="youtube-section" data-animate>
-        <div class="youtube-featured">
-          <a href="https://www.youtube.com/@mclinsanders67" target="_blank" rel="noopener" class="youtube-thumb-link">
-            <img src="https://img.youtube.com/vi/NggFyDf_T14/maxresdefault.jpg" alt="Solo Backpacking 3 Days Through Remote Southern Utah Canyons" loading="lazy">
-            <div class="youtube-play-overlay">
-              <div class="youtube-play-btn">&#9654;</div>
-            </div>
-          </a>
-          <div class="youtube-info">
-            <h3>Solo Backpacking 3 Days Through Remote Southern Utah Canyons</h3>
-            <p class="youtube-channel-link">
-              <a href="https://www.youtube.com/@mclinsanders67" target="_blank" rel="noopener" class="btn btn-outline btn-arrow">Visit YouTube Channel</a>
-            </p>
-          </div>
+  <!-- ═══════════════ PRESS · CH. IV ═══════════════ -->
+  <section class="rd-press" id="rd-press">
+    <div class="rd-section-heading">
+      <span class="rd-kicker rd-reveal">Ch. IV · Press</span>
+      <h2 class="rd-reveal" data-delay="1">As seen in.</h2>
+    </div>
+    <div class="rd-press-grid">
+      <a class="rd-press-card rd-reveal" href="https://voyageutah.com/interview/daily-inspiration-meet-mclin-sanders/" target="_blank" rel="noopener">
+        <span class="rd-press-pub">Voyage Utah Magazine</span>
+        <h3>Daily Inspiration: Meet McLin Sanders</h3>
+        <div class="rd-press-date"><span>June 2024</span><span>Read →</span></div>
+      </a>
+      <a class="rd-press-card rd-reveal" data-delay="1" href="https://madisoncountyjournal.com/stories/madison-man-hikes-appalachian-trail,34606" target="_blank" rel="noopener">
+        <span class="rd-press-pub">Madison County Journal</span>
+        <h3>Madison Man Hikes the Appalachian Trail</h3>
+        <div class="rd-press-date"><span>August 2022</span><span>Read →</span></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════════ EXPEDITION EXCELLENCE · CH. V ═══════════════ -->
+  <section class="rd-ee" id="rd-ee">
+    <div class="rd-ee-bg" style="background-image:url('images/trails/ebc/ebc-hero.jpg');"></div>
+    <div class="rd-ee-content">
+      <span class="rd-kicker rd-reveal">Ch. V · In Development</span>
+      <h2 class="rd-reveal" data-delay="1">Expedition Excellence.</h2>
+      <p class="rd-reveal" data-delay="2">The wilderness version of a five-star trip. Curated bespoke expeditions for those who want the real thing, built on 6,500 miles of lived experience &mdash; not a sales sheet. Domestic launch first. Details arriving soon.</p>
+      <a href="mailto:mclindukesanders@gmail.com?subject=Expedition%20Excellence%20Inquiry" class="rd-ee-cta rd-reveal" data-delay="3">Inquire</a>
+    </div>
+  </section>
+
+  <!-- ═══════════════ FOOTER · INQUIRE ═══════════════ -->
+  <footer class="rd-footer" id="rd-footer">
+    <div class="rd-footer-inner">
+      <div class="rd-footer-hero">
+        <span class="rd-kicker">§ End · Begin the Conversation</span>
+        <h2><em>Let's</em> build the route.</h2>
+        <div class="rd-footer-contacts">
+          <a href="mailto:mclindukesanders@gmail.com">mclindukesanders@gmail.com</a>
+          <a href="tel:+16019662282">601 · 966 · 2282</a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ===== DRONE ===== -->
-  <section class="drone-section" id="drone">
-
-    <div class="container">
-      <div class="drone-section-intro" data-animate>
-        <div class="drone-section-intro-left">
-          <span class="section-label">Drone</span>
-          <h2 class="section-title">Above the terrain.<br><em>Beyond the frame.</em></h2>
-        </div>
-        <div class="drone-section-intro-right">
-          <span class="drone-credential-badge">FAA Part 107 Certified &middot; Park City, UT</span>
-          <a href="pages/drone.html" class="btn btn-outline btn-arrow">Full Portfolio &rarr;</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="drone-section-grid" data-animate data-animate-delay="1">
-      <div class="dsg-item"><img src="images/portfolio/drone/drone-02.jpg" alt="Aerial landscape" loading="lazy"></div>
-      <div class="dsg-item"><img src="images/portfolio/drone/DJI_0476.jpeg" alt="Aerial drone shot" loading="lazy"></div>
-      <div class="dsg-item"><img src="images/portfolio/drone/3E4D824E-D986-4611-B968-186647AD9B3A_1_105_c.jpeg" alt="Aerial drone shot" loading="lazy"></div>
-      <div class="dsg-item"><img src="images/portfolio/drone/87F85BB1-B6C1-42C0-88DD-B3B5464A6559_1_105_c.jpeg" alt="Aerial drone shot" loading="lazy"></div>
-      <div class="dsg-item"><img src="images/portfolio/drone/C7B4340B-22C1-4D60-8CC9-42F388E26D96_1_105_c.jpeg" alt="Aerial drone shot" loading="lazy"></div>
-      <div class="dsg-item"><img src="images/portfolio/drone/452154F1-1D28-468B-BF6C-4BC450031D70_1_201_a.jpeg" alt="Aerial drone shot" loading="lazy"></div>
-      <div class="dsg-item"><img src="images/portfolio/drone/DFA93191-C6FB-41F9-9AF1-F297FB07C6F3_1_105_c.jpeg" alt="Aerial drone shot" loading="lazy"></div>
-      <div class="dsg-item"><img src="images/portfolio/drone/drone-06.jpg" alt="Aerial drone shot" loading="lazy"></div>
-    </div>
-
-    <div class="container" style="padding-top: 48px;" data-animate>
-      <a href="pages/drone.html" class="btn btn-primary btn-arrow">View Pricing &amp; Portfolio &rarr;</a>
-    </div>
-
-  </section>
-
-  <!-- ===== PRESS ===== -->
-  <section class="section" id="press" style="background: var(--color-bg-elevated);">
-    <div class="container">
-      <span class="section-label" data-animate>Press</span>
-      <h2 class="section-title" data-animate>As seen in.</h2>
-
-      <div class="press-grid">
-        <a class="press-card" data-animate href="https://voyageutah.com/interview/daily-inspiration-meet-mclin-sanders/" target="_blank" rel="noopener">
-          <div>
-            <span class="press-publication">Voyage Utah Magazine</span>
-            <h3>Daily Inspiration: Meet McLin Sanders</h3>
-          </div>
-          <span class="press-date">June 2024 &rarr;</span>
-        </a>
-
-        <a class="press-card" data-animate data-animate-delay="1" href="https://madisoncountyjournal.com/stories/madison-man-hikes-appalachian-trail,34606" target="_blank" rel="noopener">
-          <div>
-            <span class="press-publication">Madison County Journal</span>
-            <h3>Madison Man Hikes the Appalachian Trail</h3>
-          </div>
-          <span class="press-date">August 2022 &rarr;</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== EXPEDITION EXCELLENCE CTA ===== -->
-  <section class="expedition-cta">
-    <div class="expedition-cta-bg" style="background-image: url('images/trails/ebc/ebc-hero.jpg');"></div>
-    <div class="expedition-cta-overlay"></div>
-    <div class="container expedition-cta-content" data-animate>
-      <span class="section-label">Coming Soon</span>
-      <h2>Expedition Excellence</h2>
-      <p>
-        Curated wilderness expeditions for those who want the real thing, designed around
-        where you want to go and what you actually need to get there. Built on 6,500 miles
-        of lived experience, not a sales sheet. Details arriving soon.
-      </p>
-      <a href="mailto:mclindukesanders@gmail.com?subject=Expedition%20Excellence%20Inquiry" class="btn btn-primary btn-arrow">Express Interest</a>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer class="site-footer" id="contact">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="/" class="site-logo">McLin <span>Duke</span> Sanders</a>
-          <p>Outdoorsman, filmmaker, and expedition guide based in Park City, Utah.</p>
-        </div>
-
-        <div class="footer-column">
-          <h4>Navigate</h4>
-          <ul>
-            <li><a href="#trails">Trails</a></li>
-            <li><a href="pages/drone.html">Drone</a></li>
-            <li><a href="pages/gallery.html">Gallery</a></li>
-            <li><a href="pages/about.html">About</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-column">
-          <h4>Contact</h4>
-          <ul>
-            <li><a href="pages/contact.html">Get in Touch</a></li>
-            <li><a href="mailto:mclindukesanders@gmail.com">mclindukesanders@gmail.com</a></li>
-            <li><a href="tel:+16019662282">601-966-2282</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-column">
-          <h4>Connect</h4>
-          <ul>
-            <li><a href="https://instagram.com/mclinduke" target="_blank" rel="noopener">@mclinduke</a></li>
-            <li><a href="https://instagram.com/dukeofthetrail" target="_blank" rel="noopener">@dukeofthetrail</a></li>
-            <li><a href="https://www.youtube.com/@mclinsanders67" target="_blank" rel="noopener">YouTube</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <span class="footer-copyright">&copy; <span class="current-year">2026</span> McLin Sanders. All rights reserved.</span>
-        <div class="footer-socials">
+      <div class="rd-footer-bottom">
+        <div>&copy; 2026 McLin Sanders &nbsp;·&nbsp; 40.6461° N, 111.4980° W &nbsp;·&nbsp; Park City, UT</div>
+        <div class="rd-footer-socials">
           <a href="https://instagram.com/mclinduke" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://instagram.com/dukeofthetrail" target="_blank" rel="noopener">@dukeofthetrail</a>
           <a href="https://www.youtube.com/@mclinsanders67" target="_blank" rel="noopener">YouTube</a>
-          <a href="mailto:mclindukesanders@gmail.com">Email</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <script src="js/gallery-data.min.js?v=6"></script>
-  <script src="js/home-gallery.min.js?v=8"></script>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script src="js/trail-map.min.js?v=6"></script>
-  <script src="js/main.min.js?v=5"></script>
+  <script src="js/redesign.js?v=1"></script>
 </body>
 </html>
