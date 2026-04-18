@@ -177,9 +177,9 @@
 }
 
 /* ── Custom marker pulse ───────────────────── */
-.trail-marker-icon {
-  position: relative;
-}
+/* NOTE: do NOT set position on .trail-marker-icon — Leaflet applies
+   position:absolute via .leaflet-marker-icon; same-specificity overrides
+   here break marker geo-anchoring (markers drift on zoom/pan). */
 .trail-marker-icon .marker-inner {
   width: 10px;
   height: 10px;
