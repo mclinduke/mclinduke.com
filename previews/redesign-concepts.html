@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Redesign Concepts — Mosaic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#1a1510;
+    --bg-2:#1f1a14;
+    --card:#241e16;
+    --surface:#2e2720;
+    --sage:#6b8f71;
+    --sage-hover:#7da883;
+    --terra:#b5654a;
+    --cream:#f2ece0;
+    --muted:#9a8e7e;
+    --dim:#6b6560;
+    --border:rgba(107,143,113,0.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--cream);-webkit-font-smoothing:antialiased;font-family:'Inter',system-ui,sans-serif}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+
+  /* Page chrome */
+  .page-header{
+    position:sticky;top:0;z-index:100;
+    background:rgba(26,21,16,0.85);backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border);
+    padding:16px 28px;display:flex;justify-content:space-between;align-items:center;
+    font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+  }
+  .page-header b{color:var(--cream);font-weight:500;letter-spacing:.22em}
+  .page-nav a{margin-left:22px;text-decoration:none;color:var(--muted);transition:color .2s}
+  .page-nav a:hover{color:var(--sage-hover)}
+
+  /* Variant frame */
+  .variant{position:relative;min-height:100vh;overflow:hidden;border-bottom:1px solid var(--border)}
+  .variant-label{
+    position:absolute;top:24px;left:28px;z-index:20;
+    font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--cream);background:rgba(0,0,0,.35);padding:8px 14px;border:1px solid var(--border);
+    backdrop-filter:blur(6px);
+  }
+  .variant-label span{color:var(--sage);margin-right:10px}
+
+  /* Shared HUD */
+  .hud{position:absolute;inset:0;pointer-events:none;z-index:10}
+  .hud .corner{
+    position:absolute;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)
+  }
+  .hud .tl{top:60px;left:28px}
+  .hud .tr{top:60px;right:28px;text-align:right}
+  .hud .bl{bottom:28px;left:28px}
+  .hud .br{bottom:28px;right:28px;text-align:right}
+  .hud .sage{color:var(--sage)}
+  .hud .cream{color:var(--cream)}
+  .hud .rule{display:inline-block;width:24px;height:1px;background:var(--sage);vertical-align:middle;margin:0 8px}
+
+  /* Elevation profile (right rail) */
+  .elev-rail{position:absolute;top:60px;right:28px;width:2px;height:calc(100% - 120px);background:var(--border);z-index:11}
+  .elev-rail::after{content:'';position:absolute;top:0;left:-2px;width:6px;height:6px;border-radius:50%;background:var(--sage);box-shadow:0 0 0 3px rgba(107,143,113,.2)}
+  .elev-rail .notch{position:absolute;right:-6px;width:12px;height:1px;background:var(--border)}
+
+  /* ═══════════════════════════════════════════════════════════
+     VARIANT 01 — EDITORIAL DOSSIER
+     Fraunces (PP Editorial stand-in) + Inter Tight + JetBrains Mono
+     ═══════════════════════════════════════════════════════════ */
+  .v1{background:#0f0c08}
+  .v1 .bg{
+    position:absolute;inset:0;
+    background-image:url('../images/trails/uinta/uinta-hero.jpg');
+    background-size:cover;background-position:center;
+    filter:saturate(.9) contrast(1.05);
+  }
+  .v1 .bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,12,8,.55) 0%,rgba(15,12,8,.15) 40%,rgba(15,12,8,.85) 100%)}
+  .v1 .grain{position:absolute;inset:0;opacity:.06;pointer-events:none;background-image:radial-gradient(rgba(242,236,224,.5) 1px,transparent 1px);background-size:3px 3px;mix-blend-mode:overlay}
+  .v1 .hero{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:0 28px 120px;z-index:12}
+  .v1 .kicker{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--sage);margin-bottom:36px}
+  .v1 h1{
+    font-family:'Fraunces',serif;font-weight:300;font-size:clamp(4rem,10vw,9rem);line-height:.92;letter-spacing:-.02em;
+    color:var(--cream);max-width:13ch;
+  }
+  .v1 h1 em{font-style:italic;font-weight:300;color:var(--sage-hover);font-variation-settings:"opsz" 144}
+  .v1 .sub{margin-top:36px;display:flex;gap:32px;align-items:baseline;flex-wrap:wrap}
+  .v1 .sub .tag{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:1.35rem;color:var(--muted)}
+  .v1 .sub .coords{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim)}
+  .v1 .scroll-cue{position:absolute;bottom:44px;left:50%;transform:translateX(-50%);z-index:13;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.32em;color:var(--muted);display:flex;align-items:center;gap:12px}
+  .v1 .scroll-cue::after{content:'';width:1px;height:44px;background:linear-gradient(to bottom,var(--sage),transparent);animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+
+  /* ═══════════════════════════════════════════════════════════
+     VARIANT 02 — SWISS FIELD MANUAL
+     Inter Display, no serif, austere, big numerics
+     ═══════════════════════════════════════════════════════════ */
+  .v2{background:var(--bg-2)}
+  .v2 .split{display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
+  .v2 .left{padding:140px 48px 60px;display:flex;flex-direction:column;justify-content:space-between;position:relative}
+  .v2 .right{position:relative;overflow:hidden;background:#000}
+  .v2 .right img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.15) contrast(1.1)}
+  .v2 .right::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(31,26,20,.4) 0%,transparent 30%)}
+  .v2 .meta{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--muted)}
+  .v2 .meta b{color:var(--sage);font-weight:500}
+  .v2 h1{
+    font-family:'Inter Tight',sans-serif;font-weight:300;font-size:clamp(3rem,6.4vw,6rem);line-height:.95;letter-spacing:-.035em;color:var(--cream);margin-top:48px
+  }
+  .v2 h1 .thin{color:var(--muted);font-weight:200}
+  .v2 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:64px;padding-top:32px;border-top:1px solid var(--border)}
+  .v2 .stat .n{font-family:'Inter Tight',sans-serif;font-weight:300;font-size:2.4rem;letter-spacing:-.02em;color:var(--sage)}
+  .v2 .stat .l{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  .v2 .foot{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);margin-top:80px}
+
+  /* ═══════════════════════════════════════════════════════════
+     VARIANT 03 — TOPOGRAPHIC JOURNAL
+     Instrument Serif + Inter + contour overlay + offset grid
+     ═══════════════════════════════════════════════════════════ */
+  .v3{background:#161108;position:relative}
+  .v3 .bg{position:absolute;inset:0;background-image:url('../images/trails/tmb/tmb-hero.jpg');background-size:cover;background-position:center;filter:saturate(.7) contrast(.95) brightness(.65)}
+  .v3 .bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(22,17,8,.1) 0%,rgba(22,17,8,.9) 100%)}
+  .v3 .topo{position:absolute;inset:0;opacity:.45;mix-blend-mode:screen;pointer-events:none}
+  .v3 .grid-lines{position:absolute;inset:0;pointer-events:none;opacity:.12;background-image:linear-gradient(var(--sage) 1px,transparent 1px),linear-gradient(90deg,var(--sage) 1px,transparent 1px);background-size:80px 80px}
+  .v3 .hero{position:absolute;inset:0;display:grid;grid-template-columns:80px 1fr 320px;z-index:12}
+  .v3 .rail{border-right:1px solid var(--border);display:flex;flex-direction:column;align-items:center;padding:120px 0 60px;gap:24px}
+  .v3 .rail .tick{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.22em;color:var(--dim);writing-mode:vertical-rl;transform:rotate(180deg)}
+  .v3 .center{display:flex;flex-direction:column;justify-content:center;padding:0 56px}
+  .v3 .chapter{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--sage);margin-bottom:40px;display:flex;align-items:center;gap:14px}
+  .v3 .chapter::before{content:'';width:40px;height:1px;background:var(--sage)}
+  .v3 h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(3.8rem,9vw,8rem);line-height:.96;letter-spacing:-.01em;color:var(--cream);max-width:14ch}
+  .v3 h1 em{font-style:italic;color:var(--sage-hover)}
+  .v3 .dossier{border-left:1px solid var(--border);padding:120px 28px 60px;display:flex;flex-direction:column;gap:28px;background:rgba(26,21,16,.4);backdrop-filter:blur(2px)}
+  .v3 .dossier .row{display:flex;justify-content:space-between;padding-bottom:14px;border-bottom:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+  .v3 .dossier .row .k{color:var(--dim)}
+  .v3 .dossier .row .v{color:var(--cream)}
+  .v3 .dossier h4{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;font-size:1.1rem;color:var(--muted);margin-top:18px;line-height:1.4}
+
+  /* Mobile */
+  @media (max-width:900px){
+    .page-nav a{margin-left:14px}
+    .v2 .split{grid-template-columns:1fr}
+    .v2 .right{min-height:40vh}
+    .v3 .hero{grid-template-columns:1fr}
+    .v3 .rail,.v3 .dossier{display:none}
+    .v3 .center{padding:120px 24px}
+    .hud .tr,.hud .br{display:none}
+    .elev-rail{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div><b>mclinduke.com</b> &nbsp; · &nbsp; redesign concepts</div>
+  <nav class="page-nav">
+    <a href="#v1">01 Editorial</a>
+    <a href="#v2">02 Swiss</a>
+    <a href="#v3">03 Topographic</a>
+  </nav>
+</header>
+
+<!-- ════════════ VARIANT 01 ════════════ -->
+<section class="variant v1" id="v1">
+  <div class="variant-label"><span>01</span>Editorial Dossier · Fraunces + Inter Tight</div>
+  <div class="bg"></div>
+  <div class="grain"></div>
+
+  <div class="hud">
+    <div class="corner tl">MS<span class="rule"></span><span class="sage">duke of the trail</span></div>
+    <div class="corner tr">40.6461° N<br>111.4980° W</div>
+    <div class="corner bl"><span class="sage">▲</span> Park City, UT · 2134 m</div>
+    <div class="corner br">Distance <span class="cream">0000 / 6500 mi</span></div>
+  </div>
+  <div class="elev-rail">
+    <div class="notch" style="top:15%"></div>
+    <div class="notch" style="top:35%"></div>
+    <div class="notch" style="top:60%"></div>
+    <div class="notch" style="top:85%"></div>
+  </div>
+
+  <div class="hero">
+    <div class="kicker">· Field Record / 2020 — Present</div>
+    <h1>The path <em>shaped</em><br>the person.</h1>
+    <div class="sub">
+      <div class="tag">McLin &ldquo;Duke&rdquo; Sanders &mdash; six thousand five hundred miles, on foot.</div>
+      <div class="coords">Est. 2020 &nbsp;·&nbsp; Mad. MS → P.C. UT</div>
+    </div>
+  </div>
+  <div class="scroll-cue">Traverse ↓</div>
+</section>
+
+<!-- ════════════ VARIANT 02 ════════════ -->
+<section class="variant v2" id="v2">
+  <div class="variant-label"><span>02</span>Swiss Field Manual · Inter Tight only</div>
+  <div class="split">
+    <div class="left">
+      <div class="meta"><b>01 / HERO</b> &nbsp; · &nbsp; Park City, Utah &nbsp; · &nbsp; Rev. 04.26</div>
+      <div>
+        <h1>McLin Sanders.<br><span class="thin">6,500 miles. No shortcuts.</span></h1>
+        <div class="stats">
+          <div class="stat"><div class="n">6,500</div><div class="l">Trail Miles</div></div>
+          <div class="stat"><div class="n">10</div><div class="l">Major Trails</div></div>
+          <div class="stat"><div class="n">09</div><div class="l">Countries</div></div>
+        </div>
+      </div>
+      <div class="foot">
+        <span>FAA Part 107 · Eagle Scout · BBA Ole Miss '25</span>
+        <span>→ Inquire</span>
+      </div>
+    </div>
+    <div class="right">
+      <img src="../images/trails/ebc/ebc-hero.jpg" alt="Everest Base Camp aerial" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ VARIANT 03 ════════════ -->
+<section class="variant v3" id="v3">
+  <div class="variant-label"><span>03</span>Topographic Journal · Instrument Serif + contours</div>
+  <div class="bg"></div>
+  <!-- SVG contour overlay -->
+  <svg class="topo" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" stroke="#6b8f71" stroke-width="0.6" opacity="0.5">
+      <path d="M -100 600 Q 300 480, 600 520 T 1200 460 T 1800 500"/>
+      <path d="M -100 640 Q 300 520, 600 560 T 1200 500 T 1800 540"/>
+      <path d="M -100 680 Q 300 560, 600 600 T 1200 540 T 1800 580"/>
+      <path d="M -100 720 Q 300 600, 600 640 T 1200 580 T 1800 620"/>
+      <path d="M -100 760 Q 300 640, 600 680 T 1200 620 T 1800 660"/>
+      <path d="M -100 560 Q 300 440, 600 480 T 1200 420 T 1800 460"/>
+      <path d="M -100 520 Q 300 400, 600 440 T 1200 380 T 1800 420"/>
+      <path d="M -100 480 Q 300 360, 600 400 T 1200 340 T 1800 380"/>
+    </g>
+    <g stroke="#6b8f71" stroke-width="0.4" opacity="0.3">
+      <line x1="0" y1="450" x2="1600" y2="450" stroke-dasharray="2,6"/>
+    </g>
+  </svg>
+  <div class="grid-lines"></div>
+
+  <div class="hero">
+    <aside class="rail">
+      <div class="tick">N 45.832°</div>
+      <div class="tick">ELEV 2,341 m</div>
+      <div class="tick">BEARING 284°</div>
+    </aside>
+    <div class="center">
+      <div class="chapter">Chapter I · The Trailhead</div>
+      <h1>Every mile,<br><em>earned</em> on foot.</h1>
+    </div>
+    <aside class="dossier">
+      <div class="row"><span class="k">Subject</span><span class="v">MS / Duke</span></div>
+      <div class="row"><span class="k">Origin</span><span class="v">Madison, MS</span></div>
+      <div class="row"><span class="k">Base</span><span class="v">Park City, UT</span></div>
+      <div class="row"><span class="k">Total</span><span class="v">6,500 mi</span></div>
+      <div class="row"><span class="k">Trails</span><span class="v">10</span></div>
+      <div class="row"><span class="k">Summit</span><span class="v">17,700 ft</span></div>
+      <h4>&ldquo;Let the work speak. <br>The restraint is the signal.&rdquo;</h4>
+    </aside>
+  </div>
+</section>
+
+<footer style="padding:48px 28px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);display:flex;justify-content:space-between">
+  <span>End of mosaic · scroll to compare</span>
+  <span>Tell Claude which you want to build</span>
+</footer>
+
+</body>
+</html>
