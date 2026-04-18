@@ -225,7 +225,7 @@
 
 /* ── Hero: identity (big, centered, prominent) ── */
 .rd-hero-identity{
-  position:absolute; top:12vh; left:0; right:0;
+  position:absolute; bottom:10vh; left:0; right:0;
   z-index:13; text-align:center; padding:0 40px;
   opacity:0; transform:translateY(-16px);
   animation:rd-fade-up 1.1s cubic-bezier(.2,.8,.2,1) .6s forwards;
@@ -320,7 +320,7 @@
   .rd-hero-flank-right{ right:3vw; }
 }
 @media (max-width:860px){
-  .rd-hero-identity{ top:8vh; }
+  .rd-hero-identity{ bottom:8vh; }
   .rd-hero-title-line::before,
   .rd-hero-title-line::after{ width:20px; }
   .rd-hero-flank{
