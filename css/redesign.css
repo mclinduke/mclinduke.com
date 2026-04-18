@@ -34,7 +34,7 @@
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   text-rendering:optimizeLegibility;
-  overflow-x:hidden;
+  overflow-x:clip;
 }
 .rd a { color:inherit; text-decoration:none; }
 .rd img { display:block; max-width:100%; }
@@ -236,7 +236,7 @@
   font-size:clamp(1.6rem, 2.8vw, 2.6rem);
   letter-spacing:-.01em; color:var(--cream); line-height:1;
 }
-.rd-hero-name em{ font-style:italic; color:var(--muted); }
+.rd-hero-name em{ font-style:italic; color:var(--sage-hover); font-variation-settings:"opsz" 144; }
 .rd-hero-title-line{
   font-family:var(--f-mono); font-size:11px;
   letter-spacing:.32em; text-transform:uppercase; color:var(--sage);
