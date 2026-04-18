@@ -907,8 +907,28 @@
   .rd-field-grid{ grid-template-columns:1fr; }
   .rd-stats-inner{ grid-template-columns:1fr 1fr; gap:32px; }
   .rd-press-grid{ grid-template-columns:1fr; }
-  .rd-nav-inner{ gap:18px; padding:8px 16px; }
-  .rd-nav-inner a:not(.rd-nav-logo){ display:none; }
+  .rd-nav{ padding:16px; }
+  /* Force nav visible on mobile — don't wait for preload is-ready */
+  .rd-nav-inner{
+    gap:16px; padding:10px 18px;
+    transform:none !important; opacity:1 !important;
+  }
+  .rd-nav-inner a:not(.rd-nav-logo):not(.rd-nav-drone){ display:none; }
+  .rd-nav-inner .rd-nav-drone{
+    font-size:11px; letter-spacing:.22em; padding:8px 16px;
+    background:var(--sage); color:var(--bg); border-radius:999px;
+    font-weight:600;
+  }
+  .rd-nav-inner .rd-nav-drone:hover,
+  .rd-nav-inner .rd-nav-drone.is-active{ color:var(--bg); background:var(--sage-hover); }
+  .rd-nav-inner .rd-nav-drone.is-active::after{ display:none; }
+  /* Hide trails flank on mobile — keep drone only */
+  .rd-hero-flank-left{ display:none !important; }
+  .rd-hero-flank-right{
+    bottom:80px; padding:22px 28px; min-width:260px; max-width:320px;
+    background:var(--sage); border-color:var(--sage);
+  }
+  .rd-hero-identity{ bottom:auto; top:18vh; }
   .rd-traverse-pin{ height:auto; }
   .rd-traverse-sticky{ position:static; height:auto; }
   .rd-traverse-track{ flex-direction:column; padding:0 24px; }
