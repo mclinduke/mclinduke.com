@@ -10,20 +10,20 @@
 
   // ── Trail data ──────────────────────────────
   const TRAILS = [
-    { key: 'pct',        lat: 32.59,  lng: -116.47, name: 'Pacific Crest Trail',   year: '2025 · Thru-Hike',    stats: '2,650 mi · Mexico → Canada',                   href: 'pages/pacific-crest-trail.html', intl: false, region: 'usa' },
-    { key: 'at',         lat: 34.63,  lng: -84.19,  name: 'Appalachian Trail',      year: '2020 · Thru-Hike',    stats: '2,193 mi · Georgia → Maine',                   href: 'pages/appalachian-trail.html',   intl: false, region: 'usa' },
-    { key: 'colorado',   lat: 37.28,  lng: -107.88, name: 'Colorado Trail',         year: '2022 · Thru-Hike',    stats: '485 mi · Durango → Denver',                    href: 'pages/colorado-trail.html',      intl: false, region: 'usa' },
-    { key: 'pinhoti',    lat: 33.00,  lng: -86.50,  name: 'Pinhoti Trail',          year: '2023 · Thru-Hike',    stats: '335 mi · Alabama → Georgia',                   href: 'pages/pinhoti-trail.html',       intl: false, region: 'usa' },
-    { key: 'bmt',        lat: 34.78,  lng: -84.19,  name: 'Benton MacKaye Trail',   year: '2025 · Winter',        stats: '150 mi · GA → TN',                             href: 'pages/benton-mackaye-trail.html',intl: false, region: 'usa' },
-    { key: 'trt',        lat: 39.17,  lng: -120.14, name: 'Tahoe Rim Trail',        year: '2023',                 stats: '170 mi · Loop around Lake Tahoe',              href: 'pages/tahoe-rim-trail.html',     intl: false, region: 'usa' },
-    { key: 'uinta',      lat: 40.75,  lng: -110.90, name: 'Uinta Highline Trail',   year: '2023 · Solo',          stats: '86 mi · Utah backcountry',                     href: 'pages/uinta-highline-trail.html',intl: false, region: 'usa' },
-    { key: 'lost-coast',  lat: 40.33,  lng: -124.00, name: 'Lost Coast Trail',        year: '2023',                 stats: '25 mi · N. California coast',                  href: 'pages/lost-coast-trail.html',         intl: false, region: 'usa' },
-    { key: 'eagle-rock', lat: 34.50,  lng: -94.25,  name: 'Eagle Rock Loop',         year: '2025 · Backpack',      stats: '26.8 mi · Ouachita Mountains, AR',             href: 'pages/eagle-rock-loop.html',          intl: false, region: 'usa' },
-    { key: 'escalante',  lat: 37.85,  lng: -111.70, name: 'Escalante Canyon Loop',   year: '2026 · Canyon Route',  stats: '25.1 mi · 4,019 ft gain · Utah',               href: 'pages/escalante-canyon-loop.html',    intl: false, region: 'usa' },
-    { key: 'whitney',    lat: 36.59,  lng: -118.24, name: 'Mount Whitney',           year: '2025 · Summit',        stats: '14,505 ft · via PCT · Sierra Nevada, CA',      href: 'pages/mount-whitney.html',            intl: false, region: 'usa' },
-    { key: 'shasta',     lat: 41.35,  lng: -122.22, name: 'Mount Shasta',            year: '2025 · Mountaineering',stats: '14,179 ft · Cascade Range, CA',                href: 'pages/mount-shasta.html',             intl: false, region: 'usa' },
-    { key: 'tmb',        lat: 45.90,  lng: 6.87,    name: 'Tour du Mont Blanc',     year: '2024 · International', stats: '100 mi · France · Italy · Switzerland',         href: 'pages/tour-du-mont-blanc.html',  intl: true,  region: 'alps' },
-    { key: 'ebc',        lat: 27.69,  lng: 86.73,   name: 'Everest Base Camp',      year: '2024 · Expedition',    stats: '~50 mi · 17,700 ft · Nepal',                   href: 'pages/everest-base-camp.html',   intl: true,  region: 'nepal' }
+    { key: 'pct',        lat: 37.74,  lng: -119.57, name: 'Pacific Crest Trail',   year: '2025 · Thru-Hike',    stats: '2,650 mi · Mexico → Canada',                   href: 'pages/pacific-crest-trail.html', intl: false, region: 'usa' },
+    { key: 'at',         lat: 37.50,  lng: -79.50,  name: 'Appalachian Trail',      year: '2020 · Thru-Hike',    stats: '2,193 mi · Georgia → Maine',                   href: 'pages/appalachian-trail.html',   intl: false, region: 'usa' },
+    { key: 'colorado',   lat: 38.50,  lng: -106.00, name: 'Colorado Trail',         year: '2022 · Thru-Hike',    stats: '485 mi · Durango → Denver',                    href: 'pages/colorado-trail.html',      intl: false, region: 'usa' },
+    { key: 'pinhoti',    lat: 33.50,  lng: -86.30,  name: 'Pinhoti Trail',          year: '2023 · Thru-Hike',    stats: '335 mi · Alabama → Georgia',                   href: 'pages/pinhoti-trail.html',       intl: false, region: 'usa' },
+    { key: 'bmt',        lat: 35.10,  lng: -84.00,  name: 'Benton MacKaye Trail',   year: '2025 · Winter',        stats: '150 mi · GA → TN',                             href: 'pages/benton-mackaye-trail.html',intl: false, region: 'usa' },
+    { key: 'trt',        lat: 39.10,  lng: -120.00, name: 'Tahoe Rim Trail',        year: '2023',                 stats: '170 mi · Loop around Lake Tahoe',              href: 'pages/tahoe-rim-trail.html',     intl: false, region: 'usa' },
+    { key: 'uinta',      lat: 40.70,  lng: -110.50, name: 'Uinta Highline Trail',   year: '2023 · Solo',          stats: '86 mi · Utah backcountry',                     href: 'pages/uinta-highline-trail.html',intl: false, region: 'usa' },
+    { key: 'lost-coast',  lat: 40.05,  lng: -124.05, name: 'Lost Coast Trail',        year: '2023',                 stats: '25 mi · N. California coast',                  href: 'pages/lost-coast-trail.html',         intl: false, region: 'usa' },
+    { key: 'eagle-rock', lat: 34.57,  lng: -94.13,  name: 'Eagle Rock Loop',         year: '2025 · Backpack',      stats: '26.8 mi · Ouachita Mountains, AR',             href: 'pages/eagle-rock-loop.html',          intl: false, region: 'usa' },
+    { key: 'escalante',  lat: 37.77,  lng: -111.59, name: 'Escalante Canyon Loop',   year: '2026 · Canyon Route',  stats: '25.1 mi · 4,019 ft gain · Utah',               href: 'pages/escalante-canyon-loop.html',    intl: false, region: 'usa' },
+    { key: 'whitney',    lat: 36.58,  lng: -118.29, name: 'Mount Whitney',           year: '2025 · Summit',        stats: '14,505 ft · via PCT · Sierra Nevada, CA',      href: 'pages/mount-whitney.html',            intl: false, region: 'usa' },
+    { key: 'shasta',     lat: 41.41,  lng: -122.19, name: 'Mount Shasta',            year: '2025 · Mountaineering',stats: '14,179 ft · Cascade Range, CA',                href: 'pages/mount-shasta.html',             intl: false, region: 'usa' },
+    { key: 'tmb',        lat: 45.83,  lng: 6.86,    name: 'Tour du Mont Blanc',     year: '2024 · International', stats: '100 mi · France · Italy · Switzerland',         href: 'pages/tour-du-mont-blanc.html',  intl: true,  region: 'alps' },
+    { key: 'ebc',        lat: 28.00,  lng: 86.85,   name: 'Everest Base Camp',      year: '2024 · Expedition',    stats: '~50 mi · 17,700 ft · Nepal',                   href: 'pages/everest-base-camp.html',   intl: true,  region: 'nepal' }
   ];
 
   // ── Trail route polylines (approximate waypoints) ──
@@ -163,8 +163,10 @@
 
     group.addTo(map);
 
-    if (markerLatLngs.length > 1) {
-      map.fitBounds(L.latLngBounds(markerLatLngs).pad(0.12));
+    // USA uses configured center/zoom — fitBounds with PCTat Mexico border pulls view into Mexico.
+    // Alps/Nepal are small enough that fitBounds works well.
+    if (region !== 'usa' && markerLatLngs.length > 1) {
+      map.fitBounds(L.latLngBounds(markerLatLngs).pad(0.25));
     }
 
     maps[region] = map;
