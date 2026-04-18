@@ -25,8 +25,8 @@
 
   <!-- Trail map dependencies -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-  <link rel="stylesheet" href="css/trail-map.min.css?v=10">
-  <link rel="stylesheet" href="css/redesign.css?v=4">
+  <link rel="stylesheet" href="css/trail-map.css?v=11">
+  <link rel="stylesheet" href="css/redesign.css?v=5">
 
   <script type="application/ld+json">
   {
@@ -101,21 +101,24 @@
     <div class="rd-hero-bg" style="background-image:url('images/hero/main-hero.jpg'); background-position:35% center;"></div>
     <div class="rd-hero-grain"></div>
 
-    <!-- Identity stamp — top -->
+    <!-- Name + title — centered, prominent -->
     <div class="rd-hero-identity">
-      <div class="rd-hero-name">McLin <em>&ldquo;Duke&rdquo;</em> Sanders</div>
-      <div class="rd-hero-title-line">Drone Pilot &nbsp;&middot;&nbsp; Outdoorsman</div>
+      <h1 class="rd-hero-name">McLin <em>&ldquo;Duke&rdquo;</em> Sanders</h1>
+      <div class="rd-hero-title-line">Drone Pilot &nbsp;·&nbsp; Outdoorsman</div>
     </div>
 
-    <!-- Minimal CTA — bottom -->
-    <div class="rd-hero-ctas">
-      <p class="rd-hero-cta-tagline">Six thousand five hundred miles of backcountry.<br>Now above it.</p>
-      <div class="rd-hero-btn-row">
-        <a href="#rd-traverse" class="rd-ghost-btn">See the Trails</a>
-        <a href="pages/drone.html" class="rd-ghost-btn rd-ghost-btn-accent">Drone Work &amp; Pricing</a>
-        <a href="#rd-ee" class="rd-ghost-btn">Expedition Excellence</a>
-      </div>
-    </div>
+    <!-- Flanking CTA panels — left + right of the subject -->
+    <a href="#rd-traverse" class="rd-hero-flank rd-hero-flank-left">
+      <span class="rd-flank-kicker">6,500 mi · 14 trails</span>
+      <span class="rd-flank-label">See the <em>Trails</em></span>
+      <span class="rd-flank-arrow" aria-hidden="true">→</span>
+    </a>
+
+    <a href="pages/drone.html" class="rd-hero-flank rd-hero-flank-right">
+      <span class="rd-flank-kicker">FAA Part 107</span>
+      <span class="rd-flank-label">Drone <em>Work</em></span>
+      <span class="rd-flank-arrow" aria-hidden="true">→</span>
+    </a>
 
     <div class="rd-scroll-cue">Scroll</div>
   </section>
@@ -138,11 +141,42 @@
       <div class="rd-meta-row"><span>Base</span><b>Park City, UT</b></div>
       <div class="rd-meta-row"><span>Degree</span><b>BBA · Ole Miss '25</b></div>
       <div class="rd-meta-row"><span>Cert.</span><b>FAA Part 107</b></div>
-      <div class="rd-meta-row"><span>Rank</span><b>Eagle Scout</b></div>
-      <div class="rd-meta-row">
-        <span class="pullquote">&ldquo;Let the work speak. The restraint is the signal.&rdquo;</span>
-      </div>
+      <div class="rd-meta-row"><span>Award</span><b>Eagle Scout</b></div>
     </aside>
+  </section>
+
+  <!-- ═══════════════ INTERACTIVE MAP ═══════════════ -->
+  <section class="rd-map-section trail-world-map-section" id="rd-map">
+    <div class="rd-map-header rd-reveal">
+      <div>
+        <span class="rd-kicker">Where I've Been</span>
+        <h2 class="rd-map-title">14 trails. <em>3 continents.</em></h2>
+      </div>
+      <p class="rd-map-sub">Click any marker to explore the trail.</p>
+    </div>
+    <div class="trail-map-wrap">
+      <div class="trail-map-container" id="trail-map-container">
+        <div class="trail-map-regions">
+          <button data-region="usa" class="active">United States</button>
+          <button data-region="alps">Alps</button>
+          <button data-region="nepal">Nepal</button>
+        </div>
+        <div class="trail-map-panels">
+          <div class="trail-map-panel active" data-panel="usa">
+            <div class="trail-map-panel-label">North America · 12 Trails &amp; Summits</div>
+            <div id="map-usa" class="trail-leaflet-map"></div>
+          </div>
+          <div class="trail-map-panel" data-panel="alps">
+            <div class="trail-map-panel-label">European Alps · Tour du Mont Blanc</div>
+            <div id="map-alps" class="trail-leaflet-map"></div>
+          </div>
+          <div class="trail-map-panel" data-panel="nepal">
+            <div class="trail-map-panel-label">Himalayas · Everest Base Camp</div>
+            <div id="map-nepal" class="trail-leaflet-map"></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- ═══════════════ STATS ═══════════════ -->
@@ -153,8 +187,8 @@
         <div class="rd-stat-l">Trail Miles</div>
       </div>
       <div class="rd-stat rd-reveal" data-delay="1">
-        <div class="rd-stat-n"><span data-count="10">0</span></div>
-        <div class="rd-stat-l">Major Trails</div>
+        <div class="rd-stat-n"><span data-count="14">0</span></div>
+        <div class="rd-stat-l">Trails &amp; Summits</div>
       </div>
       <div class="rd-stat rd-reveal" data-delay="2">
         <div class="rd-stat-n"><span data-count="365" data-suffix="+">0</span></div>
@@ -176,7 +210,7 @@
   <section class="rd-traverse" id="rd-traverse">
     <div class="rd-traverse-intro">
       <div class="rd-kicker rd-reveal">Ch. II · The Long Traverse</div>
-      <h2 class="rd-reveal" data-delay="1">Ten trails.<br><em>Three continents.</em></h2>
+      <h2 class="rd-reveal" data-delay="1">Fourteen routes.<br><em>Three continents.</em></h2>
       <p class="rd-reveal" data-delay="2">Scroll to move through the record. Each chapter opens to its full account.</p>
     </div>
 
@@ -184,14 +218,14 @@
       <div class="rd-traverse-sticky">
         <div class="rd-traverse-header">
           <div><span class="sage">LAT</span> VARIABLE &nbsp;·&nbsp; <span class="sage">BEARING</span> EAST → WEST</div>
-          <div>01 / 10 → ← scroll ← 10 / 10</div>
+          <div>01 / 14 → ← scroll ← 14 / 14</div>
         </div>
 
         <div class="rd-traverse-track" id="rd-traverse-track">
           <article class="rd-trail">
             <div class="rd-trail-bg" style="background-image:url('images/trails/at/at-hero.jpg');"></div>
             <div class="rd-trail-content">
-              <div class="rd-trail-idx">01 / 10 · 2020</div>
+              <div class="rd-trail-idx">01 / 14 · 2020</div>
               <div class="rd-trail-body">
                 <div class="rd-trail-meta">NOBO Thru-Hike · 5 months</div>
                 <h3>Appalachian Trail</h3>
@@ -204,7 +238,7 @@
           <article class="rd-trail">
             <div class="rd-trail-bg" style="background-image:url('images/trails/pct/pct-hero.jpg');"></div>
             <div class="rd-trail-content">
-              <div class="rd-trail-idx">02 / 10 · 2025</div>
+              <div class="rd-trail-idx">02 / 14 · 2025</div>
               <div class="rd-trail-body">
                 <div class="rd-trail-meta">Thru-Hike · Mexico → Canada</div>
                 <h3>Pacific Crest Trail</h3>
@@ -217,7 +251,7 @@
           <article class="rd-trail">
             <div class="rd-trail-bg" style="background-image:url('images/trails/ebc/ebc-hero.jpg');"></div>
             <div class="rd-trail-content">
-              <div class="rd-trail-idx">03 / 10 · 2024</div>
+              <div class="rd-trail-idx">03 / 14 · 2024</div>
               <div class="rd-trail-body">
                 <div class="rd-trail-meta">Solo Expedition · Nepal</div>
                 <h3>Everest Base Camp</h3>
@@ -230,7 +264,7 @@
           <article class="rd-trail">
             <div class="rd-trail-bg" style="background-image:url('images/trails/tmb/tmb-hero.jpg');"></div>
             <div class="rd-trail-content">
-              <div class="rd-trail-idx">04 / 10 · 2024</div>
+              <div class="rd-trail-idx">04 / 14 · 2024</div>
               <div class="rd-trail-body">
                 <div class="rd-trail-meta">Seven Days · Three Countries</div>
                 <h3>Tour du Mont Blanc</h3>
@@ -243,7 +277,7 @@
           <article class="rd-trail">
             <div class="rd-trail-bg" style="background-image:url('images/trails/colorado/ct-hero.jpg');"></div>
             <div class="rd-trail-content">
-              <div class="rd-trail-idx">05 / 10 · 2022</div>
+              <div class="rd-trail-idx">05 / 14 · 2022</div>
               <div class="rd-trail-body">
                 <div class="rd-trail-meta">30 Days · Eight Ranges</div>
                 <h3>Colorado Trail</h3>
@@ -256,7 +290,7 @@
           <article class="rd-trail">
             <div class="rd-trail-bg" style="background-image:url('images/trails/bmt/bmt-hero.jpg');"></div>
             <div class="rd-trail-content">
-              <div class="rd-trail-idx">06 / 10 · 2025</div>
+              <div class="rd-trail-idx">06 / 14 · 2025</div>
               <div class="rd-trail-body">
                 <div class="rd-trail-meta">Winter Expedition · Nine Days</div>
                 <h3>Benton MacKaye Trail</h3>
@@ -269,7 +303,7 @@
           <article class="rd-trail">
             <div class="rd-trail-bg" style="background-image:url('images/trails/uinta/uinta-hero.jpg');"></div>
             <div class="rd-trail-content">
-              <div class="rd-trail-idx">07 / 10 · 2023</div>
+              <div class="rd-trail-idx">07 / 14 · 2023</div>
               <div class="rd-trail-body">
                 <div class="rd-trail-meta">Solo · No Signal</div>
                 <h3>Uinta Highline</h3>
@@ -282,7 +316,7 @@
           <article class="rd-trail">
             <div class="rd-trail-bg" style="background-image:url('images/trails/pinhoti/pinhoti-hero.jpg');"></div>
             <div class="rd-trail-content">
-              <div class="rd-trail-idx">08 / 10 · 2023</div>
+              <div class="rd-trail-idx">08 / 14 · 2023</div>
               <div class="rd-trail-body">
                 <div class="rd-trail-meta">19 Days · Southern Appalachians</div>
                 <h3>Pinhoti Trail</h3>
@@ -295,7 +329,7 @@
           <article class="rd-trail">
             <div class="rd-trail-bg" style="background-image:url('images/trails/trt/trt-hero.jpg');"></div>
             <div class="rd-trail-content">
-              <div class="rd-trail-idx">09 / 10 · 2023</div>
+              <div class="rd-trail-idx">09 / 14 · 2023</div>
               <div class="rd-trail-body">
                 <div class="rd-trail-meta">Loop · 11 Days</div>
                 <h3>Tahoe Rim Trail</h3>
@@ -308,13 +342,65 @@
           <article class="rd-trail">
             <div class="rd-trail-bg" style="background-image:url('images/trails/lost-coast/lct-hero.jpg');"></div>
             <div class="rd-trail-content">
-              <div class="rd-trail-idx">10 / 10 · 2023</div>
+              <div class="rd-trail-idx">10 / 14 · 2023</div>
               <div class="rd-trail-body">
                 <div class="rd-trail-meta">Coastal · Two Days</div>
                 <h3>Lost Coast Trail</h3>
                 <div class="rd-trail-stats"><b>25 mi</b><span>N. California</span></div>
                 <p class="rd-trail-note">Five-hour drive on backroads. Sea lions, tide-timed crossings.</p>
                 <a href="pages/lost-coast-trail.html" class="rd-trail-link">Read the account</a>
+              </div>
+            </div>
+          </article>
+          <article class="rd-trail">
+            <div class="rd-trail-bg" style="background-image:url('images/trails/whitney/IMG_9332.JPG');"></div>
+            <div class="rd-trail-content">
+              <div class="rd-trail-idx">11 / 14 · 2025</div>
+              <div class="rd-trail-body">
+                <div class="rd-trail-meta">Summit · Summer Solstice</div>
+                <h3>Mount Whitney</h3>
+                <div class="rd-trail-stats"><b>14,505 ft</b><span>via PCT · Sierra Nevada</span></div>
+                <p class="rd-trail-note">Highest point in the Lower 48. Slept on the summit on the longest day of the year.</p>
+                <a href="pages/mount-whitney.html" class="rd-trail-link">Read the account</a>
+              </div>
+            </div>
+          </article>
+          <article class="rd-trail">
+            <div class="rd-trail-bg" style="background-image:url('images/trails/shasta/IMG_8746.jpeg');"></div>
+            <div class="rd-trail-content">
+              <div class="rd-trail-idx">12 / 14 · 2025</div>
+              <div class="rd-trail-body">
+                <div class="rd-trail-meta">Mountaineering · Cascades</div>
+                <h3>Mount Shasta</h3>
+                <div class="rd-trail-stats"><b>14,179 ft</b><span>N. California · Glaciated</span></div>
+                <p class="rd-trail-note">Glacier travel, crampons, ice axe. A technical volcano summit.</p>
+                <a href="pages/mount-shasta.html" class="rd-trail-link">Read the account</a>
+              </div>
+            </div>
+          </article>
+          <article class="rd-trail">
+            <div class="rd-trail-bg" style="background-image:url('images/trails/eagle-rock/IMG_3235.jpeg');"></div>
+            <div class="rd-trail-content">
+              <div class="rd-trail-idx">13 / 14 · 2025</div>
+              <div class="rd-trail-body">
+                <div class="rd-trail-meta">Loop · Three Days</div>
+                <h3>Eagle Rock Loop</h3>
+                <div class="rd-trail-stats"><b>26.8 mi</b><span>Ouachita Mountains · AR</span></div>
+                <p class="rd-trail-note">Arkansas's hardest backpacking loop. River crossings and rugged ridgelines.</p>
+                <a href="pages/eagle-rock-loop.html" class="rd-trail-link">Read the account</a>
+              </div>
+            </div>
+          </article>
+          <article class="rd-trail">
+            <div class="rd-trail-bg" style="background-image:url('images/trails/escalante/IMG_5417.jpeg');"></div>
+            <div class="rd-trail-content">
+              <div class="rd-trail-idx">14 / 14 · 2026</div>
+              <div class="rd-trail-body">
+                <div class="rd-trail-meta">Canyon Route · Utah</div>
+                <h3>Escalante Canyon Loop</h3>
+                <div class="rd-trail-stats"><b>25.1 mi</b><span>4,019 ft gain · Slot canyons</span></div>
+                <p class="rd-trail-note">Slickrock, slot canyons, and the Escalante River. Desert route-finding.</p>
+                <a href="pages/escalante-canyon-loop.html" class="rd-trail-link">Read the account</a>
               </div>
             </div>
           </article>
@@ -333,40 +419,6 @@
             <path class="elev-fill" d="M 0,50 L 80,30 L 160,10 L 240,25 L 320,8 L 400,35 L 480,18 L 560,40 L 640,22 L 720,45 L 800,28 L 880,38 L 960,50 L 1000,48 L 1000,60 L 0,60 Z"/>
             <path id="rd-elev-progress" class="elev-progress" d="M 0,50 L 80,30 L 160,10 L 240,25 L 320,8 L 400,35 L 480,18 L 560,40 L 640,22 L 720,45 L 800,28 L 880,38 L 960,50 L 1000,48"/>
           </svg>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════ INTERACTIVE MAP ═══════════════ -->
-  <section class="rd-map-section trail-world-map-section" id="rd-map">
-    <div class="rd-map-header rd-reveal">
-      <div>
-        <span class="rd-kicker">Where I've Been</span>
-        <h2 class="rd-map-title">10 trails. <em>3 continents.</em></h2>
-      </div>
-      <p class="rd-map-sub">Click any marker to explore the trail.</p>
-    </div>
-    <div class="trail-map-wrap">
-      <div class="trail-map-container" id="trail-map-container">
-        <div class="trail-map-regions">
-          <button data-region="usa" class="active">United States</button>
-          <button data-region="alps">Alps</button>
-          <button data-region="nepal">Nepal</button>
-        </div>
-        <div class="trail-map-panels">
-          <div class="trail-map-panel active" data-panel="usa">
-            <div class="trail-map-panel-label">North America · 12 Trails · 6,197 mi</div>
-            <div id="map-usa" class="trail-leaflet-map"></div>
-          </div>
-          <div class="trail-map-panel" data-panel="alps">
-            <div class="trail-map-panel-label">European Alps · Tour du Mont Blanc</div>
-            <div id="map-alps" class="trail-leaflet-map"></div>
-          </div>
-          <div class="trail-map-panel" data-panel="nepal">
-            <div class="trail-map-panel-label">Himalayas · Everest Base Camp</div>
-            <div id="map-nepal" class="trail-leaflet-map"></div>
-          </div>
         </div>
       </div>
     </div>
@@ -496,7 +548,7 @@
   </footer>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script src="js/trail-map.min.js?v=6"></script>
-  <script src="js/redesign.js?v=4"></script>
+  <script src="js/trail-map.js?v=7"></script>
+  <script src="js/redesign.js?v=5"></script>
 </body>
 </html>

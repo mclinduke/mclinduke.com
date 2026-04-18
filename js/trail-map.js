@@ -142,9 +142,18 @@
 
     const group = L.featureGroup();
 
+    const abbr = {
+      at:'AT', pct:'PCT', colorado:'CT', pinhoti:'PIN', bmt:'BMT',
+      trt:'TRT', uinta:'UHT', 'lost-coast':'LCT', 'eagle-rock':'ERL',
+      escalante:'ECL', whitney:'WHIT', shasta:'SHAS', tmb:'TMB', ebc:'EBC'
+    };
     TRAILS.filter(t => t.region === region).forEach(t => {
       const marker = L.marker([t.lat, t.lng], { icon: trailIcon(t.intl) })
-        .bindPopup(popupHTML(t), { maxWidth: 220, closeButton: true });
+        .bindPopup(popupHTML(t), { maxWidth: 220, closeButton: true })
+        .bindTooltip(abbr[t.key] || t.name, {
+          permanent: true, direction: 'right', offset: [10, 0],
+          className: 'trail-marker-label'
+        });
       group.addLayer(marker);
 
       const coords = TRAIL_ROUTES[t.key];
