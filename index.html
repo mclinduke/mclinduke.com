@@ -26,7 +26,7 @@
   <!-- Trail map dependencies -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
   <link rel="stylesheet" href="css/trail-map.css?v=13">
-  <link rel="stylesheet" href="css/redesign.css?v=9">
+  <link rel="stylesheet" href="css/redesign.css?v=11">
 
   <script type="application/ld+json">
   {
@@ -93,6 +93,20 @@
       <a href="#rd-footer">Inquire</a>
     </div>
   </header>
+
+  <!-- ═══════════════ Mobile nav (hamburger + drawer) ═══════════════ -->
+  <button class="rd-mnav-toggle" id="rd-mnav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="rd-mnav-drawer">
+    <span></span><span></span><span></span>
+  </button>
+  <nav class="rd-mnav-drawer" id="rd-mnav-drawer" aria-hidden="true">
+    <a href="#rd-dossier">Dossier</a>
+    <a href="#rd-traverse">Trails</a>
+    <a href="#rd-fieldwork">Portfolios</a>
+    <a href="pages/drone.html">Drone</a>
+    <a href="#rd-press">Press</a>
+    <a href="#rd-ee">Expedition</a>
+    <a href="#rd-footer">Inquire</a>
+  </nav>
 
   <!-- ═══════════════ HERO ═══════════════ -->
   <section class="rd-hero" id="rd-hero">
@@ -547,6 +561,6 @@
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script src="js/trail-map.js?v=11"></script>
-  <script src="js/redesign.js?v=6"></script>
+  <script src="js/redesign.js?v=7"></script>
 </body>
 </html>

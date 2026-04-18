@@ -907,28 +907,54 @@
   .rd-field-grid{ grid-template-columns:1fr; }
   .rd-stats-inner{ grid-template-columns:1fr 1fr; gap:32px; }
   .rd-press-grid{ grid-template-columns:1fr; }
-  .rd-nav{ padding:16px; }
-  /* Force nav visible on mobile — don't wait for preload is-ready */
-  .rd-nav-inner{
-    gap:16px; padding:10px 18px;
-    transform:none !important; opacity:1 !important;
-  }
-  .rd-nav-inner a:not(.rd-nav-logo):not(.rd-nav-drone){ display:none; }
-  .rd-nav-inner .rd-nav-drone{
-    font-size:11px; letter-spacing:.22em; padding:8px 16px;
-    background:var(--sage); color:var(--bg); border-radius:999px;
-    font-weight:600;
-  }
-  .rd-nav-inner .rd-nav-drone:hover,
-  .rd-nav-inner .rd-nav-drone.is-active{ color:var(--bg); background:var(--sage-hover); }
-  .rd-nav-inner .rd-nav-drone.is-active::after{ display:none; }
-  /* Hide trails flank on mobile — keep drone only */
+  /* Hide capsule nav + HUD top-left badge on mobile (uses hamburger instead) */
+  .rd-nav{ display:none !important; }
+  .rd-hud-tl{ display:none !important; }
+
+  /* Hide trails flank; restyle right flank as a single bottom-center Drone pill */
   .rd-hero-flank-left{ display:none !important; }
   .rd-hero-flank-right{
-    bottom:80px; padding:22px 28px; min-width:260px; max-width:320px;
+    top:auto; right:auto; left:50%; bottom:56px;
+    transform:translateX(-50%);
+    min-width:0; max-width:none; width:auto;
+    padding:14px 36px; border-radius:999px;
     background:var(--sage); border-color:var(--sage);
+    flex-direction:row; align-items:center; gap:10px;
+    animation:none; opacity:1;
   }
-  .rd-hero-identity{ bottom:auto; top:18vh; }
+  .rd-hero-flank-right:hover,
+  .rd-hero-flank-right:active{ transform:translateX(-50%) scale(1.02); background:var(--sage-hover); border-color:var(--sage-hover); }
+  .rd-hero-flank-right .rd-flank-kicker{ display:none; }
+  .rd-hero-flank-right .rd-flank-label{
+    font-size:0.95rem; letter-spacing:.04em; color:var(--bg); margin:0;
+  }
+  .rd-hero-flank-right .rd-flank-label em{ font-style:italic; }
+  .rd-hero-flank-right .rd-flank-arrow{ position:static; color:var(--bg); }
+
+  /* Hero identity: top-left, away from face (subject is right side) */
+  .rd-hero-identity{
+    top:auto; bottom:auto;
+    inset:14vh 24px auto 24px;
+    text-align:left; align-items:flex-start;
+    padding:18px 18px 22px;
+    background:linear-gradient(to bottom, rgba(0,0,0,.78) 0%, rgba(0,0,0,.55) 70%, transparent 100%);
+    border-radius:4px;
+    opacity:1; transform:none; animation:none;
+  }
+  .rd-hero-name{ font-size:clamp(2.4rem, 11vw, 3.6rem); line-height:1; margin:0; }
+  .rd-hero-title-line{
+    margin-top:10px; font-size:10px; letter-spacing:.32em;
+    color:var(--cream); opacity:.85;
+  }
+  .rd-hero-title-line::before, .rd-hero-title-line::after{ display:none; }
+
+  /* Single bottom-center Drone CTA — pure-CSS recreation */
+  .rd-hero::before{
+    content:''; position:absolute; left:0; right:0; bottom:0; z-index:11;
+    height:24%; pointer-events:none;
+    background:linear-gradient(to top, rgba(0,0,0,.85) 0%, rgba(0,0,0,.5) 50%, transparent 100%);
+  }
+  .rd-scroll-cue{ display:none; }
   .rd-traverse-pin{ height:auto; }
   .rd-traverse-sticky{ position:static; height:auto; }
   .rd-traverse-track{ flex-direction:column; padding:0 24px; }
@@ -940,6 +966,42 @@
   .rd-map-header{ flex-direction:column; align-items:flex-start; gap:16px; }
   .rd-inquire-card{ padding:36px 24px; }
   .rd-footer{ padding:80px 24px 32px; }
+
+  /* Hamburger toggle + drawer */
+  .rd-mnav-toggle{
+    display:flex; flex-direction:column; justify-content:center; gap:6px;
+    position:fixed; top:18px; left:18px; z-index:120;
+    width:48px; height:48px; padding:0;
+    background:rgba(26,21,16,.7); backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    border:1px solid var(--border); border-radius:999px;
+    cursor:pointer; align-items:center;
+  }
+  .rd-mnav-toggle span{
+    display:block; width:20px; height:2px; background:var(--cream);
+    border-radius:2px; transition:transform .25s ease, opacity .2s ease;
+  }
+  .rd-mnav-toggle[aria-expanded="true"] span:nth-child(1){ transform:translateY(8px) rotate(45deg); }
+  .rd-mnav-toggle[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+  .rd-mnav-toggle[aria-expanded="true"] span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
+
+  .rd-mnav-drawer{
+    position:fixed; inset:0; z-index:110;
+    background:rgba(15,12,9,.96); backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    display:flex; flex-direction:column; justify-content:center; align-items:center;
+    gap:28px; padding:80px 24px;
+    opacity:0; pointer-events:none; transition:opacity .25s ease;
+  }
+  .rd-mnav-drawer.is-open{ opacity:1; pointer-events:auto; }
+  .rd-mnav-drawer a{
+    font-family:var(--f-serif); font-size:1.8rem; color:var(--cream);
+    letter-spacing:.02em; text-decoration:none;
+  }
+  .rd-mnav-drawer a:hover, .rd-mnav-drawer a:active{ color:var(--sage); }
+}
+@media (min-width:721px){
+  .rd-mnav-toggle, .rd-mnav-drawer{ display:none !important; }
 }
 
 /* Reduced motion */

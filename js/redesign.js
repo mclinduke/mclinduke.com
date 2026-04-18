@@ -152,6 +152,24 @@
   W.addEventListener('resize', onScroll, { passive: true });
   onScroll();
 
+  /* ──────────────── Mobile hamburger drawer ──────────────── */
+  const mnavToggle = D.getElementById('rd-mnav-toggle');
+  const mnavDrawer = D.getElementById('rd-mnav-drawer');
+  if (mnavToggle && mnavDrawer) {
+    const setOpen = (open) => {
+      mnavToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      mnavDrawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+      mnavDrawer.classList.toggle('is-open', open);
+      body.style.overflow = open ? 'hidden' : '';
+    };
+    mnavToggle.addEventListener('click', () => {
+      setOpen(mnavDrawer.getAttribute('aria-hidden') === 'true');
+    });
+    mnavDrawer.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') setOpen(false);
+    });
+  }
+
   /* ──────────────── Smooth anchor scrolling ──────────────── */
   D.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', (e) => {
