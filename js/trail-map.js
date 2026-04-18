@@ -144,12 +144,14 @@
     const markerLatLngs = [];
 
     TRAILS.filter(t => t.region === region).forEach(t => {
-      const marker = L.marker([t.lat, t.lng], { icon: trailIcon(t.intl) })
+      const coords = TRAIL_ROUTES[t.key];
+      const midPos = coords ? coords[Math.floor(coords.length / 2)] : [t.lat, t.lng];
+
+      const marker = L.marker(midPos, { icon: trailIcon(t.intl) })
         .bindPopup(popupHTML(t), { maxWidth: 220, closeButton: true });
       group.addLayer(marker);
-      markerLatLngs.push([t.lat, t.lng]);
+      markerLatLngs.push(midPos);
 
-      const coords = TRAIL_ROUTES[t.key];
       if (coords) {
         group.addLayer(L.polyline(coords, {
           color: '#6b8f71',
