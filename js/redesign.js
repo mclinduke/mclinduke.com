@@ -33,26 +33,6 @@
     body.classList.add('is-ready');
   }
 
-  /* ──────────────── Custom cursor ──────────────── */
-  if (!touch) {
-    const cursor = D.getElementById('rd-cursor');
-    const coordOut = D.getElementById('rd-cursor-coord');
-    let tx = 0, ty = 0, cx = 0, cy = 0;
-    W.addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; }, { passive: true });
-    const loop = () => {
-      cx += (tx - cx) * 0.22;
-      cy += (ty - cy) * 0.22;
-      if (cursor) cursor.style.transform = `translate3d(${cx}px, ${cy}px, 0)`;
-      if (coordOut) coordOut.style.transform = `translate3d(${cx}px, ${cy}px, 0)`;
-      requestAnimationFrame(loop);
-    };
-    requestAnimationFrame(loop);
-    D.querySelectorAll('a, button, .rd-trail, .rd-field-tile, .rd-press-card').forEach(el => {
-      el.addEventListener('mouseenter', () => cursor && cursor.classList.add('is-hover'));
-      el.addEventListener('mouseleave', () => cursor && cursor.classList.remove('is-hover'));
-    });
-  }
-
   /* ──────────────── Reveal observer ──────────────── */
   const revealObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {

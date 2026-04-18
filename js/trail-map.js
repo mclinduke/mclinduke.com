@@ -141,6 +141,7 @@
     });
 
     const group = L.featureGroup();
+    const markerLatLngs = [];
 
     const abbr = {
       at:'AT', pct:'PCT', colorado:'CT', pinhoti:'PIN', bmt:'BMT',
@@ -155,6 +156,7 @@
           className: 'trail-marker-label'
         });
       group.addLayer(marker);
+      markerLatLngs.push([t.lat, t.lng]);
 
       const coords = TRAIL_ROUTES[t.key];
       if (coords) {
@@ -170,8 +172,8 @@
 
     group.addTo(map);
 
-    if (group.getLayers().length > 1) {
-      map.fitBounds(group.getBounds().pad(0.15));
+    if (markerLatLngs.length > 1) {
+      map.fitBounds(L.latLngBounds(markerLatLngs).pad(0.12));
     }
 
     maps[region] = map;
