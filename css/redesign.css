@@ -931,13 +931,12 @@
   .rd-hero-flank-right .rd-flank-label em{ font-style:italic; }
   .rd-hero-flank-right .rd-flank-arrow{ position:static; color:var(--bg); }
 
-  /* Hero identity: top-left, away from face (subject is right side) */
+  /* Hero identity: bottom-left over body/legs, never over face */
   .rd-hero-identity{
-    top:auto; bottom:auto;
-    inset:14vh 24px auto 24px;
+    top:auto; left:24px; right:24px; bottom:130px;
     text-align:left; align-items:flex-start;
     padding:18px 18px 22px;
-    background:linear-gradient(to bottom, rgba(0,0,0,.78) 0%, rgba(0,0,0,.55) 70%, transparent 100%);
+    background:linear-gradient(to top, rgba(0,0,0,.85) 0%, rgba(0,0,0,.65) 60%, rgba(0,0,0,.25) 100%);
     border-radius:4px;
     opacity:1; transform:none; animation:none;
   }
