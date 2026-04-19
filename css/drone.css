@@ -39,14 +39,18 @@
 }
 
 .drone-aerial-label {
-  display: block;
+  display: inline-flex;
   font-family: var(--font-mono);
   font-size: 0.68rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--color-accent);
   margin-bottom: 20px;
-  text-shadow: 0 0 12px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.95);
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(107,143,113,0.6);
+  padding: 6px 14px;
 }
 
 .drone-hero-title {
