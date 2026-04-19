@@ -38,6 +38,14 @@
   max-width: 700px;
 }
 
+.drone-hero-pills {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
 .drone-aerial-label {
   display: inline-flex;
   font-family: var(--font-mono);
@@ -73,7 +81,7 @@
   color: var(--color-accent);
   border: 1px solid rgba(107,143,113,0.6);
   padding: 6px 14px;
-  margin-bottom: 24px;
+  margin-bottom: 0;
   background: rgba(0,0,0,0.65);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
