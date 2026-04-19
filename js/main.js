@@ -5,33 +5,32 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // --- Header scroll effect ---
+  // --- Header scroll effect (legacy .site-header — only binds if present) ---
   const header = document.querySelector('.site-header');
   let lastScroll = 0;
 
-  // Sub-pages have 'scrolled' hardcoded — keep it always on those pages
-  const isSubPage = header.classList.contains('scrolled');
+  if (header) {
+    const isSubPage = header.classList.contains('scrolled');
 
-  function handleHeaderScroll() {
-    const scrollY = window.scrollY;
-    if (isSubPage) {
-      // Sub-pages: always solid
-      header.classList.add('scrolled');
-    } else {
-      // Index: fade background in linearly over first 120px of scroll
-      const ratio = Math.min(scrollY / 120, 1);
-      header.style.setProperty('--scroll-ratio', ratio);
-      if (ratio >= 1) {
+    function handleHeaderScroll() {
+      const scrollY = window.scrollY;
+      if (isSubPage) {
         header.classList.add('scrolled');
       } else {
-        header.classList.remove('scrolled');
+        const ratio = Math.min(scrollY / 120, 1);
+        header.style.setProperty('--scroll-ratio', ratio);
+        if (ratio >= 1) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
       }
+      lastScroll = scrollY;
     }
-    lastScroll = scrollY;
-  }
 
-  window.addEventListener('scroll', handleHeaderScroll, { passive: true });
-  handleHeaderScroll();
+    window.addEventListener('scroll', handleHeaderScroll, { passive: true });
+    handleHeaderScroll();
+  }
 
   // --- Mobile nav ---
   const navToggle = document.querySelector('.nav-toggle');
