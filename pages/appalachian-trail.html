@@ -29,27 +29,35 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
   <script src="../js/analytics.min.js" defer></script>
+  <link rel="stylesheet" href="../css/redesign.css?v=12">
 </head>
 <body>
-  <header class="site-header scrolled">
-    <div class="header-inner">
-      <a href="../index.html" class="site-logo">McLin <span>Duke</span> Sanders</a>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="../index.html#trails">Trails</a></li>
-          <li><a href="drone.html">Drone</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="../index.html#youtube">YouTube</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-      <button class="nav-toggle" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <div class="nav-overlay"></div>
-  </header>
+  <div class="rd is-ready">
+    <header class="rd-nav" role="banner">
+      <div class="rd-nav-inner">
+        <a href="../index.html" class="rd-nav-logo rd-nav-dot" aria-label="Home"></a>
+        <a href="../index.html#rd-dossier">Dossier</a>
+        <a href="../index.html#rd-traverse">Trails</a>
+        <a href="../index.html#rd-fieldwork">Portfolios</a>
+        <a href="drone.html" class="rd-nav-drone">Drone</a>
+        <a href="../index.html#rd-press">Press</a>
+        <a href="../index.html#rd-ee">Expedition</a>
+        <a href="../index.html#rd-footer">Inquire</a>
+      </div>
+    </header>
+    <button class="rd-mnav-toggle" id="rd-mnav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="rd-mnav-drawer">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="rd-mnav-drawer" id="rd-mnav-drawer" aria-hidden="true">
+      <a href="../index.html#rd-dossier">Dossier</a>
+      <a href="../index.html#rd-traverse">Trails</a>
+      <a href="../index.html#rd-fieldwork">Portfolios</a>
+      <a href="drone.html">Drone</a>
+      <a href="../index.html#rd-press">Press</a>
+      <a href="../index.html#rd-ee">Expedition</a>
+      <a href="../index.html#rd-footer">Inquire</a>
+    </nav>
+  </div>
   <section class="trail-hero">
     <div class="trail-hero-bg" style="background-image: url('../images/trails/at/at-hero.jpg');"></div>
     <div class="trail-hero-overlay"></div>
@@ -160,5 +168,6 @@
   <script src="../js/gallery-data.min.js?v=6"></script>
   <script src="../js/trail-gallery.min.js"></script>
   <script src="../js/main.min.js?v=5"></script>
+  <script src="../js/redesign.js?v=7" defer></script>
 </body>
 </html>
